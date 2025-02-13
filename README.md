@@ -11,58 +11,39 @@
             padding: 0;
             background: linear-gradient(to bottom, red, black);
             color: white;
-            animation: fadeIn 2s ease-in;
             text-align: center;
             width: 100vw;
             height: 100vh;
             overflow-x: hidden;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
         .container {
-            width: 100%;
-            height: 100%;
-            margin: 0;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: slideIn 1.5s ease-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 10px;
+            text-align: center;
         }
         .header-container {
             text-align: center;
             margin-bottom: 20px;
         }
         .header-container img {
-            width: 80%;
+            width: 100%;
             max-width: 600px;
-            animation: popIn 1s ease-in-out;
         }
         header {
-            font-size: 40px;
+            font-size: 42px;
             font-weight: bold;
             padding: 20px 0;
+            color: yellow;
             text-align: center;
-            width: 100%;
-            color: white;
-            animation: popIn 1s ease-in-out;
-        }
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
         }
         .content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            width: 100%;
+            text-align: left;
         }
         .section {
             flex: 1;
@@ -71,17 +52,18 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             min-width: 45%;
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-        @keyframes fadeInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         h2 {
             color: orange;
+            text-align: center;
+        }
+        p, ul {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
         }
         ul {
-            text-align: left;
+            padding-left: 25px;
         }
         button {
             background-color: orange;
@@ -92,20 +74,19 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
-            transition: transform 0.3s ease;
+            margin-top: 10px;
         }
         button:hover {
             background-color: darkorange;
-            transform: scale(1.1);
         }
         .contact a {
             color: white;
             text-decoration: none;
+            font-weight: bold;
         }
         .footer {
             text-align: center;
             padding: 20px;
-            animation: fadeIn 3s ease-in;
         }
         @media (max-width: 768px) {
             .content {
@@ -120,12 +101,11 @@
                 width: 100%;
             }
             header {
-                font-size: 28px;
+                font-size: 32px;
             }
-            body {
-                background-size: contain;
-                width: 100vw;
-                height: 100vh;
+            p, ul {
+                font-size: 16px;
+                text-align: center;
             }
         }
     </style>
