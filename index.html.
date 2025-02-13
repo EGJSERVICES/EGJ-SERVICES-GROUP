@@ -22,6 +22,7 @@
             justify-content: center;
             padding: 20px;
             overflow-x: hidden;
+            text-align: center;
         }
         .container {
             width: 100%;
@@ -51,10 +52,14 @@
             color: #FFD700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
             animation: slideIn 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
         }
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .header-container img {
             width: 100%;
@@ -87,12 +92,10 @@
         }
         h2 {
             color: #FFA500;
-            text-align: center;
         }
         p, ul {
             font-size: 18px;
             line-height: 1.8;
-            text-align: center;
         }
         ul {
             padding-left: 0;
@@ -108,11 +111,6 @@
             font-weight: bold;
             border-radius: 5px;
             margin-top: 10px;
-            display: block;
-            width: 100%;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
             transition: background-color 0.3s ease;
         }
         button:hover {
@@ -128,9 +126,6 @@
                 width: 100%;
                 max-width: 90%;
             }
-            .header-container img {
-                width: 100%;
-            }
             .header-container h1 {
                 font-size: 36px;
             }
@@ -143,7 +138,7 @@
 <body>
     <div class="container">
         <div class="header-container">
-            
+            <h1>EGJ SERVICES GROUP</h1>
             <img src="tri-axle-dump-truck.jpg" alt="Tri Axle Dump Truck">
         </div>
         <div class="content">
