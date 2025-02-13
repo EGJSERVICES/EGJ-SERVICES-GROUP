@@ -143,7 +143,7 @@
 <body>
     <div class="container">
         <div class="header-container">
-            <h1>EGJ SERVICES GROUP</h1>
+            
             <img src="tri-axle-dump-truck.jpg" alt="Tri Axle Dump Truck">
         </div>
         <div class="content">
