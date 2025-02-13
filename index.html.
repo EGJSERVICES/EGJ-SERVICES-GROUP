@@ -13,6 +13,12 @@
             background-size: cover;
             background-position: center;
             color: white;
+            animation: fadeIn 2s ease-in;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .container {
             max-width: 1200px;
@@ -22,13 +28,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            animation: slideIn 1.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .header-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header-container img {
+            width: 80%;
+            max-width: 600px;
+            animation: popIn 1s ease-in-out;
         }
         header {
-            font-size: 32px;
+            font-size: 40px;
             font-weight: bold;
             padding: 20px 0;
             text-align: center;
             width: 100%;
+            animation: popIn 1s ease-in-out;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
         .content {
             display: flex;
@@ -43,6 +68,11 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             min-width: 45%;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         h2 {
             color: orange;
@@ -59,9 +89,11 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
+            transition: transform 0.3s ease;
         }
         button:hover {
             background-color: darkorange;
+            transform: scale(1.1);
         }
         .contact a {
             color: white;
@@ -70,12 +102,16 @@
         .footer {
             text-align: center;
             padding: 20px;
+            animation: fadeIn 3s ease-in;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>EGJ SERVICES GROUP</header>
+        <div class="header-container">
+            <header>EGJ SERVICES GROUP</header>
+            <img src="tri-axle-dump-truck.jpg" alt="Tri Axle Dump Truck">
+        </div>
         <div class="content">
             <section class="section contact">
                 <h2>Contact Us</h2>
@@ -98,34 +134,6 @@
                     <li>Highly maneuverable, making them ideal for construction sites</li>
                     <li>Cost-effective and time-saving for large-scale projects</li>
                 </ul>
-            </section>
-            <section class="section industries">
-                <h2>Industries We Serve</h2>
-                <ul>
-                    <li>Construction and site development</li>
-                    <li>Roadwork and asphalt transport</li>
-                    <li>Excavation and land clearing</li>
-                    <li>Demolition debris removal</li>
-                    <li>Commercial and residential material hauling</li>
-                </ul>
-            </section>
-            <section class="section transparency">
-                <h2>Commitment to Transparency</h2>
-                <p>At EGJ SERVICES GROUP, we believe in full transparency with our clients. We provide clear pricing, real-time tracking, and dedicated customer support to ensure smooth operations.</p>
-            </section>
-            <section class="section payment">
-                <h2>Payment Options</h2>
-                <p>We offer flexible payment solutions, including:</p>
-                <ul>
-                    <li>Credit & Debit Cards</li>
-                    <li>Upfront Payments</li>
-                    <li>Financing Options</li>
-                </ul>
-            </section>
-            <section class="section social-links">
-                <h2>Follow Us</h2>
-                <p>Stay connected with us on social media:</p>
-                <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
             </section>
         </div>
         <div class="footer">
