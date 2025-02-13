@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGJ SERVICES GROUP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('tri-axle-dump-truck.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+        header {
+            font-size: 24px;
+            padding: 20px;
+        }
+        .contact-info, .services, .payment, .social-links {
+            margin: 20px 0;
+        }
+        button {
+            background-color: orange;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>EGJ SERVICES GROUP</header>
+        <section class="contact-info">
+            <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
+            <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
+            <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+        </section>
+        <section class="services">
+            <h2>Our Services</h2>
+            <button onclick="alert('Request a Service Coming Soon!')">Request a Service</button>
+            <button onclick="alert('FAQ Coming Soon!')">Frequently Asked Questions</button>
+        </section>
+        <section class="payment">
+            <h2>Payment Methods</h2>
+            <p>We accept Credit Cards, Debit Cards, and financing options for our customers.</p>
+        </section>
+        <section class="social-links">
+            <h2>Follow Us</h2>
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+        </section>
+    </div>
+</body>
+</html>
