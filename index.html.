@@ -21,6 +21,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-x: hidden;
         }
         .container {
             width: 100%;
@@ -33,6 +34,11 @@
             align-items: center;
             justify-content: center;
             margin: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .header-container {
             text-align: center;
@@ -42,11 +48,21 @@
         .header-container h1 {
             font-size: 48px;
             font-weight: bold;
-            color: #FFD700; /* Gold color for contrast */
+            color: #FFD700;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
         .header-container img {
             width: 100%;
             max-width: 600px;
+            animation: zoomIn 1.2s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
         .content {
             display: flex;
@@ -63,6 +79,10 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .section:hover {
+            transform: scale(1.05);
         }
         h2 {
             color: #FFA500;
@@ -92,6 +112,7 @@
             max-width: 300px;
             margin-left: auto;
             margin-right: auto;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #FF8C00;
