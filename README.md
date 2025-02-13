@@ -16,6 +16,7 @@
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
+      /* Mobile default background: subtle gradient */
       background: linear-gradient(to bottom, #1a1a1a, #4b0000);
       color: #f0f0f0;
       display: flex;
@@ -26,7 +27,14 @@
       overflow-x: hidden;
       text-align: center;
     }
-    /* Main container with animation */
+    /* Desktop background override */
+    @media (min-width: 769px) {
+      html, body {
+        background: url('https://source.unsplash.com/1600x900/?sand,rock,concrete,construction') no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
+    /* Main container */
     .container {
       width: 100%;
       max-width: 1400px;
@@ -128,18 +136,26 @@
         max-width: 90%;
       }
       .header-container h1 {
-        font-size: 36px;
+        font-size: 40px;
       }
       p, ul {
-        font-size: 16px;
+        font-size: 20px;
+      }
+      button {
+        font-size: 20px;
+        padding: 14px 28px;
       }
     }
     @media (max-width: 480px) {
       .header-container h1 {
-        font-size: 32px;
+        font-size: 36px;
       }
-      p, ul, button {
-        font-size: 14px;
+      p, ul {
+        font-size: 18px;
+      }
+      button {
+        font-size: 18px;
+        padding: 12px 24px;
       }
     }
   </style>
