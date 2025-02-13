@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
   <style>
-    /* Global resets and box-sizing */
+    /* Global resets */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    /* Base styles for html and body */
+    /* Base styles */
     html, body {
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Mobile default: lighter gradient background */
+      /* Mobile default: light gradient background */
       background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
       color: #333;
       display: flex;
@@ -27,10 +27,10 @@
       overflow-x: hidden;
       text-align: center;
     }
-    /* Desktop background override using an inline SVG (construction-themed placeholder) */
+    /* Desktop background: construction-themed image */
     @media (min-width: 769px) {
       html, body {
-        background: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='1600' height='900' fill='%23f8f8f8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23cccccc' font-size='48'%3EConstruction Materials%3C/text%3E%3C/svg%3E") no-repeat center center fixed;
+        background: url('https://images.unsplash.com/photo-1503454537195-860ee59b0e05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
         background-size: cover;
       }
     }
@@ -57,7 +57,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      text-align: center;
       width: 100%;
     }
     .section {
@@ -67,7 +66,6 @@
       padding: 20px;
       background: rgba(240, 240, 240, 0.95);
       border-radius: 10px;
-      text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
     .section:hover {
@@ -84,13 +82,12 @@
       margin-bottom: 10px;
     }
     ul {
-      padding-left: 0;
       list-style-position: inside;
     }
     /* Button styles */
     button {
       background-color: #FFA500;
-      color: black;
+      color: #000;
       padding: 12px 24px;
       border: none;
       cursor: pointer;
@@ -105,7 +102,7 @@
     button:hover {
       background-color: #FF8C00;
     }
-    /* Footer styles */
+    /* Footer */
     .footer {
       text-align: center;
       padding: 20px;
@@ -113,7 +110,6 @@
       animation: fadeIn 1s ease-in-out;
       color: #333;
     }
-    /* Inline SVG images for content */
     /* Tri Axle Dump Truck Image */
     .tri-dump-img {
       width: 100%;
@@ -125,7 +121,7 @@
     .tri-dump-img:hover {
       transform: scale(1.02);
     }
-    /* Construction Materials images */
+    /* Construction Materials Images */
     .construction-images img {
       width: 100%;
       max-width: 600px;
@@ -181,8 +177,8 @@
       </section>
       <section class="section tri-axle-info">
         <h2>Tri Axle Dump Truck Services</h2>
-        <!-- Inline SVG for Tri Axle Dump Truck Image -->
-        <img class="tri-dump-img" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23ccc'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23333' font-size='24'%3ETri Axle Dump Truck%3C/text%3E%3C/svg%3E" alt="Tri Axle Dump Truck">
+        <!-- Static Tri Axle Dump Truck Image -->
+        <img class="tri-dump-img" src="https://images.unsplash.com/photo-1611068240937-60199cfa98f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Tri Axle Dump Truck">
         <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs, ensuring efficiency and reliability.</p>
         <h3>Key Benefits:</h3>
         <ul>
@@ -194,10 +190,10 @@
       <section class="section construction-materials">
         <h2>Construction Materials</h2>
         <div class="construction-images">
-          <!-- Inline SVG images for construction materials -->
-          <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23f4a460'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-size='24'%3ESand%3C/text%3E%3C/svg%3E" alt="Sand">
-          <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23808080'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-size='24'%3ERock%3C/text%3E%3C/svg%3E" alt="Rock">
-          <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23a9a9a9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23000' font-size='24'%3ECrushed Concrete%3C/text%3E%3C/svg%3E" alt="Crushed Concrete">
+          <!-- Static Construction Materials Images -->
+          <img src="https://images.unsplash.com/photo-1588004663584-3a8a4a7a80ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sand">
+          <img src="https://images.unsplash.com/photo-1605706764644-70f4a3e35f69?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rock">
+          <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Crushed Concrete">
         </div>
       </section>
     </div>
