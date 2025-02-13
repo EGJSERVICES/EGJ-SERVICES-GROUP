@@ -9,20 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('tri-axle-dump-truck.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(to bottom, red, black);
             color: white;
             animation: fadeIn 2s ease-in;
             text-align: center;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
         .container {
-            max-width: 1200px;
-            margin: auto;
+            width: 100%;
+            height: 100%;
+            margin: 0;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
             display: flex;
@@ -49,6 +51,7 @@
             padding: 20px 0;
             text-align: center;
             width: 100%;
+            color: white;
             animation: popIn 1s ease-in-out;
         }
         @keyframes popIn {
@@ -115,6 +118,14 @@
             }
             .header-container img {
                 width: 100%;
+            }
+            header {
+                font-size: 28px;
+            }
+            body {
+                background-size: contain;
+                width: 100vw;
+                height: 100vh;
             }
         }
     </style>
