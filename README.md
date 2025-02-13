@@ -15,7 +15,7 @@
             height: 100%;
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, #1a1a1a, #4b0000);
-            color: white;
+            color: #f0f0f0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -49,6 +49,7 @@
             font-size: 48px;
             font-weight: bold;
             color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
             animation: slideIn 1s ease-in-out;
         }
         @keyframes slideIn {
