@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
   <style>
+    /* Global resets and box-sizing */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    /* Base styles for html and body */
     html, body {
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Changed to a subtle dark gradient background */
-      background: linear-gradient(to bottom, #2c2c2c, #000000);
+      background: linear-gradient(to bottom, #1a1a1a, #4b0000);
       color: #f0f0f0;
       display: flex;
       flex-direction: column;
@@ -25,6 +26,7 @@
       overflow-x: hidden;
       text-align: center;
     }
+    /* Main container with animation */
     .container {
       width: 100%;
       max-width: 1400px;
@@ -42,6 +44,7 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Header styles */
     .header-container {
       text-align: center;
       width: 100%;
@@ -50,7 +53,7 @@
     .header-container h1 {
       font-size: 48px;
       font-weight: bold;
-      color: #FFD700; /* Gold color for contrast */
+      color: #FFD700;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
       animation: slideIn 1s ease-in-out;
     }
@@ -58,6 +61,7 @@
       from { opacity: 0; transform: translateY(-50px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Content sections */
     .content {
       display: flex;
       flex-wrap: wrap;
@@ -72,7 +76,6 @@
       padding: 20px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
     .section:hover {
@@ -92,6 +95,7 @@
       padding-left: 0;
       list-style-position: inside;
     }
+    /* Button styles */
     button {
       background-color: #FFA500;
       color: black;
@@ -102,22 +106,21 @@
       font-weight: bold;
       border-radius: 5px;
       margin-top: 10px;
-      display: block;
       width: 100%;
       max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
       transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #FF8C00;
     }
+    /* Footer styles */
     .footer {
       text-align: center;
       padding: 20px;
       width: 100%;
       animation: fadeIn 1s ease-in-out;
     }
+    /* Media queries for responsiveness */
     @media (max-width: 768px) {
       .section {
         width: 100%;
@@ -127,6 +130,17 @@
         font-size: 36px;
       }
       p, ul {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .header-container h1 {
+        font-size: 32px;
+      }
+      p, ul {
+        font-size: 14px;
+      }
+      button {
         font-size: 16px;
       }
     }
@@ -143,6 +157,9 @@
         <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
         <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
         <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+        <!-- Additional contact buttons -->
+        <button onclick="window.location.href='mailto:egjttrucking@gmail.com'">Email Us</button>
+        <button onclick="window.location.href='tel:5615068932'">Call Us</button>
       </section>
       <section class="section services">
         <h2>Our Services</h2>
