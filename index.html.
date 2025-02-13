@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, red, black);
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1a1a1a, #4b0000);
             color: white;
             text-align: center;
-            width: 100vw;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-        .container {
-            width: 100vw;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
         }
         .header-container {
             text-align: center;
-            margin-bottom: 20px;
+            width: 100%;
         }
         .header-container img {
             width: 100%;
@@ -49,16 +58,16 @@
             width: 100%;
         }
         .section {
-            flex: 1;
-            margin: 20px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
             padding: 20px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            min-width: 45%;
-            max-width: 600px;
+            text-align: center;
         }
         h2 {
-            color: orange;
+            color: #FFA500;
             text-align: center;
         }
         p, ul {
@@ -71,9 +80,7 @@
             list-style-position: inside;
         }
         button {
-            display: block;
-            margin: 10px auto;
-            background-color: orange;
+            background-color: #FFA500;
             color: black;
             padding: 12px 24px;
             border: none;
@@ -81,27 +88,25 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
         button:hover {
-            background-color: darkorange;
-        }
-        .contact a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+            background-color: #FF8C00;
         }
         .footer {
             text-align: center;
             padding: 20px;
+            width: 100%;
         }
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-            }
             .section {
-                min-width: 90%;
-                margin: 10px 0;
+                width: 100%;
+                max-width: 90%;
             }
             .header-container img {
                 width: 100%;
@@ -111,13 +116,6 @@
             }
             p, ul {
                 font-size: 16px;
-                text-align: center;
-            }
-        }
-        @media (min-width: 769px) {
-            .container {
-                width: 100vw;
-                height: 100vh;
             }
         }
     </style>
