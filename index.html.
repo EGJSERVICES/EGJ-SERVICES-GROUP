@@ -16,9 +16,9 @@
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Mobile default background: subtle gradient */
-      background: linear-gradient(to bottom, #1a1a1a, #4b0000);
-      color: #f0f0f0;
+      /* Lighter gradient for mobile devices */
+      background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+      color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -27,10 +27,10 @@
       overflow-x: hidden;
       text-align: center;
     }
-    /* Desktop background override */
+    /* Desktop background override: a lighter construction-themed image */
     @media (min-width: 769px) {
       html, body {
-        background: url('https://source.unsplash.com/1600x900/?sand,rock,concrete,construction') no-repeat center center fixed;
+        background: url('https://source.unsplash.com/1600x900/?construction,materials,light') no-repeat center center fixed;
         background-size: cover;
       }
     }
@@ -39,7 +39,7 @@
       width: 100%;
       max-width: 1400px;
       padding: 40px;
-      background: rgba(20, 20, 20, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -82,7 +82,7 @@
       max-width: 600px;
       margin: 20px auto;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(240, 240, 240, 0.9);
       border-radius: 10px;
       text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -99,6 +99,7 @@
       font-size: 18px;
       line-height: 1.8;
       margin-bottom: 10px;
+      color: #333;
     }
     ul {
       padding-left: 0;
@@ -128,6 +129,18 @@
       padding: 20px;
       width: 100%;
       animation: fadeIn 1s ease-in-out;
+      color: #333;
+    }
+    /* New Construction Materials section images */
+    .construction-images img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .construction-images img:hover {
+      transform: scale(1.02);
     }
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -136,7 +149,7 @@
         max-width: 90%;
       }
       .header-container h1 {
-        font-size: 40px;
+        font-size: 36px;
       }
       p, ul {
         font-size: 20px;
@@ -148,7 +161,7 @@
     }
     @media (max-width: 480px) {
       .header-container h1 {
-        font-size: 36px;
+        font-size: 32px;
       }
       p, ul {
         font-size: 18px;
@@ -183,7 +196,7 @@
       </section>
       <section class="section tri-axle-info">
         <h2>Tri Axle Dump Truck Services</h2>
-        <!-- Added image for Tri Axle Dump Truck Services -->
+        <!-- Tri Axle Dump Truck image -->
         <img src="https://source.unsplash.com/600x400/?tri-axle,dump-truck" alt="Tri Axle Dump Truck" style="width:100%; border-radius:10px; margin-bottom:20px;">
         <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs, ensuring efficiency and reliability.</p>
         <h3>Key Benefits:</h3>
@@ -192,6 +205,14 @@
           <li>Highly maneuverable, making them ideal for construction sites</li>
           <li>Cost-effective and time-saving for large-scale projects</li>
         </ul>
+      </section>
+      <section class="section construction-materials">
+        <h2>Construction Materials</h2>
+        <div class="construction-images">
+          <img src="https://source.unsplash.com/600x400/?sand" alt="Sand">
+          <img src="https://source.unsplash.com/600x400/?rock" alt="Rock">
+          <img src="https://source.unsplash.com/600x400/?crushed,concrete" alt="Crushed Concrete">
+        </div>
       </section>
     </div>
     <div class="footer">
