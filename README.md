@@ -16,7 +16,6 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, #1a1a1a, #4b0000);
             color: white;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -26,7 +25,7 @@
         .container {
             width: 100%;
             max-width: 1400px;
-            padding: 20px;
+            padding: 40px;
             background: rgba(20, 20, 20, 0.9);
             border-radius: 10px;
             display: flex;
@@ -38,17 +37,16 @@
         .header-container {
             text-align: center;
             width: 100%;
+            margin-bottom: 20px;
+        }
+        .header-container h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFD700; /* Gold color for contrast */
         }
         .header-container img {
             width: 100%;
             max-width: 600px;
-        }
-        header {
-            font-size: 42px;
-            font-weight: bold;
-            padding: 20px 0;
-            color: #FFD700; /* Gold color for contrast */
-            text-align: center;
         }
         .content {
             display: flex;
@@ -111,8 +109,8 @@
             .header-container img {
                 width: 100%;
             }
-            header {
-                font-size: 32px;
+            .header-container h1 {
+                font-size: 36px;
             }
             p, ul {
                 font-size: 16px;
@@ -123,7 +121,7 @@
 <body>
     <div class="container">
         <div class="header-container">
-            <header>EGJ SERVICES GROUP</header>
+            <h1>EGJ SERVICES GROUP</h1>
             <img src="tri-axle-dump-truck.jpg" alt="Tri Axle Dump Truck">
         </div>
         <div class="content">
