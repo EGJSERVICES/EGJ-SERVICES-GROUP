@@ -17,12 +17,14 @@
             overflow-x: hidden;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background: rgba(0, 0, 0, 0.85);
             border-radius: 10px;
-            text-align: center;
         }
         .header-container {
             text-align: center;
@@ -36,14 +38,15 @@
             font-size: 42px;
             font-weight: bold;
             padding: 20px 0;
-            color: yellow;
+            color: #FFD700; /* Gold color for contrast */
             text-align: center;
         }
         .content {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            text-align: left;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
         }
         .section {
             flex: 1;
@@ -52,6 +55,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             min-width: 45%;
+            max-width: 600px;
         }
         h2 {
             color: orange;
@@ -60,12 +64,15 @@
         p, ul {
             font-size: 18px;
             line-height: 1.8;
-            text-align: justify;
+            text-align: center;
         }
         ul {
-            padding-left: 25px;
+            padding-left: 0;
+            list-style-position: inside;
         }
         button {
+            display: block;
+            margin: 10px auto;
             background-color: orange;
             color: black;
             padding: 12px 24px;
@@ -74,7 +81,6 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
-            margin-top: 10px;
         }
         button:hover {
             background-color: darkorange;
@@ -106,6 +112,12 @@
             p, ul {
                 font-size: 16px;
                 text-align: center;
+            }
+        }
+        @media (min-width: 769px) {
+            .container {
+                width: 100vw;
+                height: 100vh;
             }
         }
     </style>
