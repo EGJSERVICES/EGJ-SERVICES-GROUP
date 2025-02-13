@@ -52,23 +52,6 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Header styles */
-    .header-container {
-      text-align: center;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    .header-container h1 {
-      font-size: 48px;
-      font-weight: bold;
-      color: #FFD700;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-      animation: slideIn 1s ease-in-out;
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     /* Content sections */
     .content {
       display: flex;
@@ -82,7 +65,7 @@
       max-width: 600px;
       margin: 20px auto;
       padding: 20px;
-      background: rgba(240, 240, 240, 0.9);
+      background: rgba(240, 240, 240, 0.95);
       border-radius: 10px;
       text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -99,7 +82,6 @@
       font-size: 18px;
       line-height: 1.8;
       margin-bottom: 10px;
-      color: #333;
     }
     ul {
       padding-left: 0;
@@ -148,9 +130,6 @@
         width: 100%;
         max-width: 90%;
       }
-      .header-container h1 {
-        font-size: 36px;
-      }
       p, ul {
         font-size: 20px;
       }
@@ -160,9 +139,6 @@
       }
     }
     @media (max-width: 480px) {
-      .header-container h1 {
-        font-size: 32px;
-      }
       p, ul {
         font-size: 18px;
       }
@@ -175,9 +151,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header-container">
-      <h1>EGJ SERVICES GROUP</h1>
-    </div>
+    <!-- Removed duplicated company title -->
     <div class="content">
       <section class="section contact">
         <h2>Contact Us</h2>
