@@ -5,141 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
     <style>
+        /* Global resets and box-sizing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body {
+        /* Base styles for html and body */
+        html, body {
+            width: 100%;
+            height: 100%;
             font-family: Arial, sans-serif;
-            background: #f4f4f9;
+            background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
             color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 20px;
             overflow-x: hidden;
+            text-align: center;
         }
+        /* Main container */
         .container {
             width: 100%;
             max-width: 1200px;
-            background: #fff;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
             animation: fadeIn 1.5s ease-in-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .header {
-            background: #4b79a1;
-            background: linear-gradient(to right, #283e51, #4b79a1);
-            color: #fff;
+        .header-container {
             text-align: center;
-            padding: 40px 20px;
+            width: 100%;
+            margin-bottom: 20px;
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .header-container h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             animation: slideIn 1s ease-in-out;
         }
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .header p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .header img {
+        .header-container img {
             width: 100%;
             max-width: 600px;
             border-radius: 10px;
+            margin-top: 20px;
             animation: zoomIn 1.2s ease-in-out;
         }
         @keyframes zoomIn {
             from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            to { transform: scale(1); opacity: 1); }
         }
         .content {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
+            width: 100%;
         }
         .section {
-            flex: 1 1 300px;
+            width: 90%;
+            max-width: 600px;
             margin: 20px;
             padding: 20px;
-            background: #f9f9f9;
+            background: rgba(240, 240, 240, 0.9);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.3s ease-in-out;
         }
         .section:hover {
             transform: scale(1.05);
         }
-        .section h2 {
-            color: #4b79a1;
-            margin-bottom: 15px;
-        }
-        .section p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .section img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .section img:hover {
-            transform: scale(1.05);
-        }
-        .section ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            text-align: left;
-        }
-        .section ul li {
+        h2 {
+            color: #333;
             margin-bottom: 10px;
         }
-        .button {
-            display: inline-block;
-            background-color: #4b79a1;
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+        button {
+            background-color: #333;
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
             font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
             transition: background-color 0.3s ease;
         }
-        .button:hover {
-            background-color: #283e51;
+        button:hover {
+            background-color: #555;
         }
         .footer {
             text-align: center;
             padding: 20px;
-            background: #fff;
+            width: 100%;
             margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            .header p {
-                font-size: 1em;
-            }
             .section {
-                margin: 10px;
-                padding: 15px;
+                width: 100%;
+                max-width: 100%;
             }
-            .section h2 {
-                font-size: 1.5em;
+            .header-container h1 {
+                font-size: 36px;
             }
-            
+            p, ul {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>EGJ SERVICES GROUP</h1>
+            <img src="tri-axle-dump-truck.jpg" alt="Tri Axle Dump Truck">
+        </div>
+        <div class="content">
+            <section class="section contact">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
+                <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
+                <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+            </section>
+            <section class="section services">
+                <h2>Our Services</h2>
+                <p>EGJ Services Group specializes in high-quality trucking and hauling services using top-tier tri axle dump trucks.</p>
+                <button onclick="alert('Request a Service Coming Soon!')">Request a Service</button>
+                <button onclick="alert('FAQ Coming Soon!')">Frequently Asked Questions</button>
+            </section>
+            <section class="section materials">
+                <h2>Materials We Handle</h2>
+                <div class="materials-gallery">
+                    <div class="material">
+                        <img src="asphalt.jpg" alt="Asphalt">
+                        <p>Asphalt</p>
+                    </div>
+                    <div class="material">
+                        <img src="concrete.jpg" alt="Concrete">
+                        <p>Concrete</p>
+                    </div>
+                    <div class="material">
+                        <img src="crushed-concrete.jpg" alt="Crushed Concrete">
+                        <p>Crushed Concrete</p>
+                    </div>
+                    <div class="material">
+                        <img src="rocks.jpg" alt="Rocks">
+                        <p>Rocks</p>
+                    </div>
+                    <div class="material">
+                        <img src="fill.jpg" alt="Fill">
+                        <p>Fill</p>
+                    </div>
+                </div>
+            </section 
