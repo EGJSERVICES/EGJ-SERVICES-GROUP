@@ -76,6 +76,7 @@
       padding: 20px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
+      text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
     .section:hover {
@@ -120,7 +121,7 @@
       width: 100%;
       animation: fadeIn 1s ease-in-out;
     }
-    /* Media queries for responsiveness */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .section {
         width: 100%;
@@ -137,11 +138,8 @@
       .header-container h1 {
         font-size: 32px;
       }
-      p, ul {
+      p, ul, button {
         font-size: 14px;
-      }
-      button {
-        font-size: 16px;
       }
     }
   </style>
@@ -169,6 +167,8 @@
       </section>
       <section class="section tri-axle-info">
         <h2>Tri Axle Dump Truck Services</h2>
+        <!-- Added image for Tri Axle Dump Truck Services -->
+        <img src="https://source.unsplash.com/600x400/?tri-axle,dump-truck" alt="Tri Axle Dump Truck" style="width:100%; border-radius:10px; margin-bottom:20px;">
         <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs, ensuring efficiency and reliability.</p>
         <h3>Key Benefits:</h3>
         <ul>
