@@ -104,6 +104,19 @@
             padding: 20px;
             animation: fadeIn 3s ease-in;
         }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                min-width: 90%;
+                margin: 10px 0;
+            }
+            .header-container img {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
