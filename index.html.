@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
   <style>
-    /* Global resets */
+    /* Reset styles */
     * {
       margin: 0;
       padding: 0;
@@ -16,7 +16,6 @@
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Mobile default: light gradient background */
       background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
       color: #333;
       display: flex;
@@ -27,10 +26,10 @@
       overflow-x: hidden;
       text-align: center;
     }
-    /* Desktop background: construction-themed image */
+    /* Desktop: Background with construction materials */
     @media (min-width: 769px) {
       html, body {
-        background: url('https://images.unsplash.com/photo-1503454537195-860ee59b0e05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+        background: url('https://images.unsplash.com/photo-1605706764644-70f4a3e35f69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
         background-size: cover;
       }
     }
@@ -165,35 +164,24 @@
         <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
         <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
         <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
-        <!-- Additional contact buttons -->
         <button onclick="window.location.href='mailto:egjttrucking@gmail.com'">Email Us</button>
         <button onclick="window.location.href='tel:5615068932'">Call Us</button>
       </section>
       <section class="section services">
         <h2>Our Services</h2>
         <p>EGJ Services Group specializes in high-quality trucking and hauling services using top-tier tri axle dump trucks.</p>
-        <button onclick="alert('Request a Service Coming Soon!')">Request a Service</button>
-        <button onclick="alert('FAQ Coming Soon!')">Frequently Asked Questions</button>
       </section>
       <section class="section tri-axle-info">
         <h2>Tri Axle Dump Truck Services</h2>
-        <!-- Static Tri Axle Dump Truck Image -->
         <img class="tri-dump-img" src="https://images.unsplash.com/photo-1611068240937-60199cfa98f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Tri Axle Dump Truck">
-        <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs, ensuring efficiency and reliability.</p>
-        <h3>Key Benefits:</h3>
-        <ul>
-          <li>Superior load capacity for transporting bulk materials</li>
-          <li>Highly maneuverable, making them ideal for construction sites</li>
-          <li>Cost-effective and time-saving for large-scale projects</li>
-        </ul>
+        <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs.</p>
       </section>
       <section class="section construction-materials">
         <h2>Construction Materials</h2>
         <div class="construction-images">
-          <!-- Static Construction Materials Images -->
-          <img src="https://images.unsplash.com/photo-1588004663584-3a8a4a7a80ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sand">
-          <img src="https://images.unsplash.com/photo-1605706764644-70f4a3e35f69?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rock">
+          <img src="https://images.unsplash.com/photo-1605706764644-70f4a3e35f69?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rocks">
           <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Crushed Concrete">
+          <img src="https://images.unsplash.com/photo-1623963425873-b38321c81cd4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Concrete with Rebar">
         </div>
       </section>
     </div>
