@@ -16,7 +16,7 @@
       width: 100%;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Lighter gradient for mobile devices */
+      /* Light background for mobile devices */
       background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
       color: #333;
       display: flex;
@@ -27,10 +27,10 @@
       overflow-x: hidden;
       text-align: center;
     }
-    /* Desktop background override: a lighter construction-themed image */
+    /* Desktop background override with a lighter construction-themed image */
     @media (min-width: 769px) {
       html, body {
-        background: url('https://source.unsplash.com/1600x900/?construction,materials,light') no-repeat center center fixed;
+        background: url('https://images.unsplash.com/photo-1518606377164-2bbf842d7e3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
         background-size: cover;
       }
     }
@@ -67,12 +67,11 @@
       padding: 20px;
       background: rgba(240, 240, 240, 0.95);
       border-radius: 10px;
-      text-align: center;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
     .section:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     h2 {
       color: #FFA500;
@@ -82,6 +81,7 @@
       font-size: 18px;
       line-height: 1.8;
       margin-bottom: 10px;
+      color: #333;
     }
     ul {
       padding-left: 0;
@@ -113,7 +113,7 @@
       animation: fadeIn 1s ease-in-out;
       color: #333;
     }
-    /* New Construction Materials section images */
+    /* Construction Materials images */
     .construction-images img {
       width: 100%;
       max-width: 600px;
@@ -151,7 +151,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- Removed duplicated company title -->
     <div class="content">
       <section class="section contact">
         <h2>Contact Us</h2>
@@ -170,8 +169,8 @@
       </section>
       <section class="section tri-axle-info">
         <h2>Tri Axle Dump Truck Services</h2>
-        <!-- Tri Axle Dump Truck image -->
-        <img src="https://source.unsplash.com/600x400/?tri-axle,dump-truck" alt="Tri Axle Dump Truck" style="width:100%; border-radius:10px; margin-bottom:20px;">
+        <!-- Static tri axle dump truck image -->
+        <img src="https://images.unsplash.com/photo-1611068240937-60199cfa98f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Tri Axle Dump Truck" style="width:100%; border-radius:10px; margin-bottom:20px;">
         <p>Our fleet of tri axle dump trucks is equipped to handle a variety of heavy-duty transportation needs, ensuring efficiency and reliability.</p>
         <h3>Key Benefits:</h3>
         <ul>
@@ -183,9 +182,9 @@
       <section class="section construction-materials">
         <h2>Construction Materials</h2>
         <div class="construction-images">
-          <img src="https://source.unsplash.com/600x400/?sand" alt="Sand">
-          <img src="https://source.unsplash.com/600x400/?rock" alt="Rock">
-          <img src="https://source.unsplash.com/600x400/?crushed,concrete" alt="Crushed Concrete">
+          <img src="https://images.unsplash.com/photo-1588004663584-3a8a4a7a80ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sand">
+          <img src="https://images.unsplash.com/photo-1605706764644-70f4a3e35f69?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rock">
+          <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Crushed Concrete">
         </div>
       </section>
     </div>
