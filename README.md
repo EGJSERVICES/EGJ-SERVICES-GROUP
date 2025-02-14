@@ -10,6 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, white, lightblue);
             background-image: url('images/construction-site-background.jpg');
             background-size: cover;
             background-position: center;
@@ -44,6 +45,7 @@
             padding: 50px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
+            animation: fadeIn 2s ease-in-out;
         }
         .btn {
             background: lightblue;
@@ -64,12 +66,20 @@
             width: 30%;
             margin: 15px;
             box-shadow: 0px 0px 10px gray;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
         }
         footer {
             text-align: center;
             padding: 10px;
             background: lightblue;
             color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -100,17 +110,17 @@
         <h2>Our Services</h2>
         <div class="service-container">
             <div class="service-card">
-                <img src="images/dump-truck.jpg" alt="Dump Truck">
+                <img src="images/concrete.jpg" alt="Concrete">
                 <h3>Material Transportation</h3>
                 <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
             </div>
             <div class="service-card">
-                <img src="images/construction-site.jpg" alt="Construction Site">
+                <img src="images/construction-workers.jpg" alt="Construction Workers">
                 <h3>On-Site Deliveries</h3>
                 <p>Fast and efficient delivery to keep your project moving.</p>
             </div>
             <div class="service-card">
-                <img src="images/machine-work.jpg" alt="Machine Work">
+                <img src="images/heavy-machinery.jpg" alt="Heavy Machinery">
                 <h3>Excavation Services</h3>
                 <p>We offer excavation and land clearing services.</p>
             </div>
