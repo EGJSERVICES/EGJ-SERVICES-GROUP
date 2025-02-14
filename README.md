@@ -1,118 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
-  <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    /* Base Styles */
-    body {
-      font-family: Arial, sans-serif;
-      background: url('https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    /* Responsive Design */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-    .header {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(43, 62, 80, 0.8);
-      color: #fff;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .header h1 {
-      font-size: 2.5em;
-    }
-    .map-container {
-      width: 100%;
-      height: 400px;
-      margin-top: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .button {
-      display: inline-block;
-      background: #4b79a1;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-      margin: 5px;
-    }
-    .button:hover {
-      background: #283e51;
-    }
-    .materials-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .materials-gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #4b79a1;
-      color: #fff;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 2em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>EGJ SERVICES GROUP</h1>
-      <p>EGJ Services Group specializes in three-axle truck transportation, hauling aggregates and excess materials across Palm Beach, St. Lucie, and Broward Counties. We ensure fast deliveries, exceptional service, transparency, and competitive pricing. Trust us for efficient and reliable hauling solutions that keep your projects on track!</p>
-    </header>
-    
-    <section class="materials-gallery">
-      <img src="https://images.unsplash.com/photo-1563805042-7684e8c0f4b9?auto=format&fit=crop&w=600&q=80" alt="Rocks">
-      <img src="https://images.unsplash.com/photo-1592983463969-63f1a0f90b9d?auto=format&fit=crop&w=600&q=80" alt="Sand">
-      <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?auto=format&fit=crop&w=600&q=80" alt="Fill">
-      <img src="https://images.unsplash.com/photo-1562184647-8f2d2e8d2398?auto=format&fit=crop&w=600&q=80" alt="Concrete">
-      <img src="https://images.unsplash.com/photo-1611068240937-60199cfa98f7?auto=format&fit=crop&w=600&q=80" alt="Asphalt">
-      <img src="https://images.unsplash.com/photo-1581091870621-2e36c5c874e3?auto=format&fit=crop&w=600&q=80" alt="Millings">
-    </section>
-    
-    <div class="map-container">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0" 
-      src="https://www.google.com/maps/embed/v1/place?q=West+Palm+Beach,+FL&key=YOUR_GOOGLE_MAPS_API_KEY" allowfullscreen>
-      </iframe>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { MapPin, Mail, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Fondo con temática de construcción */}
+      <div
+        className="bg-cover bg-center h-[300px] flex items-center justify-center"
+        style={{ backgroundImage: "url('/construction-bg.jpg')" }}
+      >
+        <h1 className="text-white text-5xl font-bold text-center shadow-lg p-4 bg-black/50 rounded-xl">
+          EGJ SERVICES GROUP
+        </h1>
+      </div>
+
+      {/* Sección de Información */}
+      <div className="container mx-auto px-6 lg:px-16 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-lg text-gray-800"
+        >
+          <p className="mb-4">
+            EGJ Services Group specializes in three-axle truck transportation, hauling
+            aggregates and excess materials across Palm Beach, St. Lucie, and Broward Counties.
+          </p>
+          <p className="mb-4">
+            We ensure fast deliveries, exceptional service, transparency, and competitive pricing.
+            Trust us for efficient and reliable hauling solutions that keep your projects on track!
+          </p>
+          <Button className="mt-4">Get a Quote</Button>
+        </motion.div>
+
+        {/* Imágenes relacionadas con construcción */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="grid grid-cols-2 gap-4"
+        >
+          <img src="/truck.jpg" alt="Truck" className="rounded-lg shadow-lg w-full h-40 object-cover" />
+          <img src="/construction-site.jpg" alt="Construction Site" className="rounded-lg shadow-lg w-full h-40 object-cover" />
+          <img src="/materials.jpg" alt="Materials" className="rounded-lg shadow-lg w-full h-40 object-cover" />
+          <img src="/asphalt.jpg" alt="Asphalt" className="rounded-lg shadow-lg w-full h-40 object-cover" />
+        </motion.div>
+      </div>
+
+      {/* Mapa con ubicación */}
+      <div className="container mx-auto px-6 lg:px-16 py-12">
+        <h2 className="text-3xl font-bold text-center mb-6">Find Us</h2>
+        <iframe
+          title="EGJ Location"
+          className="w-full h-[400px] rounded-lg shadow-lg"
+          src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=PO+BOX+17017,West+Palm+Beach,FL+33416"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      {/* Contacto */}
+      <div className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="flex flex-col items-center">
+            <MapPin className="w-10 h-10 mb-2" />
+            <p>PO BOX 17017, West Palm Beach, FL 33416</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Mail className="w-10 h-10 mb-2" />
+            <p>egjttrucking@gmail.com</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Phone className="w-10 h-10 mb-2" />
+            <p>561-506-8932</p>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <footer class="footer">
-      <p>&copy; 2025 EGJ SERVICES GROUP. All rights reserved.</p>
-    </footer>
-  </div>
-</body>
-</html>
+  );
+};
+
+export default HomePage;
