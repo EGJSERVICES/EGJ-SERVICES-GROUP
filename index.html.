@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EGJ SERVICES GROUP - Professional Trucking Services</title>
-  <meta name="description" content="EGJ SERVICES GROUP offers reliable and professional trucking and hauling services. Contact us for high-quality transportation solutions.">
-  <meta name="keywords" content="Trucking, Hauling, Dump Trucks, Logistics, EGJ Services Group">
-  <meta name="author" content="EGJ SERVICES GROUP">
   <style>
     /* Global Reset */
     * {
@@ -17,7 +14,7 @@
     /* Base Styles */
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f9;
+      background: url('https://images.unsplash.com/photo-1570125909239-8b7c68498c74?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
@@ -26,115 +23,76 @@
       text-decoration: none;
       color: inherit;
     }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
     /* Navigation Bar */
     .navbar {
-      background: #4b79a1;
+      background: #283e51;
       color: #fff;
-      padding: 15px 20px;
+      padding: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     .navbar .logo {
-      font-size: 1.8em;
+      font-size: 2em;
       font-weight: bold;
     }
     .navbar ul {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
     }
     .navbar ul li {
       margin: 0 15px;
     }
-    .navbar ul li a {
-      color: #fff;
-      font-size: 1em;
-      transition: color 0.3s;
-    }
     .navbar ul li a:hover {
       color: #FFD700;
     }
-    .social-icons {
-      display: flex;
-      gap: 10px;
-    }
-    .social-icons a {
-      color: #fff;
-      font-size: 1.5em;
-    }
-    /* Hero Section */
-    .hero {
+    /* Header */
+    .header {
       text-align: center;
-      padding: 60px 20px;
+      padding: 50px 20px;
       background: linear-gradient(to right, #283e51, #4b79a1);
       color: #fff;
       border-radius: 10px;
-      margin-bottom: 20px;
     }
-    .hero h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    .hero .button {
-      background: #FFD700;
-      color: #333;
-      padding: 12px 24px;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-    .hero .button:hover {
-      background: #ffcc00;
-    }
-    /* Testimonials */
-    .testimonials {
-      text-align: center;
-      padding: 40px 20px;
-      background: #fff;
-      border-radius: 10px;
+    /* Services Section */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
       margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .testimonial {
-      margin-bottom: 20px;
-    }
-    .testimonial p {
-      font-style: italic;
-    }
-    .testimonial .name {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    /* Contact Form */
-    .contact-form {
+    .service {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      padding: 40px 20px;
     }
-    .contact-form input, .contact-form textarea {
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .gallery img {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .contact-form button {
-      background: #4b79a1;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-    }
-    .contact-form button:hover {
-      background: #283e51;
+      border-radius: 10px;
     }
     /* Footer */
     .footer {
       text-align: center;
       padding: 20px;
-      background: #4b79a1;
+      background: #283e51;
       color: #fff;
       border-radius: 10px;
       margin-top: 20px;
@@ -146,44 +104,45 @@
     <div class="logo">EGJ SERVICES GROUP</div>
     <ul>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#gallery">Materials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="social-icons">
-      <a href="#">📘</a>
-      <a href="#">🐦</a>
-      <a href="#">📷</a>
-    </div>
   </nav>
-
-  <section class="hero">
-    <h1>Reliable Trucking & Hauling Services</h1>
-    <p>Your trusted partner for professional and efficient transportation.</p>
-    <a class="button" href="#contact">Get a Quote</a>
-  </section>
-
-  <section id="testimonials" class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial">
-      <p>"EGJ SERVICES GROUP delivered on time and exceeded our expectations!"</p>
-      <div class="name">- John D.</div>
-    </div>
-    <div class="testimonial">
-      <p>"Professional and reliable. Highly recommend!"</p>
-      <div class="name">- Sarah W.</div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-form">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
+  
+  <div class="container">
+    <header class="header">
+      <h1>Welcome to EGJ SERVICES GROUP</h1>
+      <p>Specializing in three-axle truck transportation across Palm Beach, St. Lucie, and Broward Counties.</p>
+    </header>
+    
+    <section id="services" class="services">
+      <div class="service">
+        <h2>Fast & Reliable Hauling</h2>
+        <p>We transport aggregates and excess materials efficiently.</p>
+      </div>
+      <div class="service">
+        <h2>Competitive Pricing</h2>
+        <p>Affordable solutions without compromising quality.</p>
+      </div>
+    </section>
+    
+    <section id="gallery" class="gallery">
+      <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?auto=format&fit=crop&w=600&q=80" alt="Asphalt">
+      <img src="https://images.unsplash.com/photo-1562184647-8f2d2e8d2398?auto=format&fit=crop&w=600&q=80" alt="Concrete">
+      <img src="https://images.unsplash.com/photo-1592983463969-63f1a0f90b9d?auto=format&fit=crop&w=600&q=80" alt="Crushed Concrete">
+      <img src="https://images.unsplash.com/photo-1563805042-7684e8c0f4b9?auto=format&fit=crop&w=600&q=80" alt="Fill">
+      <img src="https://images.unsplash.com/photo-1570125909239-8b7c68498c74?auto=format&fit=crop&w=600&q=80" alt="Rocks">
+      <img src="https://images.unsplash.com/photo-1611068240937-60199cfa98f7?auto=format&fit=crop&w=600&q=80" alt="Millings">
+    </section>
+    
+    <section id="contact" class="service">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
+      <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
+      <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+    </section>
+  </div>
+  
   <footer class="footer">
     <p>&copy; 2025 EGJ SERVICES GROUP. All rights reserved.</p>
   </footer>
