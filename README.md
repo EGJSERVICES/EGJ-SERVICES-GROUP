@@ -10,8 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #ffffff, #add8e6);
-            background-image: url('images/construction-jobsite.jpg');
+            background: linear-gradient(to bottom, white, lightblue);
             background-size: cover;
             background-position: center;
             color: #333;
@@ -45,11 +44,6 @@
             padding: 50px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            animation: fadeIn 2s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         .btn {
             background: lightblue;
@@ -57,15 +51,12 @@
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #0073e6;
         }
         .service-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            margin: 0 5%;
         }
         .service-card {
             background: white;
@@ -74,16 +65,17 @@
             width: 30%;
             margin: 15px;
             box-shadow: 0px 0px 10px gray;
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: scale(1.05);
         }
         footer {
             text-align: center;
             padding: 10px;
             background: lightblue;
             color: white;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -105,8 +97,8 @@
     </header>
 
     <section class="hero">
-        <h1>Your Best Choice for Construction Transportation</h1>
-        <p>With years of experience, we guarantee efficient, fast, and reliable service in Palm Beach, St. Lucie, and Broward Counties.</p>
+        <h1>Reliable Construction Transportation Services</h1>
+        <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>
         <a href="#contact" class="btn">Request a Quote</a>
     </section>
 
@@ -133,7 +125,7 @@
 
     <section id="about">
         <h2>About EGJ Services Group</h2>
-        <p>With a commitment to excellence and a wealth of experience, we provide top-tier three-axle truck transportation services. We ensure fast deliveries, exceptional service, and competitive pricing, making us the best choice for your construction hauling needs.</p>
+        <p>Specializing in three-axle truck transportation, we ensure fast deliveries, exceptional service, and competitive pricing.</p>
     </section>
 
     <section id="map">
@@ -143,8 +135,8 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
-        <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
+        <p>Email: egjttrucking@gmail.com</p>
+        <p>Phone: 561-506-8932</p>
         <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
     </section>
 
