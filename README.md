@@ -10,96 +10,91 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, white, lightblue);
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(to right, white, lightblue);
             color: #333;
             margin: 0;
             padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background: #121212;
+            color: #fff;
         }
         header {
             background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
         .logo img {
-            width: 50px;
-            margin-right: 10px;
+            height: 60px;
         }
         nav ul {
             list-style: none;
             display: flex;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
         .search-bar input {
-            padding: 5px;
-            width: 200px;
+            padding: 10px;
+            width: 250px;
         }
         .hero {
             text-align: center;
-            padding: 50px 20px;
+            padding: 80px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-        }
-        .hero h1 {
-            font-size: 36px;
-            text-transform: uppercase;
-        }
-        .hero p {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 1.5em;
         }
         .btn {
             background: lightblue;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
+            font-size: 1.2em;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+        }
+        .btn:hover {
+            background: darkblue;
         }
         .service-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            padding: 20px;
         }
         .service-card {
             background: white;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 25px;
+            border-radius: 8px;
             width: 30%;
             margin: 15px;
-            box-shadow: 0px 0px 10px gray;
-        }
-        .trusted-partner {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            padding: 20px;
-            color: #004080;
+            box-shadow: 0px 0px 15px gray;
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             background: lightblue;
             color: white;
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: black;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
     <header>
-        <div class="logo">
-            <img src="images/tri-axle-logo.png" alt="EGJ Services Group Logo">
-            EGJ Services Group
-        </div>
+        <div class="logo"><img src="images/logo.png" alt="EGJ Services Group"></div>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
@@ -118,10 +113,6 @@
         <h1>Reliable Construction Transportation Services</h1>
         <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>
         <a href="#contact" class="btn">Request a Quote</a>
-    </section>
-
-    <section class="trusted-partner">
-        <p>EGJ SERVICES GROUP WILL BE THE TRUSTED PARTNER FOR ANY PROJECT IN SOUTH FLORIDA</p>
     </section>
 
     <section id="services">
@@ -147,7 +138,7 @@
 
     <section id="about">
         <h2>About EGJ Services Group</h2>
-        <p>Specializing in three-axle truck transportation, we ensure fast deliveries, exceptional service, and competitive pricing.</p>
+        <p>We are the trusted partner for any project in South Florida, specializing in all kinds of aggregates, dirt, sand, trash, C&D, and hourly projects.</p>
     </section>
 
     <section id="map">
@@ -174,6 +165,10 @@
                 center: location,
             });
             var marker = new google.maps.Marker({ position: location, map: map });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
