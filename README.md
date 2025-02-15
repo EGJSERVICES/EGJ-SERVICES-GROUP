@@ -14,87 +14,92 @@
             color: #333;
             margin: 0;
             padding: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        body.dark-mode {
-            background: #121212;
-            color: #fff;
         }
         header {
             background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.3s ease-in-out;
         }
-        .logo img {
-            height: 60px;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
         }
         nav ul {
             list-style: none;
             display: flex;
         }
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
         .search-bar input {
             padding: 10px;
-            width: 250px;
+            width: 200px;
         }
         .hero {
             text-align: center;
-            padding: 80px 20px;
+            padding: 50px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 1.5em;
+            animation: fadeIn 2s ease-in-out;
         }
         .btn {
             background: lightblue;
             color: white;
             padding: 15px 30px;
-            font-size: 1.2em;
+            font-size: 18px;
             text-decoration: none;
-            border-radius: 8px;
-        }
-        .btn:hover {
-            background: darkblue;
+            border-radius: 5px;
+            display: inline-block;
         }
         .service-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            padding: 20px;
+            width: 90%;
+            margin: auto;
         }
         .service-card {
             background: white;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 5px;
             width: 30%;
             margin: 15px;
-            box-shadow: 0px 0px 15px gray;
+            box-shadow: 0px 0px 10px gray;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             background: lightblue;
             color: white;
         }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: black;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .dark-mode {
+            background: #121212;
             color: white;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
+        }
+        .dark-mode .service-card {
+            background: #1e1e1e;
+            color: white;
+        }
+        .dark-mode header, .dark-mode footer {
+            background: #333;
         }
     </style>
 </head>
 <body>
-    <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
     <header>
-        <div class="logo"><img src="images/logo.png" alt="EGJ Services Group"></div>
+        <div class="logo">EGJ Services Group</div>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
@@ -136,11 +141,6 @@
         </div>
     </section>
 
-    <section id="about">
-        <h2>About EGJ Services Group</h2>
-        <p>We are the trusted partner for any project in South Florida, specializing in all kinds of aggregates, dirt, sand, trash, C&D, and hourly projects.</p>
-    </section>
-
     <section id="map">
         <h2>Our Service Areas</h2>
         <div id="google-map" style="width:100%;height:400px;"></div>
@@ -165,10 +165,6 @@
                 center: location,
             });
             var marker = new google.maps.Marker({ position: location, map: map });
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
