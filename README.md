@@ -11,8 +11,6 @@
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, white, lightblue);
-            background-size: cover;
-            background-position: center;
             color: #333;
             margin: 0;
             padding: 0;
@@ -24,64 +22,53 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        .search-bar input {
-            padding: 5px;
-            width: 200px;
-        }
-        .hero {
-            text-align: center;
-            padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-        .btn {
-            background: lightblue;
+        .dynamic-island {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 139, 0.9);
             color: white;
             padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
         }
-        .service-container {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .logo {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 0 5%;
+            align-items: center;
         }
-        .service-card {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            width: 30%;
-            margin: 15px;
-            box-shadow: 0px 0px 10px gray;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: lightblue;
-            color: white;
-        }
-        img {
-            width: 100%;
+        .logo img {
+            width: 60px;
             height: auto;
+            margin-right: 10px;
+        }
+        .content-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
             border-radius: 5px;
         }
     </style>
 </head>
 <body>
+    <div class="dynamic-island">EGJ Services Group - Reliable Hauling Services</div>
+    
     <header>
-        <div class="logo">EGJ Services Group</div>
+        <div class="logo">
+            <img src="images/dump-truck-logo.png" alt="Dump Truck Logo">
+            <div>EGJ Services Group</div>
+        </div>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
@@ -90,10 +77,6 @@
                 <li><a href="#map">Locations</a></li>
             </ul>
         </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
     </header>
 
     <section class="hero">
@@ -104,6 +87,7 @@
 
     <section id="services">
         <h2>Our Services</h2>
+        <p>We handle all kinds of aggregates, dirt, sand, trash, C&D (Construction & Demolition), and hourly projects.</p>
         <div class="service-container">
             <div class="service-card">
                 <img src="images/dump-truck.jpg" alt="Dump Truck">
@@ -135,8 +119,8 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: egjttrucking@gmail.com</p>
-        <p>Phone: 561-506-8932</p>
+        <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
+        <p>Phone: <a href="tel:5615068932">561-506-8932</a></p>
         <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
     </section>
 
