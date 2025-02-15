@@ -11,6 +11,8 @@
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, white, lightblue);
+            background-size: cover;
+            background-position: center;
             color: #333;
             margin: 0;
             padding: 0;
@@ -22,8 +24,15 @@
             justify-content: space-between;
             align-items: center;
         }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
         .logo img {
-            height: 50px;
+            width: 50px;
+            margin-right: 10px;
         }
         nav ul {
             list-style: none;
@@ -41,6 +50,14 @@
             padding: 50px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
+        }
+        .hero h1 {
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-size: 20px;
+            font-weight: bold;
         }
         .btn {
             background: lightblue;
@@ -62,6 +79,13 @@
             margin: 15px;
             box-shadow: 0px 0px 10px gray;
         }
+        .trusted-partner {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            color: #004080;
+        }
         footer {
             text-align: center;
             padding: 10px;
@@ -73,7 +97,8 @@
 <body>
     <header>
         <div class="logo">
-            <img src="images/tri-axle-dump-truck-logo.png" alt="EGJ Services Group Logo">
+            <img src="images/tri-axle-logo.png" alt="EGJ Services Group Logo">
+            EGJ Services Group
         </div>
         <nav>
             <ul>
@@ -93,6 +118,10 @@
         <h1>Reliable Construction Transportation Services</h1>
         <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>
         <a href="#contact" class="btn">Request a Quote</a>
+    </section>
+
+    <section class="trusted-partner">
+        <p>EGJ SERVICES GROUP WILL BE THE TRUSTED PARTNER FOR ANY PROJECT IN SOUTH FLORIDA</p>
     </section>
 
     <section id="services">
@@ -118,8 +147,7 @@
 
     <section id="about">
         <h2>About EGJ Services Group</h2>
-        <p>We specialize in transporting all kinds of aggregates, dirt, sand, trash (C&D), and hourly projects.</p>
-        <p>With years of experience, we guarantee fast deliveries, exceptional service, transparency, and competitive pricing.</p>
+        <p>Specializing in three-axle truck transportation, we ensure fast deliveries, exceptional service, and competitive pricing.</p>
     </section>
 
     <section id="map">
