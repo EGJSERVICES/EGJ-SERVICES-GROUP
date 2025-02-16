@@ -34,32 +34,43 @@
       background: #1a1a1a;
       color: #f0f0f0;
     }
-    /* Ensure all paragraphs are justified */
     p {
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar: Attractive Clock Styled as a Watch */
+    /* Top Bar: Watch Clock and Visit Counter */
     .topbar {
       position: fixed;
       top: 0;
       right: 0;
       width: 100%;
-      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       padding: 5px 15px;
       background: #007BFF;
       color: white;
       font-size: 14px;
       z-index: 1000;
+    }
+    .watch-container {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
+      margin-right: 10px;
+    }
+    .watch-container img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
     }
     .clockwatch {
       border: 2px solid white;
       border-radius: 50%;
       padding: 5px 10px;
-      margin-right: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .visitcounter {
       font-size: 14px;
       font-weight: bold;
     }
@@ -73,7 +84,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 50px; /* Adjusted for topbar */
+      margin-top: 50px; /* Space for topbar */
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -390,10 +401,14 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar with Clock Styled as a Watch -->
+  <!-- Top Bar with Clock Styled as a Watch and Visit Counter -->
   <div class="topbar" id="topbar">
-    <div class="clockwatch" id="companyclock"></div>
+    <div class="watch-container">
+      <img src="images/watch.png" alt="Watch" class="watch-image">
+      <div class="clockwatch" id="companyclock"></div>
+    </div>
     <span id="usercity"></span>
+    <span class="visitcounter" id="visitcount"></span>
   </div>
   
   <header>
@@ -572,15 +587,36 @@
   </style>
   
   <script>
-    // Company Clock Functionality
-    function updateCompanyClock() {
+    // Update clock and fetch user's city and visit count
+    function updateClockAndVisits() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
-      clockEl.textContent = "Time: " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + " - West Palm Beach";
+      clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     }
-    updateCompanyClock();
-    setInterval(updateCompanyClock, 1000);
-  
+    updateClockAndVisits();
+    setInterval(updateClockAndVisits, 1000);
+    
+    // Fetch user city using ipinfo.io (replace YOUR_TOKEN with your valid token)
+    fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
+      .then(response => response.json())
+      .then(data => {
+        const cityEl = document.getElementById('usercity');
+        cityEl.textContent = data.city ? " - " + data.city : "";
+      })
+      .catch(error => console.error('Error fetching location:', error));
+    
+    // Fetch real visit count using countapi (update the namespace as needed)
+    function updateVisitCount() {
+      fetch("https://api.countapi.xyz/hit/egjservicesgroup.com/visits")
+        .then(response => response.json())
+        .then(data => {
+          const visitEl = document.getElementById('visitcount');
+          visitEl.textContent = " | Visits: " + data.value;
+        })
+        .catch(error => console.error("Error fetching visit count:", error));
+    }
+    updateVisitCount();
+    
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
