@@ -13,34 +13,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="script.js"></script>
   <style>
-    /* Base Styles */
+    /* ========== CSS Variables for Themes ========== */
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #333;
+      --nav-bg: #f0f0f0;
+      --nav-border: #add8e6;
+      --btn-bg: #007BFF;
+      --btn-hover-bg: #0056b3;
+      --section-bg: #fff;
+      --modal-bg: #fff;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --nav-bg: #222;
+      /* Keep button colors the same for contrast */
+    }
+
+    /* ========== Base Styles ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Professional light mode background (cream) */
-      background: #f5f5f5;
-      color: #333;
+      background: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
       font-size: 16px;
       line-height: 1.6;
     }
-    body.dark-mode {
-      background: #121212;
-      color: #f0f0f0;
-    }
     p { text-align: justify; margin: 10px 0; }
-    
-    /* Main Container (wider content for desktop) */
+
+    /* ========== Container for Wider Layout ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
-    /* Dark Mode Toggle Switch with Label */
+
+    /* ========== Dark Mode Toggle with Label ========== */
     .switch {
       position: fixed;
       top: 20px;
@@ -50,7 +63,7 @@
       z-index: 1000;
       font-size: 14px;
       font-weight: bold;
-      color: #333;
+      color: var(--text-color);
     }
     .switch span.label-text { margin-right: 8px; }
     .switch input { opacity: 0; width: 0; height: 0; }
@@ -86,7 +99,7 @@
       .slider:before { height: 16px; width: 16px; left: 2px; bottom: 2px; }
     }
 
-    /* Header */
+    /* ========== Header ========== */
     header {
       background: rgba(255,255,255,0.95);
       padding: 20px;
@@ -111,13 +124,13 @@
       margin-bottom: 10px;
     }
     .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
-    
-    /* Navigation Bar */
+
+    /* ========== Navigation Bar ========== */
     nav {
       width: 100%;
-      background: #f0f0f0;
-      border-top: 2px solid #add8e6;
-      border-bottom: 2px solid #add8e6;
+      background: var(--nav-bg);
+      border-top: 2px solid var(--nav-border);
+      border-bottom: 2px solid var(--nav-border);
       margin-top: 10px;
     }
     nav ul {
@@ -131,19 +144,16 @@
     nav ul li { margin: 0 15px; }
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: var(--text-color);
       font-size: 18px;
       font-weight: bold;
       padding: 5px 10px;
       transition: background 0.3s, transform 0.3s;
       border-radius: 5px;
     }
-    nav ul li a:hover { background: #007BFF; color: white; transform: scale(1.05); }
-    body.dark-mode nav { background: #222; }
-    body.dark-mode nav ul li a { color: #f0f0f0; }
-    body.dark-mode nav ul li a:hover { background: #0056b3; }
-    
-    /* Hero Section (Tri-Axle Dump Truck Background) */
+    nav ul li a:hover { background: var(--btn-bg); color: white; transform: scale(1.05); }
+
+    /* ========== Hero Section ========== */
     .hero {
       position: relative;
       text-align: center;
@@ -170,7 +180,7 @@
     body.dark-mode .hero h1 { color: #fff; }
     .hero p { font-size: 26px; margin-bottom: 40px; }
     .btn {
-      background: #007BFF;
+      background: var(--btn-bg);
       color: white;
       padding: 15px 30px;
       text-decoration: none;
@@ -182,29 +192,30 @@
       border-radius: 5px;
     }
     .btn:hover {
-      /* Simple 4D animation effect on hover */
       transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05);
     }
-    
-    /* Section Styles – Minimal and Clean */
+
+    /* ========== Section Styles ========== */
     section {
       padding: 40px 20px;
       margin: 30px 0;
+      background: var(--section-bg);
+      border-radius: 8px;
       opacity: 0;
       animation: fadeIn 1s forwards;
       animation-delay: 0.3s;
     }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
     section p { margin: 10px 0; }
-    
-    /* Service Cards – 3D Hover Effects */
+
+    /* ========== Service Cards ========== */
     .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
     .servicecard {
       perspective: 1000px;
       padding: 20px;
       width: 30%;
       margin: 15px;
-      border-bottom: 2px solid #007BFF;
+      border-bottom: 2px solid var(--btn-bg);
       text-align: center;
       transition: transform 0.3s;
       cursor: pointer;
@@ -220,8 +231,8 @@
       border-top: 1px solid #ccc;
       padding-top: 10px;
     }
-    
-    /* Materials Section – 3D Hover Effects */
+
+    /* ========== Materials Cards ========== */
     .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
     .materialcard {
       perspective: 1000px;
@@ -235,8 +246,8 @@
     }
     .materialcard:hover { transform: rotateY(8deg) scale(1.05); }
     .materialcard img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
-    
-    /* FAQ Section */
+
+    /* ========== FAQ Section ========== */
     .faqcontainer { margin-top: 20px; text-align: justify; }
     .faqitem {
       padding: 20px;
@@ -248,8 +259,8 @@
     .faqitem:hover { transform: scale(1.02); }
     .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
     .faqitem p { font-size: 18px; }
-    
-    /* Review Section */
+
+    /* ========== Review Section ========== */
     .reviewcontainer { margin-top: 20px; text-align: justify; }
     .reviewitem {
       padding: 20px;
@@ -277,19 +288,19 @@
     .reviewform button {
       padding: 10px 15px;
       border: none;
-      background: #007BFF;
+      background: var(--btn-bg);
       color: white;
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
       border-radius: 5px;
     }
-    .reviewform button:hover { background: #0056b3; transform: scale(1.05); }
-    
-    /* Contact Section */
-    #contact a { color: #007BFF; text-decoration: none; }
+    .reviewform button:hover { background: var(--btn-hover-bg); transform: scale(1.05); }
+
+    /* ========== Contact Section ========== */
+    #contact a { color: var(--btn-bg); text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
-    
-    /* Modal */
+
+    /* ========== Modal ========== */
     .modal {
       display: none;
       position: fixed;
@@ -302,7 +313,7 @@
       background-color: rgba(0,0,0,0.8);
     }
     .modal-content {
-      background: white;
+      background: var(--modal-bg);
       margin: 5% auto;
       padding: 20px;
       border-radius: 8px;
@@ -322,11 +333,11 @@
     }
     .modal-content .close:hover { color: black; }
     @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-    
-    /* Footer */
-    footer { text-align: center; padding: 20px; background: #007BFF; color: white; transition: background 0.3s; }
-    
-    /* Responsive */
+
+    /* ========== Footer ========== */
+    footer { text-align: center; padding: 20px; background: var(--btn-bg); color: white; transition: background 0.3s; }
+
+    /* ========== Responsive Adjustments ========== */
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
@@ -335,8 +346,8 @@
       p { font-size: 14px; }
       .btn { font-size: 16px; padding: 10px 20px; }
     }
-    
-    /* Animations */
+
+    /* ========== Animations ========== */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
@@ -555,7 +566,7 @@
         <div style="margin-top: 20px; text-align: center;">
           <button type="submit">Submit Service Request</button>
           <button type="button" onclick="downloadPDF()">Download PDF</button>
-          <a href="mailto:egjttrucking@gmail.com?subject=Service%20Request" style="margin-left: 10px; background: #007BFF; color: white; padding: 10px 15px; text-decoration: none;">Send Email</a>
+          <a href="mailto:egjttrucking@gmail.com?subject=Service%20Request" style="margin-left: 10px; background: var(--btn-bg); color: white; padding: 10px 15px; text-decoration: none;">Send Email</a>
         </div>
       </form>
     </section>
@@ -686,8 +697,6 @@
       closeModal();
     });
     
-    // --- Google Maps is now embedded via iframe, so no API initialization is needed.
-    
     // --- Toggle Description for Service Cards ---
     function toggleDescription(card) {
       const desc = card.querySelector('.description');
@@ -815,7 +824,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps Embed -->
+  <!-- Google Maps Embed (replace YOUR_API_KEY with your valid key if necessary) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
