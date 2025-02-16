@@ -18,13 +18,13 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Light mode background set to a single cream color */
-      background: #fff8e1;
+      /* Professional light mode background (cream) */
+      background: #f5f5f5;
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.6;
     }
     body.dark-mode {
@@ -33,7 +33,7 @@
     }
     p { text-align: justify; margin: 10px 0; }
     
-    /* Main Container for Wider Content */
+    /* Main Container (wider content for desktop) */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -85,7 +85,7 @@
       .slider { width: 40px; height: 20px; }
       .slider:before { height: 16px; width: 16px; left: 2px; bottom: 2px; }
     }
-    
+
     /* Header */
     header {
       background: rgba(255,255,255,0.95);
@@ -182,13 +182,8 @@
       border-radius: 5px;
     }
     .btn:hover {
-      /* Apply a simple 4D animation effect on buttons */
-      animation: btn4d 0.5s ease-out;
-    }
-    @keyframes btn4d {
-      0% { transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1); }
-      50% { transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05); }
-      100% { transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1); }
+      /* Simple 4D animation effect on hover */
+      transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05);
     }
     
     /* Section Styles – Minimal and Clean */
@@ -335,6 +330,10 @@
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+      p { font-size: 14px; }
+      .btn { font-size: 16px; padding: 10px 20px; }
     }
     
     /* Animations */
@@ -687,11 +686,7 @@
       closeModal();
     });
     
-    // --- Initialize Google Map ---
-    function initMap() {
-      // The embedded iframe below is used to display the map.
-      // If you wish to use the API version, replace the iframe with an API-driven map.
-    }
+    // --- Google Maps is now embedded via iframe, so no API initialization is needed.
     
     // --- Toggle Description for Service Cards ---
     function toggleDescription(card) {
