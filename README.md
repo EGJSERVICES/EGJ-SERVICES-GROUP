@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="script.js"></script>
   <style>
-    /* Base Styles and Transitions */
+    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -22,7 +22,7 @@
     }
     body {
       font-family: Arial, sans-serif;
-      /* New construction-inspired gradient background */
+      /* New construction-inspired background */
       background: linear-gradient(to right, #003366, #336699);
       color: #333;
       margin: 0;
@@ -39,56 +39,21 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar: Contains the digital clock (with watch icon) and static company location */
-    .topbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 5px 15px;
-      background: #007BFF;
-      color: white;
-      font-size: 14px;
-      z-index: 1000;
-    }
-    .watch-container {
-      display: flex;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .watch-container img {
-      width: 30px;
-      height: 30px;
-      margin-right: 5px;
-    }
-    .clockwatch {
-      border: 2px solid white;
-      border-radius: 50%;
-      padding: 5px 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .company-location {
-      font-size: 14px;
-      font-weight: bold;
-    }
-    /* Header */
+    
+    /* Header (Clock Re–positioned inside) */
     header {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255,255,255,0.9);
       padding: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 50px;
+      margin-top: 20px;
       text-align: center;
     }
     body.dark-mode header {
-      background: rgba(18, 18, 18, 0.9);
+      background: rgba(18,18,18,0.9);
     }
     .logo {
       font-size: 28px;
@@ -101,6 +66,24 @@
       width: 120px;
       height: auto;
     }
+    /* Header Extras: Digital Clock and Company Location */
+    .header-extras {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+    .digitalclock {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .company-location {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
     nav {
       width: 100%;
     }
@@ -124,12 +107,10 @@
     nav ul li a:hover {
       color: #007BFF;
     }
-    /* New "Work With Us" link styling remains the same */
     nav ul li a.workwithus {
       font-weight: bold;
     }
-    /* Remove the search bar entirely */
-    /* Header Extras: Clock and Navigation already added */
+    
     .darkmodetoggle {
       background: #007BFF;
       color: white;
@@ -145,6 +126,7 @@
     .darkmodetoggle:hover {
       background: #0056b3;
     }
+    
     /* Hero Section */
     .hero {
       position: relative;
@@ -156,11 +138,8 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
       z-index: 1;
     }
     .hero > * {
@@ -189,7 +168,7 @@
       border-radius: 0;
       font-size: 20px;
       font-weight: bold;
-      box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       text-align: center;
       margin: 10px;
@@ -197,21 +176,22 @@
     .btn:hover {
       background: #0056b3;
       transform: translateY(-3px) scale(1.15);
-      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
+    
     /* Dynamic Boxes for Sections */
     .dynamicbox {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px 0;
       border-radius: 0;
       width: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
       text-align: center;
     }
     .dark-mode .dynamicbox {
-      background: rgba(50, 50, 50, 0.9);
+      background: rgba(50,50,50,0.9);
     }
     .dynamicbox h2 {
       font-size: 32px;
@@ -226,6 +206,7 @@
       margin: 10px 0;
       text-align: justify;
     }
+    
     /* Service Cards */
     .servicecontainer {
       display: flex;
@@ -238,14 +219,14 @@
       border-radius: 0;
       width: 30%;
       margin: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
     .servicecard:hover {
       transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .servicecard img {
       max-width: 100%;
@@ -259,6 +240,7 @@
       border-top: 1px solid #ccc;
       margin-top: 10px;
     }
+    
     /* Materials Section */
     .materialscontainer {
       display: flex;
@@ -271,20 +253,21 @@
       padding: 15px;
       margin: 15px;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       width: 22%;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .materialcard:hover {
       transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .materialcard img {
       max-width: 100%;
       border-radius: 0;
       margin-bottom: 10px;
     }
+    
     /* FAQ Section */
     .faqcontainer {
       margin-top: 20px;
@@ -295,12 +278,12 @@
       padding: 20px;
       margin: 10px 0;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .faqitem:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
     .faqitem h3 {
       font-size: 22px;
@@ -309,6 +292,7 @@
     .faqitem p {
       font-size: 18px;
     }
+    
     /* Review Section */
     .reviewcontainer {
       margin-top: 20px;
@@ -319,12 +303,12 @@
       padding: 20px;
       margin: 10px 0;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .reviewitem:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
     .reviewform {
       margin-top: 20px;
@@ -355,6 +339,7 @@
       background: #0056b3;
       transform: scale(1.05);
     }
+    
     /* Google Map */
     #googlemap {
       width: 100%;
@@ -362,10 +347,12 @@
       border: none;
       border-radius: 0;
     }
+    
     /* Contact Section */
     #contact {
       margin-top: 20px;
     }
+    
     /* Footer */
     footer {
       text-align: center;
@@ -374,6 +361,7 @@
       color: white;
       transition: background 0.3s;
     }
+    
     /* Responsive Styles */
     @media (max-width: 768px) {
       .servicecard, .materialcard {
@@ -389,20 +377,25 @@
         width: 45%;
       }
     }
+    
+    /* Modal Animations */
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-content {
+      animation: modalIn 0.5s ease-out;
+    }
   </style>
 </head>
 <body>
-  <!-- Top Bar with Digital Clock and Company Location -->
-  <div class="topbar" id="topbar">
-    <div class="watch-container">
-      <img src="images/watch.png" alt="Watch" class="watch-image" />
-      <div class="clockwatch" id="companyclock"></div>
-    </div>
-    <span class="company-location">West Palm Beach, FL</span>
-  </div>
-  
+  <!-- Header with embedded digital clock and company location -->
   <header>
     <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo" /></div>
+    <div class="header-extras">
+      <div class="digitalclock" id="companyclock"></div>
+      <div class="company-location">West Palm Beach, FL</div>
+    </div>
     <nav>
       <ul>
         <li><a href="#services" class="redirect-button" data-target="services">Services</a></li>
@@ -609,7 +602,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0,0,0,0.8);
     }
     .modal-content {
       background: white;
@@ -619,6 +612,7 @@
       width: 90%;
       max-width: 800px;
       position: relative;
+      animation: modalIn 0.5s ease-out;
     }
     .modal-content .close {
       position: absolute;
@@ -631,6 +625,10 @@
     }
     .modal-content .close:hover {
       color: black;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
   
@@ -718,7 +716,7 @@
       doc.text(`Email: ${email}`, 10, 40);
       doc.text(`Mailing/Billing Address: ${address}`, 10, 50);
       doc.text(`Company Location: ${companyLocation}`, 10, 60);
-      doc.text(`Company Type: ${companyType}`, 10, 70);
+      doc.text(`Type of Company: ${companyType}`, 10, 70);
       doc.text(`Service Type: ${serviceType}`, 10, 80);
       doc.text(`Dates Needed: ${dates}`, 10, 90);
       doc.text(`Reason: ${reason}`, 10, 100);
