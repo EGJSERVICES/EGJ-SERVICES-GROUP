@@ -8,10 +8,6 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script defer src="script.js"></script>
   <style>
-    /* Enable smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
     /* Base Styles and Transitions */
     * {
       margin: 0;
@@ -24,23 +20,50 @@
     }
     body {
       font-family: Arial, sans-serif;
-      /* Construction-inspired gray gradient background */
-      background: linear-gradient(to right, #666666, #aaaaaa);
+      background: linear-gradient(to right, #666666, #aaaaaa), url('images/constructionsitebackground.jpg');
+      background-size: cover;
+      background-blend-mode: multiply;
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
       font-size: 12px; /* Base font size for paragraphs */
+      line-height: 1.5;
     }
     body.dark-mode {
       background: #1a1a1a;
       color: #f0f0f0;
     }
-    /* Justify text inside dynamic boxes */
-    .dynamicbox p {
+    /* Ensure all paragraphs are justified */
+    p {
       text-align: justify;
+      margin: 10px 0;
     }
-    /* Header and New Company Clock */
+    /* Top Bar: Attractive Clock Styled as a Watch */
+    .topbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      text-align: right;
+      padding: 5px 15px;
+      background: #007BFF;
+      color: white;
+      font-size: 14px;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .clockwatch {
+      border: 2px solid white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    /* Header */
     header {
       background: rgba(255,255,255,0.9);
       padding: 15px;
@@ -50,7 +73,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 20px; /* Adjusted since no top bar now */
+      margin-top: 50px; /* Adjusted for topbar */
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -126,16 +149,6 @@
     .darkmodetoggle:hover {
       background: #0056b3;
     }
-    /* New Company Clock in Header */
-    #companyclock {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #007BFF;
-      font-weight: bold;
-    }
-    body.dark-mode #companyclock {
-      color: #66ccff;
-    }
     /* Hero Section */
     .hero {
       position: relative;
@@ -208,6 +221,7 @@
       color: #fff;
     }
     .dynamicbox p {
+      margin: 10px 0;
       text-align: justify;
     }
     /* Service Cards */
@@ -376,7 +390,12 @@
   </style>
 </head>
 <body>
-  <!-- New Company Clock in Header -->
+  <!-- Top Bar with Clock Styled as a Watch -->
+  <div class="topbar" id="topbar">
+    <div class="clockwatch" id="companyclock"></div>
+    <span id="usercity"></span>
+  </div>
+  
   <header>
     <div class="logo"><img src="images/logo.png" alt="Logo"></div>
     <nav>
@@ -387,7 +406,6 @@
         <li><a href="#map">Locations</a></li>
       </ul>
     </nav>
-    <div id="companyclock"></div>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="searchbar">
       <input type="text" placeholder="Search...">
@@ -398,7 +416,8 @@
   <section class="hero dynamicbox">
     <h1>Reliable Construction Transportation Services</h1>
     <p>Serving Palm Beach, St Lucie, and Broward Counties.</p>
-    <a href="#contact" class="btn">Request a Quote</a>
+    <!-- Redirecting button: when clicked, it opens the modal with the Contact section -->
+    <a href="#" class="btn redirect-button" data-target="contact">Request a Quote</a>
   </section>
   
   <section id="services" class="dynamicbox">
@@ -509,13 +528,55 @@
     <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
   </footer>
   
+  <!-- Modal for Redirection -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      background: white;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 800px;
+      position: relative;
+    }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal-content .close:hover {
+      color: black;
+    }
+  </style>
+  
   <script>
     // Company Clock Functionality
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
-      // Format the time with seconds
-      clockEl.textContent = "Current Time: " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + " - West Palm Beach";
+      clockEl.textContent = "Time: " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + " - West Palm Beach";
     }
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
@@ -559,6 +620,24 @@
       } else {
         alert('Please enter a review before submitting.');
       }
+    });
+  
+    // Modal functionality for redirect buttons
+    function openModal(content) {
+      document.getElementById('modal-body').innerHTML = content;
+      document.getElementById('modal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    // Attach event listeners for redirect buttons
+    document.querySelectorAll('.redirect-button').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var targetId = btn.getAttribute('data-target');
+        var content = document.getElementById(targetId).innerHTML;
+        openModal(content);
+      });
     });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
