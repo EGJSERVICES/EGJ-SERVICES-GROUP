@@ -18,7 +18,7 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Background: white to light blue gradient */
+      /* Light mode background: gradient from white to light blue */
       background: linear-gradient(to bottom, white, #add8e6);
       color: #333;
       margin: 0;
@@ -32,6 +32,43 @@
       color: #f0f0f0;
     }
     p { text-align: justify; margin: 10px 0; }
+    
+    /* Dark Mode Toggle Switch (top right) */
+    .switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      z-index: 1000;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
     
     /* Header */
     header {
@@ -57,8 +94,7 @@
       gap: 5px;
       margin-bottom: 10px;
     }
-    .digitalclock { font-size: 20px; font-weight: bold; }
-    .company-location { font-size: 20px; font-weight: bold; }
+    .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
     
     /* Navigation Bar */
     nav {
@@ -281,10 +317,19 @@
       cursor: pointer;
     }
     .modal-content .close:hover { color: black; }
-    @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     
     /* Footer */
-    footer { text-align: center; padding: 20px; background: #007BFF; color: white; transition: background 0.3s; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #007BFF;
+      color: white;
+      transition: background 0.3s;
+    }
     
     /* Responsive */
     @media (max-width: 768px) {
@@ -297,6 +342,12 @@
   </style>
 </head>
 <body>
+  <!-- Dark Mode Toggle Switch -->
+  <label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider"></span>
+  </label>
+  
   <!-- Header Section -->
   <header>
     <div class="logo">
@@ -661,7 +712,7 @@
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // For a real integration, replace this simulated response with an API call to ChatGPT.
+          // Simulated response – replace with ChatGPT API integration if desired.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -680,7 +731,6 @@
     }
     
     function getAIResponse(message) {
-      // Simulated response; replace with a real ChatGPT API integration if needed.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
