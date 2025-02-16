@@ -17,6 +17,7 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
+      /* Use a gradient background as a fallback */
       background: linear-gradient(to right, #003366, #336699);
       color: #333;
       margin: 0;
@@ -25,7 +26,10 @@
       font-size: 14px;
       line-height: 1.6;
     }
-    body.dark-mode { background: #1a1a1a; color: #f0f0f0; }
+    body.dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
     p { text-align: justify; margin: 10px 0; }
 
     /* Header */
@@ -87,12 +91,12 @@
     }
     .darkmodetoggle:hover { background: #0056b3; }
     
-    /* Hero Section */
+    /* Hero Section with Tri-Axle Dump Truck Background */
     .hero {
       position: relative;
       text-align: center;
       padding: 120px 20px;
-      background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1572562699232-1a5c3dfb2416?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       color: white;
     }
     .hero::before {
@@ -124,10 +128,7 @@
     .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.1); }
     
     /* Section Styles – Minimal and Clean */
-    section {
-      padding: 40px 20px;
-      margin: 30px 0;
-    }
+    section { padding: 40px 20px; margin: 30px 0; }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
     section p { margin: 10px 0; }
     
@@ -277,7 +278,7 @@
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
   
-  <!-- Hero Section -->
+  <!-- Hero Section with Tri-Axle Dump Truck Background -->
   <section class="hero">
     <h1>Reliable Construction Transportation Services</h1>
     <p style="margin-bottom: 40px;">Serving Palm Beach, St Lucie, and Broward Counties.</p>
@@ -290,21 +291,21 @@
     <p>We provide a comprehensive range of trucking services for construction projects including aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
     <div class="servicecontainer">
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1591066432487-73c53e1fbe67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck" />
+        <img src="https://images.unsplash.com/photo-1611095973511-68fa81f48972?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck Transportation" />
         <div class="description">
           <h3>Material Transportation</h3>
           <p>We transport aggregates, fill, concrete, asphalt, and more with our modern fleet.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1578926283508-4b301f5a9d4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="On Site Deliveries" />
+        <img src="https://images.unsplash.com/photo-1569004622937-6d7cd68aef7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="On Site Deliveries" />
         <div class="description">
           <h3>On Site Deliveries</h3>
           <p>Fast and efficient deliveries to keep your construction projects on schedule.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1581091012184-51b2f2d2bd96?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Excavation Services" />
+        <img src="https://images.unsplash.com/photo-1611158721515-3a7a9506c7df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Excavation Services" />
         <div class="description">
           <h3>Excavation Services</h3>
           <p>Expert excavation and land clearing services for your project needs.</p>
@@ -318,7 +319,7 @@
     <h2>Construction Materials</h2>
     <div class="materialscontainer">
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1590642914028-5717a1da00b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
+        <img src="https://images.unsplash.com/photo-1581091870621-54a5b3e2789e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
         <h3>Concrete</h3>
       </div>
       <div class="materialcard">
@@ -352,15 +353,15 @@
       </div>
       <div class="faqitem">
         <h3>Why choose us?</h3>
-        <p>We are the trusted partner for any construction project in South Florida with decades of experience and a commitment to reliability and efficiency.</p>
+        <p>We are the trusted partner for construction projects in South Florida with decades of experience and cutting-edge technology.</p>
       </div>
       <div class="faqitem">
         <h3>How can I get a quote?</h3>
-        <p>You can request a quote by clicking on the “Request a Quote” button or contacting us directly.</p>
+        <p>Simply click on the “Request a Quote” button or contact us directly.</p>
       </div>
       <div class="faqitem">
         <h3>What is your typical project size?</h3>
-        <p>Our projects vary from small local jobs to large-scale construction projects, tailored to your specific needs.</p>
+        <p>Our projects range from small local jobs to large-scale construction projects, tailored to your needs.</p>
       </div>
       <div class="faqitem">
         <h3>What are your payment terms?</h3>
@@ -616,7 +617,7 @@
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // For a real integration, replace the simulated response with an API call to ChatGPT.
+          // Replace this simulated response with an API call to ChatGPT if desired.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -635,7 +636,7 @@
     }
     
     function getAIResponse(message) {
-      // Simulated response. Replace this function with a real ChatGPT API integration if needed.
+      // Simulated response. Replace with a real ChatGPT API integration as needed.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
@@ -646,7 +647,6 @@
     
     document.addEventListener('DOMContentLoaded', function() {
       initChatbot();
-      // Create a toggle button for the chatbot
       const chatToggle = document.createElement('button');
       chatToggle.id = 'chatbot-toggle';
       chatToggle.textContent = 'Chat with Us';
