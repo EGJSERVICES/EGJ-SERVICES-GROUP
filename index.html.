@@ -54,25 +54,37 @@
     .digitalclock { font-size: 14px; font-weight: bold; }
     .company-location { font-size: 14px; font-weight: bold; }
     
-    nav { width: 100%; }
-    nav ul {
-      list-style: none;
+    /* Dynamic Island for Navigation Buttons */
+    #dynamicIsland {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 50px;
+      padding: 10px 20px;
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2500;
       display: flex;
-      justify-content: center;
-      padding: 0;
-      flex-wrap: wrap;
+      gap: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: slideDown 0.5s ease-out;
     }
-    nav ul li { margin: 0 15px; }
-    nav ul li a {
+    @keyframes slideDown {
+      from { opacity: 0; transform: translate(-50%, -30px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    #dynamicIsland a {
       text-decoration: none;
       color: inherit;
-      font-size: 18px;
-      transition: color 0.3s;
-      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: background 0.3s, transform 0.3s;
     }
-    nav ul li a:hover { color: #007BFF; }
-    nav ul li a.workwithus { font-weight: bold; }
+    #dynamicIsland a:hover { background: #007BFF; color: white; transform: scale(1.05); }
     
+    /* Dark mode toggle button */
     .darkmodetoggle {
       background: #007BFF;
       color: white;
@@ -103,11 +115,7 @@
       z-index: 1;
     }
     .hero > * { position: relative; z-index: 2; }
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      transition: color 0.3s;
-    }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; transition: color 0.3s; }
     body.dark-mode .hero h1 { color: #fff; }
     .hero p { font-size: 24px; margin-bottom: 40px; }
     .btn {
@@ -118,131 +126,64 @@
       border-radius: 0;
       font-size: 20px;
       font-weight: bold;
-      box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      transition: background 0.3s, transform 0.3s;
       text-align: center;
       display: inline-block;
       margin: 10px 0;
     }
-    .btn:hover {
-      background: #0056b3;
-      transform: translateY(-3px) scale(1.15);
-      box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
-    }
+    .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.15); }
     
-    /* Section Styles */
-    section {
-      padding: 40px 20px;
-      margin: 30px 0;
-    }
+    /* Section Styles – Minimal, No Box Backgrounds */
+    section { padding: 40px 20px; margin: 30px 0; }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
     section p { margin: 10px 0; }
     
-    /* Service Cards */
-    .servicecontainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
+    /* Service Cards – Minimal styling, no background boxes */
+    .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
     .servicecard {
-      background: white;
+      /* Removed background & shadow for a flat design */
       padding: 20px;
-      border: 0;
       width: 30%;
       margin: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #007BFF;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
       cursor: pointer;
     }
-    .servicecard:hover {
-      transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+    .servicecard:hover { transform: scale(1.05); }
     .servicecard img { max-width: 100%; margin-bottom: 15px; }
-    .description {
-      display: none;
-      text-align: left;
-      padding: 10px;
-      border-top: 1px solid #ccc;
-      margin-top: 10px;
-    }
+    .description { display: none; text-align: left; margin-top: 10px; border-top: 1px solid #ccc; padding-top: 10px; }
     
-    /* Materials Section */
-    .materialscontainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
+    /* Materials Section – Minimal styling */
+    .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
     .materialcard {
-      background: white;
       padding: 15px;
       margin: 15px;
-      border: 0;
       width: 22%;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
-    .materialcard:hover {
-      transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+    .materialcard:hover { transform: scale(1.05); }
     .materialcard img { max-width: 100%; margin-bottom: 10px; }
     
-    /* FAQ Section */
-    .faqcontainer {
-      margin-top: 20px;
-      text-align: justify;
-    }
-    .faqitem {
-      background: white;
-      padding: 20px;
-      margin: 10px 0;
-      border: 0;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .faqitem:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
+    /* FAQ Section – Minimal styling */
+    .faqcontainer { margin-top: 20px; text-align: justify; }
+    .faqitem { padding: 20px; margin: 10px 0; transition: transform 0.3s; }
+    .faqitem:hover { transform: scale(1.02); }
     .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
     .faqitem p { font-size: 18px; }
     
-    /* Review Section */
+    /* Review Section – Minimal styling */
     .reviewcontainer { margin-top: 20px; text-align: justify; }
-    .reviewitem {
-      background: white;
-      padding: 20px;
-      margin: 10px 0;
-      border: 0;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .reviewitem:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-    .reviewform {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .reviewform input {
+    .reviewitem { padding: 20px; margin: 10px 0; transition: transform 0.3s; }
+    .reviewitem:hover { transform: scale(1.02); }
+    .reviewform { margin-top: 20px; display: flex; flex-direction: column; align-items: center; }
+    .reviewform input, .reviewform textarea {
       padding: 10px;
       margin-bottom: 10px;
       width: 90%;
       max-width: 600px;
       border: 1px solid #ccc;
-    }
-    .reviewform textarea {
-      padding: 10px;
-      resize: vertical;
-      min-height: 80px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      width: 90%;
-      max-width: 600px;
     }
     .reviewform button {
       padding: 10px 15px;
@@ -252,19 +193,13 @@
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
     }
-    .reviewform button:hover {
-      background: #0056b3;
-      transform: scale(1.05);
-    }
+    .reviewform button:hover { background: #0056b3; transform: scale(1.05); }
     
     /* Contact Section */
-    #contact a {
-      color: #007BFF;
-      text-decoration: none;
-    }
+    #contact a { color: #007BFF; text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
     
-    /* Modal */
+    /* Modal for Redirected Content */
     .modal {
       display: none;
       position: fixed;
@@ -274,7 +209,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
     }
     .modal-content {
       background: white;
@@ -296,50 +231,74 @@
       cursor: pointer;
     }
     .modal-content .close:hover { color: black; }
-    @keyframes modalIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     
     /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #007BFF;
-      color: white;
-      transition: background 0.3s;
-    }
+    footer { text-align: center; padding: 20px; background: #007BFF; color: white; transition: background 0.3s; }
     
     /* Responsive */
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
     }
+    
+    /* Dynamic Island for Buttons */
+    #dynamicIsland {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 50px;
+      padding: 10px 20px;
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2500;
+      display: flex;
+      gap: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: slideDown 0.5s ease-out;
+    }
+    #dynamicIsland a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    #dynamicIsland a:hover {
+      background: #007BFF;
+      color: white;
+      transform: scale(1.05);
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translate(-50%, -30px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo" /></div>
+    <div class="logo"><img src="images/logo.png" alt="Logo" /></div>
     <div class="header-extras">
       <div class="digitalclock" id="companyclock"></div>
       <div class="company-location">West Palm Beach, FL</div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#services" class="redirect-button" data-target="services">Services</a></li>
-        <li><a href="#about" class="redirect-button" data-target="about">About Us</a></li>
-        <li><a href="#contact" class="redirect-button" data-target="contact">Contact</a></li>
-        <li><a href="#map" class="redirect-button" data-target="map">Locations</a></li>
-        <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
-      </ul>
-    </nav>
+    <!-- Dynamic Island for Navigation Buttons -->
+    <div id="dynamicIsland">
+      <a href="#services" class="redirect-button" data-target="services">Services</a>
+      <a href="#about" class="redirect-button" data-target="about">About Us</a>
+      <a href="#contact" class="redirect-button" data-target="contact">Contact</a>
+      <a href="#map" class="redirect-button" data-target="map">Locations</a>
+      <a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a>
+    </div>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
   
   <section class="hero">
     <h1>Reliable Construction Transportation Services</h1>
     <p style="margin-bottom: 40px;">Serving Palm Beach, St Lucie, and Broward Counties.</p>
-    <!-- Separate text from the button below -->
+    <!-- Separate text from the button -->
     <a href="#" class="btn redirect-button" data-target="contact" style="margin-top:20px;">Request a Quote</a>
   </section>
   
@@ -457,7 +416,7 @@
     <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
   </section>
   
-  <!-- Hidden Section for "Work With Us" Form -->
+  <!-- Hidden "Work With Us" Form -->
   <section id="workwithus" style="display: none; text-align: left; padding: 40px 20px;">
     <h2>Work With Us</h2>
     <form id="serviceForm">
@@ -525,7 +484,7 @@
   
   <!-- Optimization, Animation & AI Scripts -->
   <script>
-    // --- Update the digital clock ---
+    // --- Update Digital Clock ---
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
@@ -534,7 +493,7 @@
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
     
-    // --- Debounce function for scroll events ---
+    // --- Debounce Function for Optimizing Scroll Events ---
     function debounce(func, wait, immediate) {
       let timeout;
       return function() {
@@ -550,7 +509,7 @@
       };
     }
     
-    // --- On-scroll Animation for elements with class .animate-on-scroll ---
+    // --- On-scroll Animation for Elements with .animate-on-scroll ---
     function animateOnScroll() {
       const elements = document.querySelectorAll('.animate-on-scroll');
       elements.forEach(el => {
@@ -601,7 +560,7 @@
       });
     });
     
-    // --- Work With Us Form Submission with PDF Generation ---
+    // --- Work With Us Form: PDF Generation via jsPDF ---
     document.getElementById('serviceForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
@@ -649,7 +608,7 @@
       desc.style.display = (desc.style.display === "none" || desc.style.display === "") ? "block" : "none";
     }
     
-    // --- AI Virtual Assistant Chatbot ---
+    // --- AI Virtual Assistant Chatbot (Proactive Integration) ---
     function initChatbot() {
       const chatbot = document.createElement('div');
       chatbot.id = 'chatbot';
@@ -659,16 +618,18 @@
           <button id="closeChatbot" onclick="toggleChatbot()">X</button>
         </div>
         <div id="chatbot-body"></div>
-        <input type="text" id="chatbot-input" placeholder="How can I help you?" />
+        <input type="text" id="chatbot-input" placeholder="Ask me anything..." />
       `;
       document.body.appendChild(chatbot);
       
+      // When user submits a message, simulate a proactive response
       document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // Simulated AI response – replace with real API call if desired
+          // Here you could integrate with the ChatGPT API.
+          // For now, we simulate a proactive answer:
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -687,8 +648,8 @@
     }
     
     function getAIResponse(message) {
-      // Replace with real AI integration logic if available
-      return "I'm here to help! Could you please provide more details?";
+      // Placeholder: In a real scenario, call your ChatGPT API here.
+      return "I'm here to help! Could you please provide more details about your inquiry?";
     }
     
     function toggleChatbot() {
@@ -698,7 +659,7 @@
     
     document.addEventListener('DOMContentLoaded', function() {
       initChatbot();
-      // Create a toggle button for the chatbot
+      // Create a chatbot toggle button (Dynamic Island could also include this if desired)
       const chatToggle = document.createElement('button');
       chatToggle.id = 'chatbot-toggle';
       chatToggle.textContent = 'Chat with Us';
