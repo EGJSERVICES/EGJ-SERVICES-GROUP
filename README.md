@@ -8,7 +8,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script defer src="script.js"></script>
   <style>
-    /* Base Styles */
+    /* Base Styles and Transitions */
     * {
       margin: 0;
       padding: 0;
@@ -147,13 +147,14 @@
       font-size: 20px;
       font-weight: bold;
       box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     }
     .btn:hover {
       background: #0056b3;
       transform: translateY(-3px);
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
-    /* Dynamic Boxes */
+    /* Dynamic Boxes for Sections */
     .dynamic-box {
       background: rgba(255, 255, 255, 0.8);
       padding: 40px;
@@ -221,4 +222,140 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    .material-card img {\n      max-width: 100%;\n      border-radius: 8px;\n      margin-bottom: 10px;\n    }\n    /* Google Map */\n    #google-map {\n      width: 100%;\n      height: 400px;\n      border: none;\n      border-radius: 8px;\n    }\n    /* Footer */\n    footer {\n      text-align: center;\n      padding: 20px;\n      background: #007BFF;\n      color: white;\n      transition: background 0.3s;\n    }\n    /* Responsive Styles */\n    @media (max-width: 768px) {\n      .service-card, .material-card {\n        width: 90%;\n      }\n      nav ul li {\n        margin: 0 10px;\n      }\n      .search-bar input {\n        width: 150px;\n      }\n    }\n  </style>\n</head>\n<body>\n  <header>\n    <div class=\"logo\">EGJ Services Group</div>\n    <nav>\n      <ul>\n        <li><a href=\"#services\">Services</a></li>\n        <li><a href=\"#about\">About Us</a></li>\n        <li><a href=\"#contact\">Contact</a></li>\n        <li><a href=\"#map\">Locations</a></li>\n      </ul>\n    </nav>\n    <button class=\"dark-mode-toggle\" onclick=\"toggleDarkMode()\">Toggle Dark Mode</button>\n    <div class=\"search-bar\">\n      <input type=\"text\" placeholder=\"Search...\">\n      <button><i class=\"fas fa-search\"></i></button>\n    </div>\n  </header>\n\n  <section class=\"hero dynamic-box\">\n    <h1>Reliable Construction Transportation Services</h1>\n    <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>\n    <a href=\"#contact\" class=\"btn\">Request a Quote</a>\n  </section>\n\n  <section id=\"services\" class=\"dynamic-box\">\n    <h2>Our Services</h2>\n    <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>\n    <div class=\"service-container\">\n      <div class=\"service-card\">\n        <img src=\"images/dump-truck.jpg\" alt=\"Dump Truck\">\n        <h3>Material Transportation</h3>\n        <p>We transport aggregates, fill, concrete, asphalt, and more.</p>\n      </div>\n      <div class=\"service-card\">\n        <img src=\"images/construction-site.jpg\" alt=\"Construction Site\">\n        <h3>On-Site Deliveries</h3>\n        <p>Fast and efficient delivery to keep your project moving.</p>\n      </div>\n      <div class=\"service-card\">\n        <img src=\"images/machine-work.jpg\" alt=\"Machine Work\">\n        <h3>Excavation Services</h3>\n        <p>We offer excavation and land clearing services.</p>\n      </div>\n    </div>\n  </section>\n\n  <section id=\"materials\" class=\"dynamic-box\">\n    <h2>Construction Materials</h2>\n    <div class=\"materials-container\">\n      <div class=\"material-card\">\n        <img src=\"images/concrete.jpg\" alt=\"Concrete\">\n        <h3>Concrete</h3>\n      </div>\n      <div class=\"material-card\">\n        <img src=\"images/asphalt.jpg\" alt=\"Asphalt\">\n        <h3>Asphalt</h3>\n      </div>\n      <div class=\"material-card\">\n        <img src=\"images/fill.jpg\" alt=\"Fill\">\n        <h3>Fill</h3>\n      </div>\n      <div class=\"material-card\">\n        <img src=\"images/sand.jpg\" alt=\"Sand\">\n        <h3>Sand</h3>\n      </div>\n    </div>\n  </section>\n\n  <section id=\"map\" class=\"dynamic-box\">\n    <h2>Our Service Areas</h2>\n    <div id=\"google-map\"></div>\n  </section>\n\n  <section id=\"contact\" class=\"dynamic-box\">\n    <h2>Contact Us</h2>\n    <p>Email: egjttrucking@gmail.com</p>\n    <p>Phone: 5615068932</p>\n    <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>\n  </section>\n\n  <footer>\n    <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>\n  </footer>\n\n  <script>\n    function toggleDarkMode() {\n      document.body.classList.toggle('dark-mode');\n    }\n    function initMap() {\n      var location = { lat: 26.7153, lng: -80.0534 };\n      var map = new google.maps.Map(document.getElementById('google-map'), {\n        zoom: 10,\n        center: location\n      });\n      var marker = new google.maps.Marker({\n        position: location,\n        map: map\n      });\n    }\n  </script>\n  <script src=\"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap\" async defer></script>\n</body>\n</html>\n"}]}
+    .material-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    /* Google Map */
+    #google-map {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #007BFF;
+      color: white;
+      transition: background 0.3s;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .service-card, .material-card {
+        width: 90%;
+      }
+      nav ul li {
+        margin: 0 10px;
+      }
+      .search-bar input {
+        width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">EGJ Services Group</div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#map">Locations</a></li>
+      </ul>
+    </nav>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </header>
+
+  <section class="hero dynamic-box">
+    <h1>Reliable Construction Transportation Services</h1>
+    <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>
+    <a href="#contact" class="btn">Request a Quote</a>
+  </section>
+
+  <section id="services" class="dynamic-box">
+    <h2>Our Services</h2>
+    <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+    <div class="service-container">
+      <div class="service-card">
+        <img src="images/dump-truck.jpg" alt="Dump Truck">
+        <h3>Material Transportation</h3>
+        <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
+      </div>
+      <div class="service-card">
+        <img src="images/construction-site.jpg" alt="Construction Site">
+        <h3>On-Site Deliveries</h3>
+        <p>Fast and efficient delivery to keep your project moving.</p>
+      </div>
+      <div class="service-card">
+        <img src="images/machine-work.jpg" alt="Machine Work">
+        <h3>Excavation Services</h3>
+        <p>We offer excavation and land clearing services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials" class="dynamic-box">
+    <h2>Construction Materials</h2>
+    <div class="materials-container">
+      <div class="material-card">
+        <img src="images/concrete.jpg" alt="Concrete">
+        <h3>Concrete</h3>
+      </div>
+      <div class="material-card">
+        <img src="images/asphalt.jpg" alt="Asphalt">
+        <h3>Asphalt</h3>
+      </div>
+      <div class="material-card">
+        <img src="images/fill.jpg" alt="Fill">
+        <h3>Fill</h3>
+      </div>
+      <div class="material-card">
+        <img src="images/sand.jpg" alt="Sand">
+        <h3>Sand</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="dynamic-box">
+    <h2>Our Service Areas</h2>
+    <div id="google-map"></div>
+  </section>
+
+  <section id="contact" class="dynamic-box">
+    <h2>Contact Us</h2>
+    <p>Email: egjttrucking@gmail.com</p>
+    <p>Phone: 5615068932</p>
+    <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+    function initMap() {
+      var location = { lat: 26.7153, lng: -80.0534 };
+      var map = new google.maps.Map(document.getElementById('google-map'), {
+        zoom: 10,
+        center: location,
+      });
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
