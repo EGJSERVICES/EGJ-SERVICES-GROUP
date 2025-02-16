@@ -20,18 +20,20 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, white, lightblue);
+      background: linear-gradient(to right, white, lightblue), url('images/constructionsitebackground.jpg');
+      background-size: cover;
+      background-blend-mode: multiply;
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 12px; /* Set base font size to 12px */
+      font-size: 12px; /* Base font size for both themes */
     }
     body.dark-mode {
       background: #1a1a1a;
       color: #f0f0f0;
     }
-    /* Top Bar: Current Time and City */
+    /* Top Bar: Clock and City */
     .topbar {
       position: fixed;
       top: 0;
@@ -54,7 +56,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 40px; /* space for topbar */
+      margin-top: 40px; /* Space for topbar */
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -179,12 +181,12 @@
       transform: translateY(-3px) scale(1.1);
       box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
-    /* Dynamic Boxes for Sections (Full Width) */
+    /* Dynamic Boxes for Sections (Full Width on Desktop) */
     .dynamicbox {
       background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px 0;
-      border-radius: 20px; /* more circular corners */
+      border-radius: 20px;
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
@@ -210,7 +212,7 @@
     .servicecard {
       background: white;
       padding: 20px;
-      border-radius: 20px; /* more rounded */
+      border-radius: 20px;
       width: 30%;
       margin: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -470,6 +472,12 @@
     </div>
   </section>
   
+  <section id="about" class="dynamicbox">
+    <h2>About Us</h2>
+    <p>EGJ Services Group specializes in three axle truck transportation, hauling aggregates and excess materials across Palm Beach, St Lucie, and Broward Counties. We ensure fast deliveries, exceptional service, transparency, and competitive pricing. Trust us for efficient and reliable hauling solutions that keep your projects on track!</p>
+    <p>With decades of industry experience, our state of the art fleet and expert drivers guarantee timely and secure transportation. Our commitment to safety, customer satisfaction, and innovation has made us the leading trucking partner in South Florida.</p>
+  </section>
+  
   <section id="contact" class="dynamicbox">
     <h2>Contact Us</h2>
     <p>Email: egjttrucking@gmail.com</p>
@@ -487,7 +495,6 @@
       const timeEl = document.getElementById('currenttime');
       const cityEl = document.getElementById('usercity');
       const now = new Date();
-      // Display time with hours, minutes, and seconds
       timeEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
         .then(response => response.json())
@@ -497,12 +504,11 @@
         .catch(error => console.error('Error fetching location:', error));
     }
     updateTimeAndCity();
-    setInterval(updateTimeAndCity, 1000); // update every second
+    setInterval(updateTimeAndCity, 1000);
   
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
-  
     function initMap() {
       var location = { lat: 26.7153, lng: -80.0534 };
       var map = new google.maps.Map(document.getElementById('googlemap'), {
@@ -514,7 +520,6 @@
         map: map
       });
     }
-  
     // Review form functionality
     document.getElementById('submitreview').addEventListener('click', function() {
       const reviewText = document.getElementById('reviewtext').value.trim();
