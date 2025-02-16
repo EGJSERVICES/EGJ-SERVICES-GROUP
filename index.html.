@@ -6,7 +6,6 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
-  <!-- External CSS can be linked here if desired -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -14,15 +13,8 @@
   <script defer src="script.js"></script>
   <style>
     /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #003366, #336699);
@@ -33,18 +25,12 @@
       font-size: 14px;
       line-height: 1.6;
     }
-    body.dark-mode {
-      background: #1a1a1a;
-      color: #f0f0f0;
-    }
-    p {
-      text-align: justify;
-      margin: 10px 0;
-    }
-    
+    body.dark-mode { background: #1a1a1a; color: #f0f0f0; }
+    p { text-align: justify; margin: 10px 0; }
+
     /* Header */
     header {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.95);
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -54,19 +40,9 @@
       transition: background 0.3s;
       margin-top: 20px;
     }
-    body.dark-mode header {
-      background: rgba(18,18,18,0.9);
-    }
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: inherit;
-    }
-    .logo img {
-      width: 150px;
-      height: auto;
-    }
+    body.dark-mode header { background: rgba(18,18,18,0.95); }
+    .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; color: inherit; }
+    .logo img { width: 150px; height: auto; }
     .header-extras {
       width: 100%;
       display: flex;
@@ -75,19 +51,10 @@
       gap: 30px;
       margin-bottom: 10px;
     }
-    .digitalclock {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .company-location {
-      font-size: 20px;
-      font-weight: bold;
-    }
+    .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
     
     /* Navigation Bar */
-    nav {
-      width: 100%;
-    }
+    nav { width: 100%; }
     nav ul {
       list-style: none;
       display: flex;
@@ -95,9 +62,7 @@
       flex-wrap: wrap;
       padding: 0;
     }
-    nav ul li {
-      margin: 0 15px;
-    }
+    nav ul li { margin: 0 15px; }
     nav ul li a {
       text-decoration: none;
       color: inherit;
@@ -107,11 +72,7 @@
       transition: background 0.3s, transform 0.3s;
       text-align: center;
     }
-    nav ul li a:hover {
-      background: #007BFF;
-      color: white;
-      transform: scale(1.05);
-    }
+    nav ul li a:hover { background: #007BFF; color: white; transform: scale(1.05); }
     
     .darkmodetoggle {
       background: #007BFF;
@@ -124,44 +85,31 @@
       transition: background 0.3s;
       margin-top: 10px;
     }
-    .darkmodetoggle:hover {
-      background: #0056b3;
-    }
+    .darkmodetoggle:hover { background: #0056b3; }
     
     /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
       padding: 120px 20px;
-      background: url('https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       color: white;
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5);
       z-index: 1;
     }
-    .hero > * {
-      position: relative;
-      z-index: 2;
-    }
+    .hero > * { position: relative; z-index: 2; }
     .hero h1 {
       font-size: 56px;
       margin-bottom: 20px;
       transition: color 0.3s;
     }
-    body.dark-mode .hero h1 {
-      color: #fff;
-    }
-    .hero p {
-      font-size: 26px;
-      margin-bottom: 40px;
-    }
+    body.dark-mode .hero h1 { color: #fff; }
+    .hero p { font-size: 26px; margin-bottom: 40px; }
     .btn {
       background: #007BFF;
       color: white;
@@ -173,32 +121,20 @@
       display: inline-block;
       margin: 10px 0;
     }
-    .btn:hover {
-      background: #0056b3;
-      transform: translateY(-3px) scale(1.1);
-    }
+    .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.1); }
     
     /* Section Styles – Minimal and Clean */
     section {
       padding: 40px 20px;
       margin: 30px 0;
     }
-    section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    section p {
-      margin: 10px 0;
-    }
+    section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
+    section p { margin: 10px 0; }
     
-    /* Service Cards – Flat, Minimal Design */
-    .servicecontainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
+    /* Service Cards – 3D Hover Effects */
+    .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
     .servicecard {
+      perspective: 1000px;
       padding: 20px;
       width: 30%;
       margin: 15px;
@@ -207,13 +143,8 @@
       transition: transform 0.3s;
       cursor: pointer;
     }
-    .servicecard:hover {
-      transform: scale(1.05);
-    }
-    .servicecard img {
-      max-width: 100%;
-      margin-bottom: 15px;
-    }
+    .servicecard:hover { transform: rotateY(8deg) rotateX(5deg) scale(1.05); }
+    .servicecard img { max-width: 100%; margin-bottom: 15px; border-radius: 5px; }
     .description {
       display: none;
       text-align: left;
@@ -222,62 +153,38 @@
       padding-top: 10px;
     }
     
-    /* Materials Section – Flat, Minimal Design */
-    .materialscontainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
+    /* Materials Section – 3D Hover Effects */
+    .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
     .materialcard {
+      perspective: 1000px;
       padding: 15px;
       margin: 15px;
       width: 22%;
       text-align: center;
       transition: transform 0.3s;
     }
-    .materialcard:hover {
-      transform: scale(1.05);
-    }
-    .materialcard img {
-      max-width: 100%;
-      margin-bottom: 10px;
-    }
+    .materialcard:hover { transform: rotateY(8deg) scale(1.05); }
+    .materialcard img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
     
     /* FAQ Section */
-    .faqcontainer {
-      margin-top: 20px;
-      text-align: justify;
-    }
+    .faqcontainer { margin-top: 20px; text-align: justify; }
     .faqitem {
       padding: 20px;
       margin: 10px 0;
       transition: transform 0.3s;
     }
-    .faqitem:hover {
-      transform: scale(1.02);
-    }
-    .faqitem h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .faqitem p {
-      font-size: 18px;
-    }
+    .faqitem:hover { transform: scale(1.02); }
+    .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
+    .faqitem p { font-size: 18px; }
     
     /* Review Section */
-    .reviewcontainer {
-      margin-top: 20px;
-      text-align: justify;
-    }
+    .reviewcontainer { margin-top: 20px; text-align: justify; }
     .reviewitem {
       padding: 20px;
       margin: 10px 0;
       transition: transform 0.3s;
     }
-    .reviewitem:hover {
-      transform: scale(1.02);
-    }
+    .reviewitem:hover { transform: scale(1.02); }
     .reviewform {
       margin-top: 20px;
       display: flex;
@@ -300,10 +207,7 @@
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
     }
-    .reviewform button:hover {
-      background: #0056b3;
-      transform: scale(1.05);
-    }
+    .reviewform button:hover { background: #0056b3; transform: scale(1.05); }
     
     /* Contact Section */
     #contact a { color: #007BFF; text-decoration: none; }
@@ -354,6 +258,7 @@
   </style>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
     <div class="logo"><img src="images/logo.png" alt="Logo" /></div>
     <div class="header-extras">
@@ -372,45 +277,48 @@
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
   
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Reliable Construction Transportation Services</h1>
     <p style="margin-bottom: 40px;">Serving Palm Beach, St Lucie, and Broward Counties.</p>
     <a href="#" class="btn redirect-button" data-target="contact" style="margin-top:20px;">Request a Quote</a>
   </section>
   
+  <!-- Services Section -->
   <section id="services">
     <h2>Our Services</h2>
-    <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+    <p>We provide a comprehensive range of trucking services for construction projects including aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
     <div class="servicecontainer">
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1581091870621-54a5b3e2789e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck" />
+        <img src="https://images.unsplash.com/photo-1591066432487-73c53e1fbe67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck" />
         <div class="description">
           <h3>Material Transportation</h3>
-          <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
+          <p>We transport aggregates, fill, concrete, asphalt, and more with our modern fleet.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1574127495565-dace4f08af89?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Construction Site" />
+        <img src="https://images.unsplash.com/photo-1578926283508-4b301f5a9d4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="On Site Deliveries" />
         <div class="description">
           <h3>On Site Deliveries</h3>
-          <p>Fast and efficient delivery to keep your project moving.</p>
+          <p>Fast and efficient deliveries to keep your construction projects on schedule.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="https://images.unsplash.com/photo-1602080752321-0673e28c34f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Machine Work" />
+        <img src="https://images.unsplash.com/photo-1581091012184-51b2f2d2bd96?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Excavation Services" />
         <div class="description">
           <h3>Excavation Services</h3>
-          <p>We offer excavation and land clearing services.</p>
+          <p>Expert excavation and land clearing services for your project needs.</p>
         </div>
       </div>
     </div>
   </section>
   
+  <!-- Materials Section -->
   <section id="materials">
     <h2>Construction Materials</h2>
     <div class="materialscontainer">
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1561469377-4c236aabf5e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
+        <img src="https://images.unsplash.com/photo-1590642914028-5717a1da00b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
         <h3>Concrete</h3>
       </div>
       <div class="materialcard">
@@ -428,11 +336,13 @@
     </div>
   </section>
   
+  <!-- Google Map Section -->
   <section id="map">
     <h2>Our Service Areas</h2>
     <div id="googlemap"></div>
   </section>
   
+  <!-- FAQ Section -->
   <section id="faq">
     <h2>Frequently Asked Questions</h2>
     <div class="faqcontainer">
@@ -442,7 +352,7 @@
       </div>
       <div class="faqitem">
         <h3>Why choose us?</h3>
-        <p>We are the trusted partner for any project in South Florida with decades of experience and a commitment to reliability and efficiency.</p>
+        <p>We are the trusted partner for any construction project in South Florida with decades of experience and a commitment to reliability and efficiency.</p>
       </div>
       <div class="faqitem">
         <h3>How can I get a quote?</h3>
@@ -450,15 +360,16 @@
       </div>
       <div class="faqitem">
         <h3>What is your typical project size?</h3>
-        <p>Our projects vary from small local jobs to large-scale construction projects. We tailor our services to your specific needs.</p>
+        <p>Our projects vary from small local jobs to large-scale construction projects, tailored to your specific needs.</p>
       </div>
       <div class="faqitem">
         <h3>What are your payment terms?</h3>
-        <p>We offer competitive pricing with flexible payment terms. Please contact us for detailed information.</p>
+        <p>We offer competitive pricing with flexible payment options. Contact us for details.</p>
       </div>
     </div>
   </section>
   
+  <!-- Reviews Section -->
   <section id="reviews">
     <h2>Reviews</h2>
     <div class="reviewcontainer" id="reviewcontainer">
@@ -479,12 +390,14 @@
     </div>
   </section>
   
+  <!-- About Us Section -->
   <section id="about">
     <h2>About Us</h2>
-    <p>EGJ Services Group specializes in three axle truck transportation, hauling aggregates and excess materials across Palm Beach, St Lucie, and Broward Counties. We ensure fast deliveries, exceptional service, transparency, and competitive pricing. Trust us for efficient and reliable hauling solutions that keep your projects on track!</p>
+    <p>EGJ Services Group specializes in three-axle truck transportation, hauling aggregates and excess materials across Palm Beach, St Lucie, and Broward Counties. We ensure fast deliveries, exceptional service, transparency, and competitive pricing. Trust us for efficient and reliable hauling solutions that keep your projects on track!</p>
     <p>With decades of industry experience, our state-of-the-art fleet and expert drivers guarantee timely and secure transportation. Our commitment to safety, customer satisfaction, and innovation has made us the leading trucking partner in South Florida.</p>
   </section>
   
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
@@ -703,7 +616,7 @@
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // Integrate with ChatGPT API here if desired.
+          // For a real integration, replace the simulated response with an API call to ChatGPT.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -722,7 +635,7 @@
     }
     
     function getAIResponse(message) {
-      // This is a placeholder. For a real implementation, integrate with ChatGPT or another AI service.
+      // Simulated response. Replace this function with a real ChatGPT API integration if needed.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
