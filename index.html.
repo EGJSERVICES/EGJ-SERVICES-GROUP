@@ -20,18 +20,21 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, white, lightblue), url('images/constructionsitebackground.jpg');
-      background-size: cover;
-      background-blend-mode: multiply;
+      /* Construction-themed gradient */
+      background: linear-gradient(to right, #ffcc66, #999999);
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 12px; /* Base font size for both themes */
+      font-size: 12px; /* Base font size for all text */
     }
     body.dark-mode {
       background: #1a1a1a;
       color: #f0f0f0;
+    }
+    /* Justify text inside dynamic boxes */
+    .dynamicbox p {
+      text-align: justify;
     }
     /* Top Bar: Clock and City */
     .topbar {
@@ -218,15 +221,23 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
     .servicecard:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .servicecard img {
       max-width: 100%;
       border-radius: 20px;
       margin-bottom: 15px;
+    }
+    .description {
+      display: none;
+      text-align: left;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      margin-top: 10px;
     }
     /* Materials Section */
     .materialscontainer {
@@ -246,7 +257,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .materialcard:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .materialcard img {
@@ -257,6 +268,7 @@
     /* FAQ Section */
     .faqcontainer {
       margin-top: 20px;
+      text-align: left;
     }
     .faqitem {
       background: white;
@@ -280,6 +292,7 @@
     /* Review Section */
     .reviewcontainer {
       margin-top: 20px;
+      text-align: left;
     }
     .reviewitem {
       background: white;
@@ -391,20 +404,26 @@
     <h2>Our Services</h2>
     <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
     <div class="servicecontainer">
-      <div class="servicecard">
+      <div class="servicecard" onclick="toggleDescription(this)">
         <img src="images/dumptruck.jpg" alt="Dump Truck">
-        <h3>Material Transportation</h3>
-        <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
+        <div class="description">
+          <h3>Material Transportation</h3>
+          <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
+        </div>
       </div>
-      <div class="servicecard">
+      <div class="servicecard" onclick="toggleDescription(this)">
         <img src="images/constructionsite.jpg" alt="Construction Site">
-        <h3>On Site Deliveries</h3>
-        <p>Fast and efficient delivery to keep your project moving.</p>
+        <div class="description">
+          <h3>On Site Deliveries</h3>
+          <p>Fast and efficient delivery to keep your project moving.</p>
+        </div>
       </div>
-      <div class="servicecard">
+      <div class="servicecard" onclick="toggleDescription(this)">
         <img src="images/machinework.jpg" alt="Machine Work">
-        <h3>Excavation Services</h3>
-        <p>We offer excavation and land clearing services.</p>
+        <div class="description">
+          <h3>Excavation Services</h3>
+          <p>We offer excavation and land clearing services.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -509,6 +528,7 @@
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
+  
     function initMap() {
       var location = { lat: 26.7153, lng: -80.0534 };
       var map = new google.maps.Map(document.getElementById('googlemap'), {
@@ -520,6 +540,17 @@
         map: map
       });
     }
+  
+    // Toggle description for service cards
+    function toggleDescription(card) {
+      var desc = card.querySelector('.description');
+      if (desc.style.display === "none" || desc.style.display === "") {
+        desc.style.display = "block";
+      } else {
+        desc.style.display = "none";
+      }
+    }
+  
     // Review form functionality
     document.getElementById('submitreview').addEventListener('click', function() {
       const reviewText = document.getElementById('reviewtext').value.trim();
