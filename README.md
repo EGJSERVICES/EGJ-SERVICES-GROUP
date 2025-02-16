@@ -6,6 +6,7 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
+  <!-- External CSS can be linked here if desired -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -17,8 +18,10 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Use a gradient background as a fallback */
-      background: linear-gradient(to right, #003366, #336699);
+      /* Lighter background with a construction image */
+      background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1589571894960-20bbe2828a6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
       color: #333;
       margin: 0;
       padding: 0;
@@ -31,7 +34,7 @@
       color: #f0f0f0;
     }
     p { text-align: justify; margin: 10px 0; }
-
+    
     /* Header */
     header {
       background: rgba(255,255,255,0.95);
@@ -91,7 +94,7 @@
     }
     .darkmodetoggle:hover { background: #0056b3; }
     
-    /* Hero Section with Tri-Axle Dump Truck Background */
+    /* Hero Section (using a tri-axle dump truck image) */
     .hero {
       position: relative;
       text-align: center;
@@ -128,7 +131,10 @@
     .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.1); }
     
     /* Section Styles – Minimal and Clean */
-    section { padding: 40px 20px; margin: 30px 0; }
+    section {
+      padding: 40px 20px;
+      margin: 30px 0;
+    }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
     section p { margin: 10px 0; }
     
@@ -261,7 +267,7 @@
 <body>
   <!-- Header Section -->
   <header>
-    <div class="logo"><img src="images/logo.png" alt="Logo" /></div>
+    <div class="logo"><img src="https://images.unsplash.com/photo-1581092795363-9146b5e80db3?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Logo" /></div>
     <div class="header-extras">
       <div class="digitalclock" id="companyclock"></div>
       <div class="company-location">West Palm Beach, FL</div>
@@ -288,27 +294,27 @@
   <!-- Services Section -->
   <section id="services">
     <h2>Our Services</h2>
-    <p>We provide a comprehensive range of trucking services for construction projects including aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+    <p>We offer a comprehensive range of trucking services for construction projects—including material transportation, on site deliveries, and excavation services.</p>
     <div class="servicecontainer">
       <div class="servicecard" onclick="toggleDescription(this)">
         <img src="https://images.unsplash.com/photo-1611095973511-68fa81f48972?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck Transportation" />
         <div class="description">
           <h3>Material Transportation</h3>
-          <p>We transport aggregates, fill, concrete, asphalt, and more with our modern fleet.</p>
+          <p>Our modern fleet ensures safe and efficient transport of aggregates, concrete, and more.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
         <img src="https://images.unsplash.com/photo-1569004622937-6d7cd68aef7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="On Site Deliveries" />
         <div class="description">
           <h3>On Site Deliveries</h3>
-          <p>Fast and efficient deliveries to keep your construction projects on schedule.</p>
+          <p>We deliver materials directly to your construction site, keeping projects on schedule.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
         <img src="https://images.unsplash.com/photo-1611158721515-3a7a9506c7df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Excavation Services" />
         <div class="description">
           <h3>Excavation Services</h3>
-          <p>Expert excavation and land clearing services for your project needs.</p>
+          <p>Our excavation experts offer efficient land clearing and site preparation services.</p>
         </div>
       </div>
     </div>
@@ -319,19 +325,19 @@
     <h2>Construction Materials</h2>
     <div class="materialscontainer">
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1581091870621-54a5b3e2789e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
+        <img src="https://images.unsplash.com/photo-1570172619642-9977d8c1606e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
         <h3>Concrete</h3>
       </div>
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1571593352290-8e2c4aa7b4a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Asphalt" />
+        <img src="https://images.unsplash.com/photo-1560357879-3a61a3d2d6f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Asphalt" />
         <h3>Asphalt</h3>
       </div>
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1572929457451-50e5836fc27e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fill" />
+        <img src="https://images.unsplash.com/photo-1552635036-3e9bfb99795a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fill" />
         <h3>Fill</h3>
       </div>
       <div class="materialcard">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sand" />
+        <img src="https://images.unsplash.com/photo-1576129143113-8da0e87d8b6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sand" />
         <h3>Sand</h3>
       </div>
     </div>
@@ -349,11 +355,11 @@
     <div class="faqcontainer">
       <div class="faqitem">
         <h3>What services do you provide?</h3>
-        <p>We offer material transportation, on site deliveries, and excavation services. We handle aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+        <p>We offer material transportation, on site deliveries, and excavation services—handling aggregates, dirt, sand, trash, C&amp;D, and more.</p>
       </div>
       <div class="faqitem">
         <h3>Why choose us?</h3>
-        <p>We are the trusted partner for construction projects in South Florida with decades of experience and cutting-edge technology.</p>
+        <p>With decades of experience and cutting-edge equipment, we are the trusted partner for construction projects in South Florida.</p>
       </div>
       <div class="faqitem">
         <h3>How can I get a quote?</h3>
@@ -361,11 +367,11 @@
       </div>
       <div class="faqitem">
         <h3>What is your typical project size?</h3>
-        <p>Our projects range from small local jobs to large-scale construction projects, tailored to your needs.</p>
+        <p>Our projects range from small local jobs to large-scale construction projects, customized to your needs.</p>
       </div>
       <div class="faqitem">
         <h3>What are your payment terms?</h3>
-        <p>We offer competitive pricing with flexible payment options. Contact us for details.</p>
+        <p>We offer competitive pricing with flexible payment options—please contact us for details.</p>
       </div>
     </div>
   </section>
@@ -460,6 +466,7 @@
     </form>
   </section>
   
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
   </footer>
@@ -617,7 +624,7 @@
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // Replace this simulated response with an API call to ChatGPT if desired.
+          // For a real integration, replace this simulated response with an API call to ChatGPT.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -636,7 +643,7 @@
     }
     
     function getAIResponse(message) {
-      // Simulated response. Replace with a real ChatGPT API integration as needed.
+      // Simulated response. Replace with a real ChatGPT API integration if needed.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
@@ -647,6 +654,7 @@
     
     document.addEventListener('DOMContentLoaded', function() {
       initChatbot();
+      // Create a toggle button for the chatbot
       const chatToggle = document.createElement('button');
       chatToggle.id = 'chatbot-toggle';
       chatToggle.textContent = 'Chat with Us';
