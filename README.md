@@ -6,7 +6,6 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
-  <!-- External CSS can be linked here if desired -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -18,10 +17,8 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Lighter background with a construction image */
-      background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1589571894960-20bbe2828a6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
+      /* Background is a gradient mix of white, blue, and red */
+      background: linear-gradient(to bottom, white, #336699, #cc3333);
       color: #333;
       margin: 0;
       padding: 0;
@@ -47,7 +44,9 @@
       transition: background 0.3s;
       margin-top: 20px;
     }
-    body.dark-mode header { background: rgba(18,18,18,0.95); }
+    body.dark-mode header {
+      background: rgba(18,18,18,0.95);
+    }
     .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; color: inherit; }
     .logo img { width: 150px; height: auto; }
     .header-extras {
@@ -61,25 +60,35 @@
     .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
     
     /* Navigation Bar */
-    nav { width: 100%; }
+    nav {
+      width: 100%;
+      background: #f0f0f0;
+      border-top: 2px solid #336699;
+      border-bottom: 2px solid #336699;
+    }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 0;
+      padding: 10px 0;
+      margin: 0;
     }
     nav ul li { margin: 0 15px; }
     nav ul li a {
       text-decoration: none;
-      color: inherit;
+      color: #333;
       font-size: 18px;
       font-weight: bold;
       padding: 5px 10px;
       transition: background 0.3s, transform 0.3s;
-      text-align: center;
+      border-radius: 5px;
     }
     nav ul li a:hover { background: #007BFF; color: white; transform: scale(1.05); }
+    /* Dark mode for nav */
+    body.dark-mode nav { background: #222; }
+    body.dark-mode nav ul li a { color: #f0f0f0; }
+    body.dark-mode nav ul li a:hover { background: #0056b3; }
     
     .darkmodetoggle {
       background: #007BFF;
@@ -94,7 +103,7 @@
     }
     .darkmodetoggle:hover { background: #0056b3; }
     
-    /* Hero Section (using a tri-axle dump truck image) */
+    /* Hero Section (Tri-Axle Dump Truck Background) */
     .hero {
       position: relative;
       text-align: center;
@@ -127,6 +136,7 @@
       transition: background 0.3s, transform 0.3s;
       display: inline-block;
       margin: 10px 0;
+      border-radius: 5px;
     }
     .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.1); }
     
@@ -149,6 +159,8 @@
       text-align: center;
       transition: transform 0.3s;
       cursor: pointer;
+      border-radius: 5px;
+      background: #fff;
     }
     .servicecard:hover { transform: rotateY(8deg) rotateX(5deg) scale(1.05); }
     .servicecard img { max-width: 100%; margin-bottom: 15px; border-radius: 5px; }
@@ -169,6 +181,8 @@
       width: 22%;
       text-align: center;
       transition: transform 0.3s;
+      border-radius: 5px;
+      background: #fff;
     }
     .materialcard:hover { transform: rotateY(8deg) scale(1.05); }
     .materialcard img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
@@ -179,6 +193,8 @@
       padding: 20px;
       margin: 10px 0;
       transition: transform 0.3s;
+      background: #fff;
+      border-radius: 5px;
     }
     .faqitem:hover { transform: scale(1.02); }
     .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
@@ -190,6 +206,8 @@
       padding: 20px;
       margin: 10px 0;
       transition: transform 0.3s;
+      background: #fff;
+      border-radius: 5px;
     }
     .reviewitem:hover { transform: scale(1.02); }
     .reviewform {
@@ -205,6 +223,7 @@
       width: 90%;
       max-width: 600px;
       border: 1px solid #ccc;
+      border-radius: 5px;
     }
     .reviewform button {
       padding: 10px 15px;
@@ -213,6 +232,7 @@
       color: white;
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
+      border-radius: 5px;
     }
     .reviewform button:hover { background: #0056b3; transform: scale(1.05); }
     
@@ -367,7 +387,7 @@
       </div>
       <div class="faqitem">
         <h3>What is your typical project size?</h3>
-        <p>Our projects range from small local jobs to large-scale construction projects, customized to your needs.</p>
+        <p>Our projects range from small local jobs to large-scale construction projects, tailored to your needs.</p>
       </div>
       <div class="faqitem">
         <h3>What are your payment terms?</h3>
@@ -643,7 +663,7 @@
     }
     
     function getAIResponse(message) {
-      // Simulated response. Replace with a real ChatGPT API integration if needed.
+      // Simulated response; replace with a real ChatGPT API integration if needed.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
