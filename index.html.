@@ -8,6 +8,10 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script defer src="script.js"></script>
   <style>
+    /* Enable smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
     /* Base Styles and Transitions */
     * {
       margin: 0;
@@ -20,13 +24,13 @@
     }
     body {
       font-family: Arial, sans-serif;
-      /* Construction-themed gradient */
-      background: linear-gradient(to right, #ffcc66, #999999);
+      /* Construction-inspired gray gradient background */
+      background: linear-gradient(to right, #666666, #aaaaaa);
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 12px; /* Base font size for all text */
+      font-size: 12px; /* Base font size for paragraphs */
     }
     body.dark-mode {
       background: #1a1a1a;
@@ -36,20 +40,7 @@
     .dynamicbox p {
       text-align: justify;
     }
-    /* Top Bar: Clock and City */
-    .topbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      text-align: right;
-      padding: 5px 15px;
-      background: #007BFF;
-      color: white;
-      font-size: 14px;
-      z-index: 1000;
-    }
-    /* Header */
+    /* Header and New Company Clock */
     header {
       background: rgba(255,255,255,0.9);
       padding: 15px;
@@ -59,7 +50,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 40px; /* Space for topbar */
+      margin-top: 20px; /* Adjusted since no top bar now */
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -135,6 +126,16 @@
     .darkmodetoggle:hover {
       background: #0056b3;
     }
+    /* New Company Clock in Header */
+    #companyclock {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #007BFF;
+      font-weight: bold;
+    }
+    body.dark-mode #companyclock {
+      color: #66ccff;
+    }
     /* Hero Section */
     .hero {
       position: relative;
@@ -181,10 +182,10 @@
     }
     .btn:hover {
       background: #0056b3;
-      transform: translateY(-3px) scale(1.1);
+      transform: translateY(-3px) scale(1.15);
       box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
-    /* Dynamic Boxes for Sections (Full Width on Desktop) */
+    /* Dynamic Boxes for Sections */
     .dynamicbox {
       background: rgba(255,255,255,0.8);
       padding: 40px;
@@ -206,6 +207,9 @@
     body.dark-mode .dynamicbox h2 {
       color: #fff;
     }
+    .dynamicbox p {
+      text-align: justify;
+    }
     /* Service Cards */
     .servicecontainer {
       display: flex;
@@ -224,7 +228,7 @@
       cursor: pointer;
     }
     .servicecard:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-5px) scale(1.15);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .servicecard img {
@@ -257,7 +261,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .materialcard:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-5px) scale(1.15);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .materialcard img {
@@ -268,7 +272,7 @@
     /* FAQ Section */
     .faqcontainer {
       margin-top: 20px;
-      text-align: left;
+      text-align: justify;
     }
     .faqitem {
       background: white;
@@ -292,7 +296,7 @@
     /* Review Section */
     .reviewcontainer {
       margin-top: 20px;
-      text-align: left;
+      text-align: justify;
     }
     .reviewitem {
       background: white;
@@ -372,11 +376,7 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar for Current Time and User City -->
-  <div class="topbar" id="topbar">
-    <span id="currenttime"></span><span id="usercity"></span>
-  </div>
-  
+  <!-- New Company Clock in Header -->
   <header>
     <div class="logo"><img src="images/logo.png" alt="Logo"></div>
     <nav>
@@ -387,6 +387,7 @@
         <li><a href="#map">Locations</a></li>
       </ul>
     </nav>
+    <div id="companyclock"></div>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="searchbar">
       <input type="text" placeholder="Search...">
@@ -509,21 +510,15 @@
   </footer>
   
   <script>
-    // Update current time and fetch user's city (replace YOUR_TOKEN with your ipinfo token)
-    function updateTimeAndCity() {
-      const timeEl = document.getElementById('currenttime');
-      const cityEl = document.getElementById('usercity');
+    // Company Clock Functionality
+    function updateCompanyClock() {
+      const clockEl = document.getElementById('companyclock');
       const now = new Date();
-      timeEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
-        .then(response => response.json())
-        .then(data => {
-          cityEl.textContent = data.city ? ' - ' + data.city : '';
-        })
-        .catch(error => console.error('Error fetching location:', error));
+      // Format the time with seconds
+      clockEl.textContent = "Current Time: " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + " - West Palm Beach";
     }
-    updateTimeAndCity();
-    setInterval(updateTimeAndCity, 1000);
+    updateCompanyClock();
+    setInterval(updateCompanyClock, 1000);
   
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
