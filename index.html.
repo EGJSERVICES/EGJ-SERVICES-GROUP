@@ -156,7 +156,7 @@
     }
     /* Dynamic Boxes for Sections */
     .dynamic-box {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px auto;
       border-radius: 8px;
@@ -166,7 +166,7 @@
       transition: transform 0.3s, background 0.3s;
     }
     .dark-mode .dynamic-box {
-      background: rgba(50, 50, 50, 0.9);
+      background: rgba(50,50,50,0.9);
     }
     .dynamic-box h2 {
       font-size: 32px;
@@ -227,6 +227,29 @@
       border-radius: 8px;
       margin-bottom: 10px;
     }
+    /* FAQ Section */
+    .faq-container {
+      margin-top: 20px;
+    }
+    .faq-item {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .faq-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .faq-item p {
+      font-size: 18px;
+    }
     /* Google Map */
     #google-map {
       width: 100%;
@@ -252,6 +275,9 @@
       }
       .search-bar input {
         width: 150px;
+      }
+      .material-card {
+        width: 45%;
       }
     }
   </style>
@@ -334,6 +360,24 @@
     <p>Email: egjttrucking@gmail.com</p>
     <p>Phone: 5615068932</p>
     <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
+  </section>
+
+  <section id="faq" class="dynamic-box">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3>What services do you provide?</h3>
+        <p>We offer material transportation, on-site deliveries, and excavation services. We handle aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why choose EGJ Services Group?</h3>
+        <p>We are the trusted partner for any project in South Florida with years of experience and a commitment to reliability and efficiency.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How can I get a quote?</h3>
+        <p>You can request a quote by contacting us through our website or by calling us directly.</p>
+      </div>
+    </div>
   </section>
 
   <footer>
