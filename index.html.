@@ -18,8 +18,8 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Background: gradient from white to light blue */
-      background: linear-gradient(to bottom, white, #add8e6);
+      /* Light mode background set to a single cream color */
+      background: #fff8e1;
       color: #333;
       margin: 0;
       padding: 0;
@@ -166,7 +166,6 @@
       font-size: 56px;
       margin-bottom: 20px;
       transition: color 0.3s;
-      /* Removed previous 4D animation from text */
     }
     body.dark-mode .hero h1 { color: #fff; }
     .hero p { font-size: 26px; margin-bottom: 40px; }
@@ -183,7 +182,7 @@
       border-radius: 5px;
     }
     .btn:hover {
-      /* 4D Animation applied to buttons on hover */
+      /* Apply a simple 4D animation effect on buttons */
       animation: btn4d 0.5s ease-out;
     }
     @keyframes btn4d {
@@ -688,9 +687,10 @@
       closeModal();
     });
     
-    // --- Initialize Google Map (Embedded map in section is used) ---
+    // --- Initialize Google Map ---
     function initMap() {
-      // The map is loaded via the embedded iframe above.
+      // The embedded iframe below is used to display the map.
+      // If you wish to use the API version, replace the iframe with an API-driven map.
     }
     
     // --- Toggle Description for Service Cards ---
@@ -820,7 +820,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps API (if you wish to switch from iframe, replace the embedded map above) -->
+  <!-- Google Maps Embed -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
