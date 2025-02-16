@@ -20,6 +20,7 @@
     }
     body {
       font-family: Arial, sans-serif;
+      /* Construction-inspired gray gradient with background image */
       background: linear-gradient(to right, #666666, #aaaaaa), url('images/constructionsitebackground.jpg');
       background-size: cover;
       background-blend-mode: multiply;
@@ -38,7 +39,7 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar: Watch Clock and Visit Counter */
+    /* Top Bar: Watch Clock Only */
     .topbar {
       position: fixed;
       top: 0;
@@ -70,21 +71,17 @@
       font-size: 14px;
       font-weight: bold;
     }
-    .visitcounter {
-      font-size: 14px;
-      font-weight: bold;
-    }
     /* Header */
     header {
       background: rgba(255,255,255,0.9);
       padding: 15px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
       margin-top: 50px; /* Space for topbar */
+      text-align: center;
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -92,6 +89,8 @@
     .logo {
       font-size: 28px;
       font-weight: bold;
+      margin-bottom: 10px;
+      color: inherit;
     }
     .logo img {
       width: 120px;
@@ -103,6 +102,7 @@
       flex-wrap: wrap;
       margin: 0;
       padding: 0;
+      justify-content: center;
     }
     nav ul li {
       margin: 0 15px;
@@ -401,24 +401,23 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar with Clock Styled as a Watch and Visit Counter -->
+  <!-- Top Bar with Watch Clock Only (No separate time text) -->
   <div class="topbar" id="topbar">
     <div class="watch-container">
       <img src="images/watch.png" alt="Watch" class="watch-image">
       <div class="clockwatch" id="companyclock"></div>
     </div>
-    <span id="usercity"></span>
-    <span class="visitcounter" id="visitcount"></span>
+    <!-- Removed separate time text; city will be updated below if needed -->
   </div>
   
   <header>
-    <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+    <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo"></div>
     <nav>
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#map">Locations</a></li>
+        <li><a href="#services" class="redirect-button" data-target="services">Services</a></li>
+        <li><a href="#about" class="redirect-button" data-target="about">About Us</a></li>
+        <li><a href="#contact" class="redirect-button" data-target="contact">Contact</a></li>
+        <li><a href="#map" class="redirect-button" data-target="map">Locations</a></li>
       </ul>
     </nav>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
@@ -431,7 +430,6 @@
   <section class="hero dynamicbox">
     <h1>Reliable Construction Transportation Services</h1>
     <p>Serving Palm Beach, St Lucie, and Broward Counties.</p>
-    <!-- Redirecting button: when clicked, it opens the modal with the Contact section -->
     <a href="#" class="btn redirect-button" data-target="contact">Request a Quote</a>
   </section>
   
@@ -543,7 +541,7 @@
     <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
   </footer>
   
-  <!-- Modal for Redirection -->
+  <!-- Modal for Redirected Content -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -587,15 +585,16 @@
   </style>
   
   <script>
-    // Update clock and fetch user's city and visit count
-    function updateClockAndVisits() {
+    // Update watch clock inside the watch image
+    function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
       clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     }
-    updateClockAndVisits();
-    setInterval(updateClockAndVisits, 1000);
+    updateCompanyClock();
+    setInterval(updateCompanyClock, 1000);
     
+    // Remove extra top right time (handled within the watch only)
     // Fetch user city using ipinfo.io (replace YOUR_TOKEN with your valid token)
     fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
       .then(response => response.json())
@@ -605,17 +604,17 @@
       })
       .catch(error => console.error('Error fetching location:', error));
     
-    // Fetch real visit count using countapi (update the namespace as needed)
-    function updateVisitCount() {
-      fetch("https://api.countapi.xyz/hit/egjservicesgroup.com/visits")
-        .then(response => response.json())
-        .then(data => {
-          const visitEl = document.getElementById('visitcount');
-          visitEl.textContent = " | Visits: " + data.value;
-        })
-        .catch(error => console.error("Error fetching visit count:", error));
-    }
-    updateVisitCount();
+    // (Optional) Fetch real visit count using CountAPI if needed.
+    // function updateVisitCount() {
+    //   fetch("https://api.countapi.xyz/hit/egjservicesgroup.com/visits")
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       const visitEl = document.getElementById('visitcount');
+    //       visitEl.textContent = " | Visits: " + data.value;
+    //     })
+    //     .catch(error => console.error("Error fetching visit count:", error));
+    // }
+    // updateVisitCount();
     
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
@@ -643,22 +642,7 @@
       }
     }
   
-    // Review form functionality
-    document.getElementById('submitreview').addEventListener('click', function() {
-      const reviewText = document.getElementById('reviewtext').value.trim();
-      if (reviewText) {
-        const reviewContainer = document.getElementById('reviewcontainer');
-        const reviewItem = document.createElement('div');
-        reviewItem.className = 'reviewitem';
-        reviewItem.innerHTML = `<p>${reviewText}</p><p><strong>Anonymous</strong></p>`;
-        reviewContainer.appendChild(reviewItem);
-        document.getElementById('reviewtext').value = '';
-      } else {
-        alert('Please enter a review before submitting.');
-      }
-    });
-  
-    // Modal functionality for redirect buttons
+    // Modal functionality for redirect buttons (shows only the content of the clicked section)
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -666,7 +650,6 @@
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
     }
-    // Attach event listeners for redirect buttons
     document.querySelectorAll('.redirect-button').forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
