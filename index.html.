@@ -6,6 +6,7 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
+  <!-- External CSS can be linked here if desired -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -17,8 +18,8 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Background is a gradient mix of white, blue, and red */
-      background: linear-gradient(to bottom, white, #336699, #cc3333);
+      /* Background: white to light blue gradient */
+      background: linear-gradient(to bottom, white, #add8e6);
       color: #333;
       margin: 0;
       padding: 0;
@@ -43,28 +44,29 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
       margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
-    body.dark-mode header {
-      background: rgba(18,18,18,0.95);
-    }
+    body.dark-mode header { background: rgba(18,18,18,0.95); }
     .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; color: inherit; }
     .logo img { width: 150px; height: auto; }
     .header-extras {
-      width: 100%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 5px;
       margin-bottom: 10px;
     }
-    .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
+    .digitalclock { font-size: 20px; font-weight: bold; }
+    .company-location { font-size: 20px; font-weight: bold; }
     
     /* Navigation Bar */
     nav {
       width: 100%;
       background: #f0f0f0;
-      border-top: 2px solid #336699;
-      border-bottom: 2px solid #336699;
+      border-top: 2px solid #add8e6;
+      border-bottom: 2px solid #add8e6;
+      margin-top: 10px;
     }
     nav ul {
       list-style: none;
@@ -100,6 +102,7 @@
       font-weight: bold;
       transition: background 0.3s;
       margin-top: 10px;
+      border-radius: 5px;
     }
     .darkmodetoggle:hover { background: #0056b3; }
     
@@ -110,6 +113,9 @@
       padding: 120px 20px;
       background: url('https://images.unsplash.com/photo-1572562699232-1a5c3dfb2416?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       color: white;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.5s;
     }
     .hero::before {
       content: "";
@@ -144,6 +150,9 @@
     section {
       padding: 40px 20px;
       margin: 30px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.3s;
     }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
     section p { margin: 10px 0; }
@@ -282,12 +291,17 @@
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
     }
+    
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 <body>
   <!-- Header Section -->
   <header>
-    <div class="logo"><img src="https://images.unsplash.com/photo-1581092795363-9146b5e80db3?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Logo" /></div>
+    <div class="logo">
+      <img src="https://images.unsplash.com/photo-1581092795363-9146b5e80db3?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Logo" />
+    </div>
     <div class="header-extras">
       <div class="digitalclock" id="companyclock"></div>
       <div class="company-location">West Palm Beach, FL</div>
@@ -501,11 +515,14 @@
   
   <!-- Optimization, Animation & AI Scripts -->
   <script>
-    // --- Update Digital Clock ---
+    // --- Update Digital Clock with Date ---
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
-      clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      // Display date on top and time below (each on a new line)
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      clockEl.innerHTML = date + "<br>" + time;
     }
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
