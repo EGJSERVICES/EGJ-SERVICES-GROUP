@@ -6,7 +6,7 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
-  <!-- External CSS can be linked here if desired -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -18,7 +18,7 @@
     html, body { width: 100%; height: 100%; }
     body {
       font-family: Arial, sans-serif;
-      /* Light mode background: gradient from white to light blue */
+      /* Background: gradient from white to light blue */
       background: linear-gradient(to bottom, white, #add8e6);
       color: #333;
       margin: 0;
@@ -123,24 +123,9 @@
       border-radius: 5px;
     }
     nav ul li a:hover { background: #007BFF; color: white; transform: scale(1.05); }
-    /* Dark mode for nav */
     body.dark-mode nav { background: #222; }
     body.dark-mode nav ul li a { color: #f0f0f0; }
     body.dark-mode nav ul li a:hover { background: #0056b3; }
-    
-    .darkmodetoggle {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background 0.3s;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    .darkmodetoggle:hover { background: #0056b3; }
     
     /* Hero Section (Tri-Axle Dump Truck Background) */
     .hero {
@@ -317,19 +302,10 @@
       cursor: pointer;
     }
     .modal-content .close:hover { color: black; }
-    @keyframes modalIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     
     /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #007BFF;
-      color: white;
-      transition: background 0.3s;
-    }
+    footer { text-align: center; padding: 20px; background: #007BFF; color: white; transition: background 0.3s; }
     
     /* Responsive */
     @media (max-width: 768px) {
@@ -366,7 +342,6 @@
         <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
       </ul>
     </nav>
-    <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
   
   <!-- Hero Section with Tri-Axle Dump Truck Background -->
@@ -431,7 +406,7 @@
   <!-- Google Map Section -->
   <section id="map">
     <h2>Our Service Areas</h2>
-    <div id="googlemap"></div>
+    <div id="googlemap" style="width:100%; height:400px;"></div>
   </section>
   
   <!-- FAQ Section -->
@@ -693,6 +668,15 @@
       desc.style.display = (desc.style.display === "none" || desc.style.display === "") ? "block" : "none";
     }
     
+    // --- Dark Mode Toggle via Switch ---
+    document.getElementById("darkModeToggle").addEventListener("change", function() {
+      if (this.checked) {
+        document.body.classList.add("dark-mode");
+      } else {
+        document.body.classList.remove("dark-mode");
+      }
+    });
+    
     // --- AI Virtual Assistant Chatbot (Proactive Integration) ---
     function initChatbot() {
       const chatbot = document.createElement('div');
@@ -712,7 +696,7 @@
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // Simulated response – replace with ChatGPT API integration if desired.
+          // For a real integration, replace this simulated response with an API call to ChatGPT.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -731,6 +715,7 @@
     }
     
     function getAIResponse(message) {
+      // Simulated response; replace with a real ChatGPT API integration if desired.
       return "I'm here to help! Could you please provide more details about your question?";
     }
     
