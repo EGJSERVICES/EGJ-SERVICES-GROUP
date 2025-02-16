@@ -41,8 +41,12 @@
       background: rgba(18, 18, 18, 0.9);
     }
     .logo {
-      font-size: 28px;
-      font-weight: bold;
+      /* Replaced text with a logo image; ensure images/logo.png exists */
+      /* Remove any textual title */
+    }
+    .logo img {
+      width: 120px;
+      height: auto;
     }
     nav ul {
       list-style: none;
@@ -151,7 +155,7 @@
     }
     .btn:hover {
       background: #0056b3;
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.05);
       box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
     /* Dynamic Boxes for Sections */
@@ -284,7 +288,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">EGJ Services Group</div>
+    <div class="logo"><img src="images/logo.png" alt="Logo"></div>
     <nav>
       <ul>
         <li><a href="#services">Services</a></li>
@@ -302,7 +306,7 @@
 
   <section class="hero dynamic-box">
     <h1>Reliable Construction Transportation Services</h1>
-    <p>Serving Palm Beach, St. Lucie, and Broward Counties.</p>
+    <p>Serving Palm Beach, St Lucie, and Broward Counties.</p>
     <a href="#contact" class="btn">Request a Quote</a>
   </section>
 
@@ -317,7 +321,7 @@
       </div>
       <div class="service-card">
         <img src="images/construction-site.jpg" alt="Construction Site">
-        <h3>On-Site Deliveries</h3>
+        <h3>On Site Deliveries</h3>
         <p>Fast and efficient delivery to keep your project moving.</p>
       </div>
       <div class="service-card">
@@ -355,29 +359,29 @@
     <div id="google-map"></div>
   </section>
 
-  <section id="contact" class="dynamic-box">
-    <h2>Contact Us</h2>
-    <p>Email: egjttrucking@gmail.com</p>
-    <p>Phone: 5615068932</p>
-    <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
-  </section>
-
   <section id="faq" class="dynamic-box">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-container">
       <div class="faq-item">
         <h3>What services do you provide?</h3>
-        <p>We offer material transportation, on-site deliveries, and excavation services. We handle aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
+        <p>We offer material transportation, on site deliveries, and excavation services. We handle aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
       </div>
       <div class="faq-item">
-        <h3>Why choose EGJ Services Group?</h3>
+        <h3>Why choose us?</h3>
         <p>We are the trusted partner for any project in South Florida with years of experience and a commitment to reliability and efficiency.</p>
       </div>
       <div class="faq-item">
         <h3>How can I get a quote?</h3>
-        <p>You can request a quote by contacting us through our website or by calling us directly.</p>
+        <p>You can request a quote by contacting us through our website or calling us directly.</p>
       </div>
     </div>
+  </section>
+
+  <section id="contact" class="dynamic-box">
+    <h2>Contact Us</h2>
+    <p>Email: egjttrucking@gmail.com</p>
+    <p>Phone: 5615068932</p>
+    <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
   </section>
 
   <footer>
