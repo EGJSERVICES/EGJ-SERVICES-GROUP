@@ -25,15 +25,11 @@
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
+      font-size: 12px; /* Set base font size to 12px */
     }
     body.dark-mode {
       background: #1a1a1a;
       color: #f0f0f0;
-    }
-    /* Dark Mode Paragraph Styling */
-    body.dark-mode p {
-      font-size: 12px;
-      font-family: Arial, sans-serif;
     }
     /* Top Bar: Current Time and City */
     .topbar {
@@ -58,7 +54,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 40px; /* Space for topbar */
+      margin-top: 40px; /* space for topbar */
     }
     body.dark-mode header {
       background: rgba(18,18,18,0.9);
@@ -157,6 +153,7 @@
       font-size: 48px;
       margin-bottom: 20px;
       transition: color 0.3s;
+      text-align: center;
     }
     body.dark-mode .hero h1 {
       color: #fff;
@@ -164,6 +161,7 @@
     .hero p {
       font-size: 24px;
       margin-bottom: 30px;
+      text-align: center;
     }
     .btn {
       background: #007BFF;
@@ -178,7 +176,7 @@
     }
     .btn:hover {
       background: #0056b3;
-      transform: translateY(-3px) scale(1.05);
+      transform: translateY(-3px) scale(1.1);
       box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
     }
     /* Dynamic Boxes for Sections (Full Width) */
@@ -186,7 +184,7 @@
       background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px 0;
-      border-radius: 8px;
+      border-radius: 20px; /* more circular corners */
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
@@ -212,7 +210,7 @@
     .servicecard {
       background: white;
       padding: 20px;
-      border-radius: 8px;
+      border-radius: 20px; /* more rounded */
       width: 30%;
       margin: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -225,7 +223,7 @@
     }
     .servicecard img {
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 20px;
       margin-bottom: 15px;
     }
     /* Materials Section */
@@ -239,7 +237,7 @@
       background: white;
       padding: 15px;
       margin: 15px;
-      border-radius: 8px;
+      border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       width: 22%;
       text-align: center;
@@ -251,7 +249,7 @@
     }
     .materialcard img {
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 20px;
       margin-bottom: 10px;
     }
     /* FAQ Section */
@@ -262,7 +260,7 @@
       background: white;
       padding: 20px;
       margin: 10px 0;
-      border-radius: 8px;
+      border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -285,7 +283,7 @@
       background: white;
       padding: 20px;
       margin: 10px 0;
-      border-radius: 8px;
+      border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -327,7 +325,7 @@
       width: 100%;
       height: 400px;
       border: none;
-      border-radius: 8px;
+      border-radius: 20px;
     }
     /* Contact Section */
     #contact {
@@ -456,7 +454,7 @@
   
   <section id="reviews" class="dynamicbox">
     <h2>Reviews</h2>
-    <div class="reviewcontainer">
+    <div class="reviewcontainer" id="reviewcontainer">
       <div class="reviewitem">
         <p>Great service and fast delivery. Highly recommended!</p>
         <p><strong>John Doe</strong></p>
@@ -467,8 +465,8 @@
       </div>
     </div>
     <div class="reviewform">
-      <textarea placeholder="Leave your review here..."></textarea>
-      <button>Submit Review</button>
+      <textarea id="reviewtext" placeholder="Leave your review here..."></textarea>
+      <button id="submitreview">Submit Review</button>
     </div>
   </section>
   
@@ -489,7 +487,8 @@
       const timeEl = document.getElementById('currenttime');
       const cityEl = document.getElementById('usercity');
       const now = new Date();
-      timeEl.textContent = now.toLocaleTimeString();
+      // Display time with hours, minutes, and seconds
+      timeEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
         .then(response => response.json())
         .then(data => {
@@ -498,11 +497,12 @@
         .catch(error => console.error('Error fetching location:', error));
     }
     updateTimeAndCity();
-    setInterval(updateTimeAndCity, 60000);
+    setInterval(updateTimeAndCity, 1000); // update every second
   
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
+  
     function initMap() {
       var location = { lat: 26.7153, lng: -80.0534 };
       var map = new google.maps.Map(document.getElementById('googlemap'), {
@@ -514,6 +514,21 @@
         map: map
       });
     }
+  
+    // Review form functionality
+    document.getElementById('submitreview').addEventListener('click', function() {
+      const reviewText = document.getElementById('reviewtext').value.trim();
+      if (reviewText) {
+        const reviewContainer = document.getElementById('reviewcontainer');
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'reviewitem';
+        reviewItem.innerHTML = `<p>${reviewText}</p><p><strong>Anonymous</strong></p>`;
+        reviewContainer.appendChild(reviewItem);
+        document.getElementById('reviewtext').value = '';
+      } else {
+        alert('Please enter a review before submitting.');
+      }
+    });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
