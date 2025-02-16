@@ -6,6 +6,7 @@
   <meta name="keywords" content="trucking, construction, dump truck, hauling, aggregates, South Florida" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
+  <!-- External CSS can be linked here if desired -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- jsPDF for PDF generation -->
@@ -13,8 +14,15 @@
   <script defer src="script.js"></script>
   <style>
     /* Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #003366, #336699);
@@ -22,16 +30,22 @@
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.6;
     }
-    body.dark-mode { background: #1a1a1a; color: #f0f0f0; }
-    p { text-align: justify; margin: 10px 0; }
+    body.dark-mode {
+      background: #1a1a1a;
+      color: #f0f0f0;
+    }
+    p {
+      text-align: justify;
+      margin: 10px 0;
+    }
     
     /* Header */
     header {
       background: rgba(255,255,255,0.9);
-      padding: 15px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -40,108 +54,151 @@
       transition: background 0.3s;
       margin-top: 20px;
     }
-    body.dark-mode header { background: rgba(18,18,18,0.9); }
-    .logo { font-size: 28px; font-weight: bold; margin-bottom: 10px; color: inherit; }
-    .logo img { width: 120px; height: auto; }
+    body.dark-mode header {
+      background: rgba(18,18,18,0.9);
+    }
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: inherit;
+    }
+    .logo img {
+      width: 150px;
+      height: auto;
+    }
     .header-extras {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 30px;
       margin-bottom: 10px;
     }
-    .digitalclock { font-size: 14px; font-weight: bold; }
-    .company-location { font-size: 14px; font-weight: bold; }
+    .digitalclock {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .company-location {
+      font-size: 20px;
+      font-weight: bold;
+    }
     
-    /* Dynamic Island for Navigation Buttons */
-    #dynamicIsland {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(5px);
-      border-radius: 50px;
-      padding: 10px 20px;
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2500;
+    /* Navigation Bar */
+    nav {
+      width: 100%;
+    }
+    nav ul {
+      list-style: none;
       display: flex;
-      gap: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: slideDown 0.5s ease-out;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
     }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translate(-50%, -30px); }
-      to { opacity: 1; transform: translate(-50%, 0); }
+    nav ul li {
+      margin: 0 15px;
     }
-    #dynamicIsland a {
+    nav ul li a {
       text-decoration: none;
       color: inherit;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       padding: 5px 10px;
       transition: background 0.3s, transform 0.3s;
+      text-align: center;
     }
-    #dynamicIsland a:hover { background: #007BFF; color: white; transform: scale(1.05); }
+    nav ul li a:hover {
+      background: #007BFF;
+      color: white;
+      transform: scale(1.05);
+    }
     
-    /* Dark mode toggle button */
     .darkmodetoggle {
       background: #007BFF;
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 0;
       cursor: pointer;
       font-size: 16px;
       font-weight: bold;
       transition: background 0.3s;
       margin-top: 10px;
     }
-    .darkmodetoggle:hover { background: #0056b3; }
+    .darkmodetoggle:hover {
+      background: #0056b3;
+    }
     
     /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
-      padding: 100px 20px;
-      background: url('images/constructionsitebackground.jpg') no-repeat center center/cover;
+      padding: 120px 20px;
+      background: url('https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       color: white;
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0,0,0,0.5);
       z-index: 1;
     }
-    .hero > * { position: relative; z-index: 2; }
-    .hero h1 { font-size: 48px; margin-bottom: 20px; transition: color 0.3s; }
-    body.dark-mode .hero h1 { color: #fff; }
-    .hero p { font-size: 24px; margin-bottom: 40px; }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+    body.dark-mode .hero h1 {
+      color: #fff;
+    }
+    .hero p {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
     .btn {
       background: #007BFF;
       color: white;
       padding: 15px 30px;
       text-decoration: none;
-      border-radius: 0;
       font-size: 20px;
       font-weight: bold;
       transition: background 0.3s, transform 0.3s;
-      text-align: center;
       display: inline-block;
       margin: 10px 0;
     }
-    .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.15); }
+    .btn:hover {
+      background: #0056b3;
+      transform: translateY(-3px) scale(1.1);
+    }
     
-    /* Section Styles – Minimal, No Box Backgrounds */
-    section { padding: 40px 20px; margin: 30px 0; }
-    section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
-    section p { margin: 10px 0; }
+    /* Section Styles – Minimal and Clean */
+    section {
+      padding: 40px 20px;
+      margin: 30px 0;
+    }
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    section p {
+      margin: 10px 0;
+    }
     
-    /* Service Cards – Minimal styling, no background boxes */
-    .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
+    /* Service Cards – Flat, Minimal Design */
+    .servicecontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
     .servicecard {
-      /* Removed background & shadow for a flat design */
       padding: 20px;
       width: 30%;
       margin: 15px;
@@ -150,12 +207,28 @@
       transition: transform 0.3s;
       cursor: pointer;
     }
-    .servicecard:hover { transform: scale(1.05); }
-    .servicecard img { max-width: 100%; margin-bottom: 15px; }
-    .description { display: none; text-align: left; margin-top: 10px; border-top: 1px solid #ccc; padding-top: 10px; }
+    .servicecard:hover {
+      transform: scale(1.05);
+    }
+    .servicecard img {
+      max-width: 100%;
+      margin-bottom: 15px;
+    }
+    .description {
+      display: none;
+      text-align: left;
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
     
-    /* Materials Section – Minimal styling */
-    .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
+    /* Materials Section – Flat, Minimal Design */
+    .materialscontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
     .materialcard {
       padding: 15px;
       margin: 15px;
@@ -163,22 +236,56 @@
       text-align: center;
       transition: transform 0.3s;
     }
-    .materialcard:hover { transform: scale(1.05); }
-    .materialcard img { max-width: 100%; margin-bottom: 10px; }
+    .materialcard:hover {
+      transform: scale(1.05);
+    }
+    .materialcard img {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
     
-    /* FAQ Section – Minimal styling */
-    .faqcontainer { margin-top: 20px; text-align: justify; }
-    .faqitem { padding: 20px; margin: 10px 0; transition: transform 0.3s; }
-    .faqitem:hover { transform: scale(1.02); }
-    .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
-    .faqitem p { font-size: 18px; }
+    /* FAQ Section */
+    .faqcontainer {
+      margin-top: 20px;
+      text-align: justify;
+    }
+    .faqitem {
+      padding: 20px;
+      margin: 10px 0;
+      transition: transform 0.3s;
+    }
+    .faqitem:hover {
+      transform: scale(1.02);
+    }
+    .faqitem h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .faqitem p {
+      font-size: 18px;
+    }
     
-    /* Review Section – Minimal styling */
-    .reviewcontainer { margin-top: 20px; text-align: justify; }
-    .reviewitem { padding: 20px; margin: 10px 0; transition: transform 0.3s; }
-    .reviewitem:hover { transform: scale(1.02); }
-    .reviewform { margin-top: 20px; display: flex; flex-direction: column; align-items: center; }
-    .reviewform input, .reviewform textarea {
+    /* Review Section */
+    .reviewcontainer {
+      margin-top: 20px;
+      text-align: justify;
+    }
+    .reviewitem {
+      padding: 20px;
+      margin: 10px 0;
+      transition: transform 0.3s;
+    }
+    .reviewitem:hover {
+      transform: scale(1.02);
+    }
+    .reviewform {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .reviewform input,
+    .reviewform textarea {
       padding: 10px;
       margin-bottom: 10px;
       width: 90%;
@@ -193,13 +300,16 @@
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
     }
-    .reviewform button:hover { background: #0056b3; transform: scale(1.05); }
+    .reviewform button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
     
     /* Contact Section */
     #contact a { color: #007BFF; text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
     
-    /* Modal for Redirected Content */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -209,7 +319,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0,0,0,0.8);
     }
     .modal-content {
       background: white;
@@ -241,40 +351,6 @@
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
     }
-    
-    /* Dynamic Island for Buttons */
-    #dynamicIsland {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(5px);
-      border-radius: 50px;
-      padding: 10px 20px;
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2500;
-      display: flex;
-      gap: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: slideDown 0.5s ease-out;
-    }
-    #dynamicIsland a {
-      text-decoration: none;
-      color: inherit;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 5px 10px;
-      transition: background 0.3s, transform 0.3s;
-    }
-    #dynamicIsland a:hover {
-      background: #007BFF;
-      color: white;
-      transform: scale(1.05);
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translate(-50%, -30px); }
-      to { opacity: 1; transform: translate(-50%, 0); }
-    }
   </style>
 </head>
 <body>
@@ -284,21 +360,21 @@
       <div class="digitalclock" id="companyclock"></div>
       <div class="company-location">West Palm Beach, FL</div>
     </div>
-    <!-- Dynamic Island for Navigation Buttons -->
-    <div id="dynamicIsland">
-      <a href="#services" class="redirect-button" data-target="services">Services</a>
-      <a href="#about" class="redirect-button" data-target="about">About Us</a>
-      <a href="#contact" class="redirect-button" data-target="contact">Contact</a>
-      <a href="#map" class="redirect-button" data-target="map">Locations</a>
-      <a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="#services" class="redirect-button" data-target="services">Services</a></li>
+        <li><a href="#about" class="redirect-button" data-target="about">About Us</a></li>
+        <li><a href="#contact" class="redirect-button" data-target="contact">Contact</a></li>
+        <li><a href="#map" class="redirect-button" data-target="map">Locations</a></li>
+        <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
+      </ul>
+    </nav>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
   
   <section class="hero">
     <h1>Reliable Construction Transportation Services</h1>
     <p style="margin-bottom: 40px;">Serving Palm Beach, St Lucie, and Broward Counties.</p>
-    <!-- Separate text from the button -->
     <a href="#" class="btn redirect-button" data-target="contact" style="margin-top:20px;">Request a Quote</a>
   </section>
   
@@ -307,21 +383,21 @@
     <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
     <div class="servicecontainer">
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/dumptruck.jpg" alt="Dump Truck" />
+        <img src="https://images.unsplash.com/photo-1581091870621-54a5b3e2789e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dump Truck" />
         <div class="description">
           <h3>Material Transportation</h3>
           <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/constructionsite.jpg" alt="Construction Site" />
+        <img src="https://images.unsplash.com/photo-1574127495565-dace4f08af89?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Construction Site" />
         <div class="description">
           <h3>On Site Deliveries</h3>
           <p>Fast and efficient delivery to keep your project moving.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/machinework.jpg" alt="Machine Work" />
+        <img src="https://images.unsplash.com/photo-1602080752321-0673e28c34f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Machine Work" />
         <div class="description">
           <h3>Excavation Services</h3>
           <p>We offer excavation and land clearing services.</p>
@@ -334,19 +410,19 @@
     <h2>Construction Materials</h2>
     <div class="materialscontainer">
       <div class="materialcard">
-        <img src="images/concrete.jpg" alt="Concrete" />
+        <img src="https://images.unsplash.com/photo-1561469377-4c236aabf5e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Concrete" />
         <h3>Concrete</h3>
       </div>
       <div class="materialcard">
-        <img src="images/asphalt.jpg" alt="Asphalt" />
+        <img src="https://images.unsplash.com/photo-1571593352290-8e2c4aa7b4a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Asphalt" />
         <h3>Asphalt</h3>
       </div>
       <div class="materialcard">
-        <img src="images/fill.jpg" alt="Fill" />
+        <img src="https://images.unsplash.com/photo-1572929457451-50e5836fc27e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fill" />
         <h3>Fill</h3>
       </div>
       <div class="materialcard">
-        <img src="images/sand.jpg" alt="Sand" />
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sand" />
         <h3>Sand</h3>
       </div>
     </div>
@@ -493,7 +569,7 @@
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
     
-    // --- Debounce Function for Optimizing Scroll Events ---
+    // --- Debounce Function for Scroll Events ---
     function debounce(func, wait, immediate) {
       let timeout;
       return function() {
@@ -543,7 +619,7 @@
       }
     });
     
-    // --- Modal Functionality for Redirect Buttons ---
+    // --- Modal Functionality ---
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -599,7 +675,7 @@
         zoom: 10,
         center: location,
       });
-      new google.maps.Marker({ position: location, map: map });
+      new google.maps.Marker({ position: location, map: map, title: "EGJ Services Group" });
     }
     
     // --- Toggle Description for Service Cards ---
@@ -618,18 +694,16 @@
           <button id="closeChatbot" onclick="toggleChatbot()">X</button>
         </div>
         <div id="chatbot-body"></div>
-        <input type="text" id="chatbot-input" placeholder="Ask me anything..." />
+        <input type="text" id="chatbot-input" placeholder="How can I help you?" />
       `;
       document.body.appendChild(chatbot);
       
-      // When user submits a message, simulate a proactive response
       document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           const userMessage = this.value;
           this.value = '';
           addChatMessage('user', userMessage);
-          // Here you could integrate with the ChatGPT API.
-          // For now, we simulate a proactive answer:
+          // Integrate with ChatGPT API here if desired.
           setTimeout(() => {
             const response = getAIResponse(userMessage);
             addChatMessage('ai', response);
@@ -648,8 +722,8 @@
     }
     
     function getAIResponse(message) {
-      // Placeholder: In a real scenario, call your ChatGPT API here.
-      return "I'm here to help! Could you please provide more details about your inquiry?";
+      // This is a placeholder. For a real implementation, integrate with ChatGPT or another AI service.
+      return "I'm here to help! Could you please provide more details about your question?";
     }
     
     function toggleChatbot() {
@@ -659,7 +733,7 @@
     
     document.addEventListener('DOMContentLoaded', function() {
       initChatbot();
-      // Create a chatbot toggle button (Dynamic Island could also include this if desired)
+      // Create a toggle button for the chatbot
       const chatToggle = document.createElement('button');
       chatToggle.id = 'chatbot-toggle';
       chatToggle.textContent = 'Chat with Us';
@@ -719,7 +793,6 @@
         background: #007BFF;
         color: white;
         border: none;
-        border-radius: 0;
         cursor: pointer;
         z-index: 3001;
       }
