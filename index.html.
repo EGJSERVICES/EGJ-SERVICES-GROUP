@@ -21,7 +21,7 @@
       --nav-border: #add8e6;
       --btn-bg: #007BFF;
       --btn-hover-bg: #0056b3;
-      --section-bg: #ffffff;
+      --content-bg: #ffffff;
       --header-bg: rgba(255, 255, 255, 0.95);
       --modal-bg: #ffffff;
     }
@@ -32,11 +32,11 @@
       --nav-border: #444;
       --btn-bg: #1E90FF;
       --btn-hover-bg: #1C86EE;
-      --section-bg: #1e1e1e;
+      --content-bg: #1e1e1e;
       --header-bg: rgba(18, 18, 18, 0.95);
       --modal-bg: #1e1e1e;
     }
-    
+
     /* ========== Base Styles ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
@@ -52,14 +52,14 @@
     }
     p { text-align: justify; margin: 10px 0; }
     
-    /* ========== Main Container (Wider Content) ========== */
+    /* ========== Main Container ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
     
-    /* ========== Dark Mode Toggle with Label ========== */
+    /* ========== Dark Mode Toggle Switch with Label ========== */
     .switch {
       position: fixed;
       top: 20px;
@@ -200,12 +200,12 @@
     .btn:hover {
       transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05);
     }
-
+    
     /* ========== Section Styles ========== */
     section {
       padding: 40px 20px;
       margin: 30px 0;
-      background: var(--section-bg);
+      background: var(--content-bg);
       border-radius: 8px;
       opacity: 0;
       animation: fadeIn 1s forwards;
@@ -238,7 +238,7 @@
       padding-top: 10px;
       color: var(--text-color);
     }
-
+    
     /* ========== Materials Cards ========== */
     .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
     .materialcard {
@@ -253,7 +253,7 @@
     }
     .materialcard:hover { transform: rotateY(8deg) scale(1.05); }
     .materialcard img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
-
+    
     /* ========== FAQ Section ========== */
     .faqcontainer { margin-top: 20px; text-align: justify; }
     .faqitem {
@@ -310,7 +310,7 @@
     /* ========== Contact Section ========== */
     #contact a { color: var(--btn-bg); text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
-
+    
     /* ========== Modal ========== */
     .modal {
       display: none;
@@ -347,7 +347,7 @@
     
     /* ========== Footer ========== */
     footer { text-align: center; padding: 20px; background: var(--btn-bg); color: white; transition: background 0.3s; }
-
+    
     /* ========== Responsive Adjustments ========== */
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
@@ -357,7 +357,7 @@
       p { font-size: 14px; }
       .btn { font-size: 16px; padding: 10px 20px; }
     }
-
+    
     /* ========== Animations ========== */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
@@ -598,7 +598,7 @@
   
   <!-- ========== JavaScript ========== -->
   <script>
-    // --- Update Digital Clock with Date ---
+    // Update Digital Clock with Date
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
@@ -609,7 +609,7 @@
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
     
-    // --- Debounce Function for Scroll Events ---
+    // Debounce Function for Scroll Events
     function debounce(func, wait, immediate) {
       let timeout;
       return function() {
@@ -625,7 +625,7 @@
       };
     }
     
-    // --- On-scroll Animation ---
+    // On-scroll Animation
     function animateOnScroll() {
       const elements = document.querySelectorAll('.animate-on-scroll');
       elements.forEach(el => {
@@ -640,7 +640,7 @@
     window.addEventListener('scroll', debounce(animateOnScroll, 100));
     animateOnScroll();
     
-    // --- Lazy Loading Images ---
+    // Lazy Loading Images
     document.addEventListener("DOMContentLoaded", function() {
       const lazyImages = document.querySelectorAll("img[data-src]");
       if ("IntersectionObserver" in window) {
@@ -659,7 +659,7 @@
       }
     });
     
-    // --- Modal Functionality ---
+    // Modal Functionality
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -676,7 +676,7 @@
       });
     });
     
-    // --- Work With Us Form: PDF Generation via jsPDF ---
+    // Work With Us Form: PDF Generation via jsPDF
     document.getElementById('serviceForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
@@ -708,13 +708,13 @@
       closeModal();
     });
     
-    // --- Toggle Description for Service Cards ---
+    // Toggle Description for Service Cards
     function toggleDescription(card) {
       const desc = card.querySelector('.description');
       desc.style.display = (desc.style.display === "none" || desc.style.display === "") ? "block" : "none";
     }
     
-    // --- Dark Mode Toggle via Switch ---
+    // Dark Mode Toggle via Switch
     document.getElementById("darkModeToggle").addEventListener("change", function() {
       if (this.checked) {
         document.body.classList.add("dark-mode");
@@ -723,7 +723,7 @@
       }
     });
     
-    // --- AI Virtual Assistant Chatbot (Proactive Integration) ---
+    // AI Virtual Assistant Chatbot (Proactive Integration)
     function initChatbot() {
       const chatbot = document.createElement('div');
       chatbot.id = 'chatbot';
@@ -777,7 +777,7 @@
       document.body.appendChild(chatToggle);
     });
     
-    // --- Inject Chatbot Styles ---
+    // Inject Chatbot Styles
     const chatbotStyles = document.createElement('style');
     chatbotStyles.innerHTML = `
       #chatbot {
@@ -835,7 +835,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps Embed (replace YOUR_API_KEY if needed) -->
+  <!-- Google Maps Embed (Replace YOUR_API_KEY with a valid key if needed) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
