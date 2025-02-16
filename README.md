@@ -14,11 +14,11 @@
             color: #333;
             margin: 0;
             padding: 0;
-            transition: background 0.5s ease;
+            transition: background 0.3s, color 0.3s;
         }
         .dark-mode {
-            background: #222;
-            color: #fff;
+            background: #1a1a1a;
+            color: #f0f0f0;
         }
         header {
             background: rgba(255, 255, 255, 0.9);
@@ -53,12 +53,15 @@
             color: white;
             padding: 15px 25px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 18px;
-            transition: transform 0.3s ease;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px gray;
+            transition: transform 0.2s, background 0.3s;
         }
         .btn:hover {
-            transform: scale(1.1);
+            background: #007acc;
+            transform: scale(1.05);
         }
         .service-container {
             display: flex;
@@ -72,6 +75,11 @@
             width: 30%;
             margin: 15px;
             box-shadow: 0px 0px 10px gray;
+            text-align: center;
+        }
+        .dark-mode .service-card {
+            background: #333;
+            color: white;
         }
         footer {
             text-align: center;
@@ -79,14 +87,22 @@
             background: lightblue;
             color: white;
         }
+        .dark-mode footer {
+            background: #007acc;
+        }
+        .dark-mode-toggle {
+            cursor: pointer;
+            padding: 10px;
+            background: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
         #google-map {
             width: 100%;
             height: 400px;
-            margin-top: 20px;
-        }
-        .dark-mode .service-card {
-            background: #333;
-            color: white;
         }
     </style>
 </head>
@@ -101,11 +117,7 @@
                 <li><a href="#map">Locations</a></li>
             </ul>
         </nav>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
 
     <section class="hero">
@@ -118,17 +130,14 @@
         <h2>Our Services</h2>
         <div class="service-container">
             <div class="service-card">
-                <img src="images/dump-truck.jpg" alt="Dump Truck">
                 <h3>Material Transportation</h3>
                 <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
             </div>
             <div class="service-card">
-                <img src="images/construction-site.jpg" alt="Construction Site">
                 <h3>On-Site Deliveries</h3>
                 <p>Fast and efficient delivery to keep your project moving.</p>
             </div>
             <div class="service-card">
-                <img src="images/machine-work.jpg" alt="Machine Work">
                 <h3>Excavation Services</h3>
                 <p>We offer excavation and land clearing services.</p>
             </div>
@@ -140,18 +149,14 @@
         <div id="google-map"></div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: egjttrucking@gmail.com</p>
-        <p>Phone: 561-506-8932</p>
-        <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
-    </section>
-
     <footer>
         <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
     </footer>
 
     <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
         function initMap() {
             var location = { lat: 26.7153, lng: -80.0534 };
             var map = new google.maps.Map(document.getElementById("google-map"), {
@@ -159,9 +164,6 @@
                 center: location,
             });
             var marker = new google.maps.Marker({ position: location, map: map });
-        }
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
