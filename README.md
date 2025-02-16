@@ -13,7 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="script.js"></script>
   <style>
-    /* ========== CSS Variables for Themes ========== */
+    /* ========== CSS Variables for Theme Colors ========== */
     :root {
       --bg-color: #f5f5f5;
       --text-color: #333;
@@ -36,7 +36,7 @@
       --header-bg: rgba(18, 18, 18, 0.95);
       --modal-bg: #1e1e1e;
     }
-
+    
     /* ========== Base Styles ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
@@ -348,7 +348,7 @@
     /* ========== Footer ========== */
     footer { text-align: center; padding: 20px; background: var(--btn-bg); color: white; transition: background 0.3s; }
     
-    /* ========== Responsive Adjustments ========== */
+    /* ========== Responsive ========== */
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
       nav ul li { margin: 0 10px; }
@@ -640,7 +640,7 @@
     window.addEventListener('scroll', debounce(animateOnScroll, 100));
     animateOnScroll();
     
-    // Lazy Loading Images
+    // Lazy Loading Images (if using data-src attribute)
     document.addEventListener("DOMContentLoaded", function() {
       const lazyImages = document.querySelectorAll("img[data-src]");
       if ("IntersectionObserver" in window) {
@@ -723,7 +723,7 @@
       }
     });
     
-    // AI Virtual Assistant Chatbot (Proactive Integration)
+    // AI Virtual Assistant Chatbot
     function initChatbot() {
       const chatbot = document.createElement('div');
       chatbot.id = 'chatbot';
@@ -835,7 +835,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps Embed (Replace YOUR_API_KEY with a valid key if needed) -->
+  <!-- Google Maps Embed (Replace YOUR_API_KEY with your valid key if needed) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
