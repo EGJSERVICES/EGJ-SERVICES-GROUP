@@ -20,10 +20,8 @@
     }
     body {
       font-family: Arial, sans-serif;
-      /* Construction-inspired gray gradient with background image */
-      background: linear-gradient(to right, #666666, #aaaaaa), url('images/constructionsitebackground.jpg');
-      background-size: cover;
-      background-blend-mode: multiply;
+      /* New construction-inspired background gradient */
+      background: linear-gradient(to right, #003366, #336699);
       color: #333;
       margin: 0;
       padding: 0;
@@ -39,7 +37,7 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar: Watch Clock Only */
+    /* Top Bar: Digital Clock (no separate watch image) */
     .topbar {
       position: fixed;
       top: 0;
@@ -54,22 +52,10 @@
       font-size: 14px;
       z-index: 1000;
     }
-    .watch-container {
-      display: flex;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .watch-container img {
-      width: 30px;
-      height: 30px;
-      margin-right: 5px;
-    }
-    .clockwatch {
-      border: 2px solid white;
-      border-radius: 50%;
-      padding: 5px 10px;
+    .digitalclock {
       font-size: 14px;
       font-weight: bold;
+      margin-right: 10px;
     }
     /* Header */
     header {
@@ -91,6 +77,7 @@
       font-weight: bold;
       margin-bottom: 10px;
       color: inherit;
+      text-align: center;
     }
     .logo img {
       width: 120px;
@@ -116,6 +103,10 @@
     nav ul li a:hover {
       color: #007BFF;
     }
+    /* Added new "Work With Us" link */
+    nav ul li a.workwithus {
+      font-weight: bold;
+    }
     .searchbar {
       margin-top: 10px;
     }
@@ -123,14 +114,14 @@
       padding: 10px;
       width: 200px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 0; /* Remove rounded corners */
     }
     .searchbar button {
       padding: 10px 15px;
       border: none;
       background: #007BFF;
       color: white;
-      border-radius: 5px;
+      border-radius: 0; /* Remove rounded corners */
       margin-left: 10px;
       cursor: pointer;
       transition: background 0.3s, transform 0.3s;
@@ -150,7 +141,7 @@
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 5px;
+      border-radius: 0; /* Remove rounded corners */
       cursor: pointer;
       font-size: 16px;
       font-weight: bold;
@@ -198,7 +189,7 @@
       color: white;
       padding: 15px 30px;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 0; /* Remove rounded corners */
       font-size: 20px;
       font-weight: bold;
       box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
@@ -214,7 +205,7 @@
       background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px 0;
-      border-radius: 20px;
+      border-radius: 0; /* Remove rounded corners */
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
@@ -227,6 +218,7 @@
       font-size: 32px;
       margin-bottom: 20px;
       transition: color 0.3s;
+      text-align: center;
     }
     body.dark-mode .dynamicbox h2 {
       color: #fff;
@@ -244,7 +236,7 @@
     .servicecard {
       background: white;
       padding: 20px;
-      border-radius: 20px;
+      border-radius: 0; /* Remove rounded corners */
       width: 30%;
       margin: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -258,7 +250,7 @@
     }
     .servicecard img {
       max-width: 100%;
-      border-radius: 20px;
+      border-radius: 0;
       margin-bottom: 15px;
     }
     .description {
@@ -279,7 +271,7 @@
       background: white;
       padding: 15px;
       margin: 15px;
-      border-radius: 20px;
+      border-radius: 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       width: 22%;
       text-align: center;
@@ -291,7 +283,7 @@
     }
     .materialcard img {
       max-width: 100%;
-      border-radius: 20px;
+      border-radius: 0;
       margin-bottom: 10px;
     }
     /* FAQ Section */
@@ -303,7 +295,7 @@
       background: white;
       padding: 20px;
       margin: 10px 0;
-      border-radius: 20px;
+      border-radius: 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -327,7 +319,7 @@
       background: white;
       padding: 20px;
       margin: 10px 0;
-      border-radius: 20px;
+      border-radius: 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -346,7 +338,7 @@
       resize: vertical;
       min-height: 80px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 0;
       margin-bottom: 10px;
       width: 90%;
       max-width: 600px;
@@ -356,7 +348,7 @@
       border: none;
       background: #007BFF;
       color: white;
-      border-radius: 5px;
+      border-radius: 0;
       cursor: pointer;
       transition: background 0.3s, transform 0.3s;
     }
@@ -369,7 +361,7 @@
       width: 100%;
       height: 400px;
       border: none;
-      border-radius: 20px;
+      border-radius: 0;
     }
     /* Contact Section */
     #contact {
@@ -401,13 +393,10 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar with Watch Clock Only (No separate time text) -->
+  <!-- Top Bar with Digital Watch Clock -->
   <div class="topbar" id="topbar">
-    <div class="watch-container">
-      <img src="images/watch.png" alt="Watch" class="watch-image">
-      <div class="clockwatch" id="companyclock"></div>
-    </div>
-    <!-- Removed separate time text; city will be updated below if needed -->
+    <div class="digitalclock" id="companyclock"></div>
+    <span id="usercity"></span>
   </div>
   
   <header>
@@ -418,6 +407,7 @@
         <li><a href="#about" class="redirect-button" data-target="about">About Us</a></li>
         <li><a href="#contact" class="redirect-button" data-target="contact">Contact</a></li>
         <li><a href="#map" class="redirect-button" data-target="map">Locations</a></li>
+        <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
       </ul>
     </nav>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
@@ -537,6 +527,35 @@
     <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
   </section>
   
+  <!-- Hidden Section for "Work With Us" Form -->
+  <section id="workwithus" class="dynamicbox" style="display: none; text-align: left;">
+    <h2>Work With Us</h2>
+    <form id="workForm">
+      <label for="companyName">Company Name:</label><br>
+      <input type="text" id="companyName" name="companyName" required><br><br>
+      
+      <label for="billingAddress">Billing Address:</label><br>
+      <input type="text" id="billingAddress" name="billingAddress" required><br><br>
+      
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      
+      <label for="phone">Phone Number:</label><br>
+      <input type="tel" id="phone" name="phone" required><br><br>
+      
+      <label for="materialNeeded">Material Needed:</label><br>
+      <input type="text" id="materialNeeded" name="materialNeeded" required><br><br>
+      
+      <label for="dates">Dates Needed:</label><br>
+      <input type="date" id="dates" name="dates" required><br><br>
+      
+      <label for="reason">Why are trucks needed?:</label><br>
+      <textarea id="reason" name="reason" required></textarea><br><br>
+      
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+  
   <footer>
     <p>&copy; 2025 EGJ Services Group. All rights reserved.</p>
   </footer>
@@ -585,7 +604,7 @@
   </style>
   
   <script>
-    // Update watch clock inside the watch image
+    // Update the digital clock in the top bar
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
@@ -594,8 +613,7 @@
     updateCompanyClock();
     setInterval(updateCompanyClock, 1000);
     
-    // Remove extra top right time (handled within the watch only)
-    // Fetch user city using ipinfo.io (replace YOUR_TOKEN with your valid token)
+    // Fetch user's city using ipinfo.io (replace YOUR_TOKEN with your valid token)
     fetch('https://ipinfo.io/json?token=YOUR_TOKEN')
       .then(response => response.json())
       .then(data => {
@@ -604,17 +622,7 @@
       })
       .catch(error => console.error('Error fetching location:', error));
     
-    // (Optional) Fetch real visit count using CountAPI if needed.
-    // function updateVisitCount() {
-    //   fetch("https://api.countapi.xyz/hit/egjservicesgroup.com/visits")
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       const visitEl = document.getElementById('visitcount');
-    //       visitEl.textContent = " | Visits: " + data.value;
-    //     })
-    //     .catch(error => console.error("Error fetching visit count:", error));
-    // }
-    // updateVisitCount();
+    // (Optional) Visit count can be added here if needed.
     
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
@@ -642,7 +650,22 @@
       }
     }
   
-    // Modal functionality for redirect buttons (shows only the content of the clicked section)
+    // Review form functionality
+    document.getElementById('submitreview').addEventListener('click', function() {
+      const reviewText = document.getElementById('reviewtext').value.trim();
+      if (reviewText) {
+        const reviewContainer = document.getElementById('reviewcontainer');
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'reviewitem';
+        reviewItem.innerHTML = `<p>${reviewText}</p><p><strong>Anonymous</strong></p>`;
+        reviewContainer.appendChild(reviewItem);
+        document.getElementById('reviewtext').value = '';
+      } else {
+        alert('Please enter a review before submitting.');
+      }
+    });
+  
+    // Modal functionality for redirect buttons
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -657,6 +680,13 @@
         var content = document.getElementById(targetId).innerHTML;
         openModal(content);
       });
+    });
+  
+    // Work With Us form submission (for demonstration)
+    document.getElementById('workForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your application has been submitted.');
+      closeModal();
     });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
