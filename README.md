@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGJ Services Group</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- jsPDF library for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="script.js"></script>
   <style>
     /* Base Styles and Transitions */
@@ -20,7 +22,6 @@
     }
     body {
       font-family: Arial, sans-serif;
-      /* New construction-inspired background gradient */
       background: linear-gradient(to right, #003366, #336699);
       color: #333;
       margin: 0;
@@ -37,7 +38,7 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar: Digital Clock (no separate watch image) */
+    /* Top Bar with Watch Clock */
     .topbar {
       position: fixed;
       top: 0;
@@ -52,10 +53,22 @@
       font-size: 14px;
       z-index: 1000;
     }
-    .digitalclock {
+    .watch-container {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .watch-container img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
+    .clockwatch {
+      border: 2px solid white;
+      border-radius: 50%;
+      padding: 5px 10px;
       font-size: 14px;
       font-weight: bold;
-      margin-right: 10px;
     }
     /* Header */
     header {
@@ -75,8 +88,8 @@
     .logo {
       font-size: 28px;
       font-weight: bold;
-      margin-bottom: 10px;
       color: inherit;
+      margin-bottom: 10px;
       text-align: center;
     }
     .logo img {
@@ -103,7 +116,7 @@
     nav ul li a:hover {
       color: #007BFF;
     }
-    /* Added new "Work With Us" link */
+    /* New "Work With Us" link styling */
     nav ul li a.workwithus {
       font-weight: bold;
     }
@@ -114,14 +127,14 @@
       padding: 10px;
       width: 200px;
       border: 1px solid #ccc;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
     }
     .searchbar button {
       padding: 10px 15px;
       border: none;
       background: #007BFF;
       color: white;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
       margin-left: 10px;
       cursor: pointer;
       transition: background 0.3s, transform 0.3s;
@@ -141,7 +154,7 @@
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
       cursor: pointer;
       font-size: 16px;
       font-weight: bold;
@@ -162,7 +175,10 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0,0,0,0.5);
       z-index: 1;
     }
@@ -189,7 +205,7 @@
       color: white;
       padding: 15px 30px;
       text-decoration: none;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
       font-size: 20px;
       font-weight: bold;
       box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
@@ -205,7 +221,7 @@
       background: rgba(255,255,255,0.8);
       padding: 40px;
       margin: 30px 0;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
@@ -236,7 +252,7 @@
     .servicecard {
       background: white;
       padding: 20px;
-      border-radius: 0; /* Remove rounded corners */
+      border-radius: 0;
       width: 30%;
       margin: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -393,14 +409,17 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar with Digital Watch Clock -->
+  <!-- Top Bar with Digital Clock in Watch -->
   <div class="topbar" id="topbar">
-    <div class="digitalclock" id="companyclock"></div>
+    <div class="watch-container">
+      <img src="images/watch.png" alt="Watch" class="watch-image" />
+      <div class="clockwatch" id="companyclock"></div>
+    </div>
     <span id="usercity"></span>
   </div>
   
   <header>
-    <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo"></div>
+    <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo" /></div>
     <nav>
       <ul>
         <li><a href="#services" class="redirect-button" data-target="services">Services</a></li>
@@ -412,7 +431,7 @@
     </nav>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="searchbar">
-      <input type="text" placeholder="Search...">
+      <input type="text" placeholder="Search..." />
       <button><i class="fas fa-search"></i></button>
     </div>
   </header>
@@ -428,21 +447,21 @@
     <p>We provide all kinds of aggregates, dirt, sand, trash, C&amp;D, and hourly projects.</p>
     <div class="servicecontainer">
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/dumptruck.jpg" alt="Dump Truck">
+        <img src="images/dumptruck.jpg" alt="Dump Truck" />
         <div class="description">
           <h3>Material Transportation</h3>
           <p>We transport aggregates, fill, concrete, asphalt, and more.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/constructionsite.jpg" alt="Construction Site">
+        <img src="images/constructionsite.jpg" alt="Construction Site" />
         <div class="description">
           <h3>On Site Deliveries</h3>
           <p>Fast and efficient delivery to keep your project moving.</p>
         </div>
       </div>
       <div class="servicecard" onclick="toggleDescription(this)">
-        <img src="images/machinework.jpg" alt="Machine Work">
+        <img src="images/machinework.jpg" alt="Machine Work" />
         <div class="description">
           <h3>Excavation Services</h3>
           <p>We offer excavation and land clearing services.</p>
@@ -455,19 +474,19 @@
     <h2>Construction Materials</h2>
     <div class="materialscontainer">
       <div class="materialcard">
-        <img src="images/concrete.jpg" alt="Concrete">
+        <img src="images/concrete.jpg" alt="Concrete" />
         <h3>Concrete</h3>
       </div>
       <div class="materialcard">
-        <img src="images/asphalt.jpg" alt="Asphalt">
+        <img src="images/asphalt.jpg" alt="Asphalt" />
         <h3>Asphalt</h3>
       </div>
       <div class="materialcard">
-        <img src="images/fill.jpg" alt="Fill">
+        <img src="images/fill.jpg" alt="Fill" />
         <h3>Fill</h3>
       </div>
       <div class="materialcard">
-        <img src="images/sand.jpg" alt="Sand">
+        <img src="images/sand.jpg" alt="Sand" />
         <h3>Sand</h3>
       </div>
     </div>
@@ -530,29 +549,32 @@
   <!-- Hidden Section for "Work With Us" Form -->
   <section id="workwithus" class="dynamicbox" style="display: none; text-align: left;">
     <h2>Work With Us</h2>
-    <form id="workForm">
-      <label for="companyName">Company Name:</label><br>
-      <input type="text" id="companyName" name="companyName" required><br><br>
+    <form id="serviceForm">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
       
-      <label for="billingAddress">Billing Address:</label><br>
-      <input type="text" id="billingAddress" name="billingAddress" required><br><br>
+      <label for="phone">Phone:</label><br />
+      <input type="tel" id="phone" name="phone" required /><br /><br />
       
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
       
-      <label for="phone">Phone Number:</label><br>
-      <input type="tel" id="phone" name="phone" required><br><br>
+      <label for="address">Mailing/Billing Address:</label><br />
+      <input type="text" id="address" name="address" required /><br /><br />
       
-      <label for="materialNeeded">Material Needed:</label><br>
-      <input type="text" id="materialNeeded" name="materialNeeded" required><br><br>
+      <label for="companyLocation">Company Location:</label><br />
+      <input type="text" id="companyLocation" name="companyLocation" required /><br /><br />
       
-      <label for="dates">Dates Needed:</label><br>
-      <input type="date" id="dates" name="dates" required><br><br>
+      <label for="serviceType">Service Type:</label><br />
+      <select id="serviceType" name="serviceType" required>
+        <option value="Dump Truck Transportation">Dump Truck Transportation</option>
+        <option value="Material Hauling">Material Hauling</option>
+        <option value="Excavation Services">Excavation Services</option>
+        <option value="On Site Deliveries">On Site Deliveries</option>
+        <option value="Other">Other</option>
+      </select><br /><br />
       
-      <label for="reason">Why are trucks needed?:</label><br>
-      <textarea id="reason" name="reason" required></textarea><br><br>
-      
-      <button type="submit">Submit Application</button>
+      <button type="submit">Submit Service Request</button>
     </form>
   </section>
   
@@ -622,12 +644,10 @@
       })
       .catch(error => console.error('Error fetching location:', error));
     
-    // (Optional) Visit count can be added here if needed.
-    
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
-  
+    
     function initMap() {
       var location = { lat: 26.7153, lng: -80.0534 };
       var map = new google.maps.Map(document.getElementById('googlemap'), {
@@ -639,7 +659,7 @@
         map: map
       });
     }
-  
+    
     // Toggle description for service cards
     function toggleDescription(card) {
       var desc = card.querySelector('.description');
@@ -649,22 +669,7 @@
         desc.style.display = "none";
       }
     }
-  
-    // Review form functionality
-    document.getElementById('submitreview').addEventListener('click', function() {
-      const reviewText = document.getElementById('reviewtext').value.trim();
-      if (reviewText) {
-        const reviewContainer = document.getElementById('reviewcontainer');
-        const reviewItem = document.createElement('div');
-        reviewItem.className = 'reviewitem';
-        reviewItem.innerHTML = `<p>${reviewText}</p><p><strong>Anonymous</strong></p>`;
-        reviewContainer.appendChild(reviewItem);
-        document.getElementById('reviewtext').value = '';
-      } else {
-        alert('Please enter a review before submitting.');
-      }
-    });
-  
+    
     // Modal functionality for redirect buttons
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
@@ -681,11 +686,33 @@
         openModal(content);
       });
     });
-  
-    // Work With Us form submission (for demonstration)
-    document.getElementById('workForm')?.addEventListener('submit', function(e) {
+    
+    // Service Agreement Form (Work With Us) submission with PDF generation using jsPDF
+    document.getElementById('serviceForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Your application has been submitted.');
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+      const companyLocation = document.getElementById('companyLocation').value;
+      const serviceType = document.getElementById('serviceType').value;
+      
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(12);
+      doc.text("Service Agreement Request", 10, 10);
+      doc.text(`Name: ${name}`, 10, 20);
+      doc.text(`Phone: ${phone}`, 10, 30);
+      doc.text(`Email: ${email}`, 10, 40);
+      doc.text(`Mailing/Billing Address: ${address}`, 10, 50);
+      doc.text(`Company Location: ${companyLocation}`, 10, 60);
+      doc.text(`Service Type: ${serviceType}`, 10, 70);
+      
+      // For demonstration, auto-download the PDF.
+      // In a real scenario, you would send this PDF to egjtrrucking@gmail.com via a backend service.
+      doc.save("ServiceAgreement.pdf");
+      
+      alert("Your service request has been submitted. A PDF has been generated.");
       closeModal();
     });
   </script>
