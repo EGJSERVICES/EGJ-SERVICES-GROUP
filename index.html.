@@ -33,7 +33,7 @@
     }
     p { text-align: justify; margin: 10px 0; }
     
-    /* Main Container for wider content */
+    /* Main Container for Wider Content */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -165,9 +165,8 @@
     .hero h1 {
       font-size: 56px;
       margin-bottom: 20px;
-      transition: color 0.3s, transform 0.5s;
-      /* 4D Animation: continuous 3D rotation effect */
-      animation: rotate4d 4s infinite;
+      transition: color 0.3s;
+      /* Removed previous 4D animation from text */
     }
     body.dark-mode .hero h1 { color: #fff; }
     .hero p { font-size: 26px; margin-bottom: 40px; }
@@ -178,12 +177,20 @@
       text-decoration: none;
       font-size: 20px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      transition: transform 0.3s;
       display: inline-block;
       margin: 10px 0;
       border-radius: 5px;
     }
-    .btn:hover { background: #0056b3; transform: translateY(-3px) scale(1.1); }
+    .btn:hover {
+      /* 4D Animation applied to buttons on hover */
+      animation: btn4d 0.5s ease-out;
+    }
+    @keyframes btn4d {
+      0% { transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1); }
+      50% { transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05); }
+      100% { transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1); }
+    }
     
     /* Section Styles – Minimal and Clean */
     section {
@@ -333,14 +340,6 @@
     
     /* Animations */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    /* 4D Animation (continuous 3D rotation effect) */
-    @keyframes rotate4d {
-      0% { transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-      25% { transform: perspective(800px) rotateX(20deg) rotateY(20deg) rotateZ(10deg); }
-      50% { transform: perspective(800px) rotateX(0deg) rotateY(40deg) rotateZ(0deg); }
-      75% { transform: perspective(800px) rotateX(20deg) rotateY(20deg) rotateZ(-10deg); }
-      100% { transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    }
   </style>
 </head>
 <body>
@@ -432,10 +431,9 @@
       </div>
     </section>
     
-    <!-- Google Map Section (Using Embedded Iframe) -->
+    <!-- Google Map Section (Embedded Iframe) -->
     <section id="map">
       <h2>Our Service Areas</h2>
-      <!-- Embedded Google Map -->
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4603.734359952162!2d-80.14422492364695!3d26.706649976770603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDQyJzIzLjkiTiA4MMKwMDgnMjkuOSJX!5e1!3m2!1sen!2sus!4v1739717706873!5m2!1sen!2sus" 
         width="100%" 
@@ -690,10 +688,9 @@
       closeModal();
     });
     
-    // --- Initialize Google Map (Embedded iframe is used, so this script is no longer needed) ---
-    // If you prefer using the API, replace the iframe with a div and provide a valid API key.
+    // --- Initialize Google Map (Embedded map in section is used) ---
     function initMap() {
-      // This function is kept for backward compatibility. The map is loaded via the iframe below.
+      // The map is loaded via the embedded iframe above.
     }
     
     // --- Toggle Description for Service Cards ---
@@ -823,7 +820,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Embedded Google Map (No API Key Needed) -->
+  <!-- Google Maps API (if you wish to switch from iframe, replace the embedded map above) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
