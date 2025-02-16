@@ -22,12 +22,13 @@
     }
     body {
       font-family: Arial, sans-serif;
+      /* New construction-inspired gradient background */
       background: linear-gradient(to right, #003366, #336699);
       color: #333;
       margin: 0;
       padding: 0;
       transition: background 0.3s, color 0.3s;
-      font-size: 12px; /* Base font size for paragraphs */
+      font-size: 12px;
       line-height: 1.5;
     }
     body.dark-mode {
@@ -38,20 +39,56 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Header with Embedded Clock */
+    /* Top Bar: Contains the digital clock (with watch icon) and static company location */
+    .topbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 5px 15px;
+      background: #007BFF;
+      color: white;
+      font-size: 14px;
+      z-index: 1000;
+    }
+    .watch-container {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .watch-container img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
+    .clockwatch {
+      border: 2px solid white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .company-location {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    /* Header */
     header {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
       padding: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: background 0.3s;
-      margin-top: 20px; /* No topbar now */
+      margin-top: 50px;
       text-align: center;
     }
     body.dark-mode header {
-      background: rgba(18,18,18,0.9);
+      background: rgba(18, 18, 18, 0.9);
     }
     .logo {
       font-size: 28px;
@@ -82,57 +119,17 @@
       color: inherit;
       font-size: 18px;
       transition: color 0.3s;
+      text-align: center;
     }
     nav ul li a:hover {
       color: #007BFF;
     }
-    /* New "Work With Us" link gets same styling as others */
+    /* New "Work With Us" link styling remains the same */
     nav ul li a.workwithus {
       font-weight: bold;
     }
-    /* Header Clock (placed under navigation on the right) */
-    .header-extras {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-    }
-    .digitalclock {
-      font-size: 14px;
-      font-weight: bold;
-    }
-    /* Search Bar aligned to right in header extras */
-    .searchbar {
-      margin-top: 10px;
-    }
-    .searchbar input {
-      padding: 10px;
-      width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 0;
-    }
-    .searchbar button {
-      padding: 10px 15px;
-      border: none;
-      background: #007BFF;
-      color: white;
-      border-radius: 0;
-      margin-left: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .searchbar button:hover {
-      background: #0056b3;
-      transform: scale(1.05);
-    }
-    .dark-mode .searchbar button {
-      background: #1e88e5;
-    }
-    .dark-mode .searchbar button:hover {
-      background: #1565c0;
-    }
+    /* Remove the search bar entirely */
+    /* Header Extras: Clock and Navigation already added */
     .darkmodetoggle {
       background: #007BFF;
       color: white;
@@ -163,7 +160,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
     .hero > * {
@@ -192,28 +189,29 @@
       border-radius: 0;
       font-size: 20px;
       font-weight: bold;
-      box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
+      box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       text-align: center;
+      margin: 10px;
     }
     .btn:hover {
       background: #0056b3;
       transform: translateY(-3px) scale(1.15);
-      box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
     }
     /* Dynamic Boxes for Sections */
     .dynamicbox {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255, 255, 255, 0.8);
       padding: 40px;
       margin: 30px 0;
       border-radius: 0;
       width: 100%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, background 0.3s;
       text-align: center;
     }
     .dark-mode .dynamicbox {
-      background: rgba(50,50,50,0.9);
+      background: rgba(50, 50, 50, 0.9);
     }
     .dynamicbox h2 {
       font-size: 32px;
@@ -240,14 +238,14 @@
       border-radius: 0;
       width: 30%;
       margin: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
     .servicecard:hover {
       transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     .servicecard img {
       max-width: 100%;
@@ -273,14 +271,14 @@
       padding: 15px;
       margin: 15px;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 22%;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .materialcard:hover {
       transform: translateY(-5px) scale(1.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     .materialcard img {
       max-width: 100%;
@@ -297,12 +295,12 @@
       padding: 20px;
       margin: 10px 0;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .faqitem:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
     .faqitem h3 {
       font-size: 22px;
@@ -321,12 +319,12 @@
       padding: 20px;
       margin: 10px 0;
       border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .reviewitem:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
     .reviewform {
       margin-top: 20px;
@@ -394,7 +392,14 @@
   </style>
 </head>
 <body>
-  <!-- (Removed the top bar clock; the digital clock now appears in the header) -->
+  <!-- Top Bar with Digital Clock and Company Location -->
+  <div class="topbar" id="topbar">
+    <div class="watch-container">
+      <img src="images/watch.png" alt="Watch" class="watch-image" />
+      <div class="clockwatch" id="companyclock"></div>
+    </div>
+    <span class="company-location">West Palm Beach, FL</span>
+  </div>
   
   <header>
     <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo" /></div>
@@ -407,13 +412,7 @@
         <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
       </ul>
     </nav>
-    <!-- New Clock placed here for easy visibility -->
-    <div class="digitalclock" id="companyclock"></div>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    <div class="searchbar">
-      <input type="text" placeholder="Search..." />
-      <button><i class="fas fa-search"></i></button>
-    </div>
   </header>
   
   <section class="hero dynamicbox">
@@ -486,11 +485,19 @@
       </div>
       <div class="faqitem">
         <h3>Why choose us?</h3>
-        <p>We are the trusted partner for any project in South Florida with years of experience and a commitment to reliability and efficiency.</p>
+        <p>We are the trusted partner for any project in South Florida with decades of experience and a commitment to reliability and efficiency.</p>
       </div>
       <div class="faqitem">
         <h3>How can I get a quote?</h3>
-        <p>You can request a quote by contacting us through our website or calling us directly.</p>
+        <p>You can request a quote by clicking on the “Request a Quote” button or contacting us directly.</p>
+      </div>
+      <div class="faqitem">
+        <h3>What is your typical project size?</h3>
+        <p>Our projects vary from small local jobs to large-scale construction projects. We tailor our services to your specific needs.</p>
+      </div>
+      <div class="faqitem">
+        <h3>What are your payment terms?</h3>
+        <p>We offer competitive pricing with flexible payment terms. Please contact us for detailed information.</p>
       </div>
     </div>
   </section>
@@ -516,7 +523,7 @@
   <section id="about" class="dynamicbox">
     <h2>About Us</h2>
     <p>EGJ Services Group specializes in three axle truck transportation, hauling aggregates and excess materials across Palm Beach, St Lucie, and Broward Counties. We ensure fast deliveries, exceptional service, transparency, and competitive pricing. Trust us for efficient and reliable hauling solutions that keep your projects on track!</p>
-    <p>With decades of industry experience, our state of the art fleet and expert drivers guarantee timely and secure transportation. Our commitment to safety, customer satisfaction, and innovation has made us the leading trucking partner in South Florida.</p>
+    <p>With decades of industry experience, our state-of-the-art fleet and expert drivers guarantee timely and secure transportation. Our commitment to safety, customer satisfaction, and innovation has made us the leading trucking partner in South Florida.</p>
   </section>
   
   <section id="contact" class="dynamicbox">
@@ -551,6 +558,10 @@
         <input type="text" id="companyLocation" name="companyLocation" required style="width: 100%;" />
       </div>
       <div style="margin-bottom: 10px;">
+        <label for="companyType"><strong>Type of Company:</strong></label><br />
+        <input type="text" id="companyType" name="companyType" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
         <label for="serviceType"><strong>Service Type Requested:</strong></label><br />
         <select id="serviceType" name="serviceType" required style="width: 100%;">
           <option value="Dump Truck Transportation">Dump Truck Transportation</option>
@@ -571,7 +582,7 @@
       <div style="margin-top: 20px; text-align: center;">
         <button type="submit">Submit Service Request</button>
         <button type="button" onclick="downloadPDF()">Download PDF</button>
-        <a href="mailto:egjttrucking@gmail.com?subject=Service%20Request&body=Please%20attach%20the%20PDF" style="margin-left: 10px; background: #007BFF; color: white; padding: 10px 15px; text-decoration: none; border-radius: 0;">Send Email</a>
+        <a href="mailto:egjttrucking@gmail.com?subject=Service%20Request" style="margin-left: 10px; background: #007BFF; color: white; padding: 10px 15px; text-decoration: none; border-radius: 0;">Send Email</a>
       </div>
     </form>
   </section>
@@ -598,7 +609,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
     }
     .modal-content {
       background: white;
@@ -668,7 +679,7 @@
       }
     }
     
-    // Modal functionality for redirect buttons (shows only the content of the clicked section)
+    // Modal functionality for redirect buttons (show only selected section's content)
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -693,6 +704,7 @@
       const email = document.getElementById('email').value;
       const address = document.getElementById('address').value;
       const companyLocation = document.getElementById('companyLocation').value;
+      const companyType = document.getElementById('companyType').value;
       const serviceType = document.getElementById('serviceType').value;
       const dates = document.getElementById('dates').value;
       const reason = document.getElementById('reason').value;
@@ -706,17 +718,15 @@
       doc.text(`Email: ${email}`, 10, 40);
       doc.text(`Mailing/Billing Address: ${address}`, 10, 50);
       doc.text(`Company Location: ${companyLocation}`, 10, 60);
-      doc.text(`Service Type: ${serviceType}`, 10, 70);
-      doc.text(`Dates Needed: ${dates}`, 10, 80);
-      doc.text(`Reason: ${reason}`, 10, 90);
+      doc.text(`Company Type: ${companyType}`, 10, 70);
+      doc.text(`Service Type: ${serviceType}`, 10, 80);
+      doc.text(`Dates Needed: ${dates}`, 10, 90);
+      doc.text(`Reason: ${reason}`, 10, 100);
       
-      // Offer both download and email options:
-      // For demonstration, we download the PDF.
+      // Download the generated PDF
       doc.save("ServiceAgreement.pdf");
       
-      // You could also set up a mailto link with the PDF attached via a backend service.
-      
-      alert("Your service request has been submitted. A PDF has been generated.");
+      alert("Your service request has been submitted. The PDF has been downloaded.");
       closeModal();
     });
   </script>
