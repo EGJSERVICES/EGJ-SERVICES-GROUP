@@ -14,6 +14,11 @@
             color: #333;
             margin: 0;
             padding: 0;
+            transition: background 0.5s ease;
+        }
+        .dark-mode {
+            background: #222;
+            color: #fff;
         }
         header {
             background: rgba(255, 255, 255, 0.9);
@@ -21,12 +26,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease-in-out;
         }
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: black;
         }
         nav ul {
             list-style: none;
@@ -36,7 +39,7 @@
             margin: 0 15px;
         }
         .search-bar input {
-            padding: 10px;
+            padding: 5px;
             width: 200px;
         }
         .hero {
@@ -44,23 +47,23 @@
             padding: 50px 20px;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            animation: fadeIn 2s ease-in-out;
         }
         .btn {
             background: lightblue;
             color: white;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 15px 25px;
             text-decoration: none;
             border-radius: 5px;
-            display: inline-block;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.1);
         }
         .service-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            width: 90%;
-            margin: auto;
         }
         .service-card {
             background: white;
@@ -69,10 +72,6 @@
             width: 30%;
             margin: 15px;
             box-shadow: 0px 0px 10px gray;
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: scale(1.05);
         }
         footer {
             text-align: center;
@@ -80,20 +79,14 @@
             background: lightblue;
             color: white;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .dark-mode {
-            background: #121212;
-            color: white;
+        #google-map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
         }
         .dark-mode .service-card {
-            background: #1e1e1e;
-            color: white;
-        }
-        .dark-mode header, .dark-mode footer {
             background: #333;
+            color: white;
         }
     </style>
 </head>
@@ -108,6 +101,7 @@
                 <li><a href="#map">Locations</a></li>
             </ul>
         </nav>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <div class="search-bar">
             <input type="text" placeholder="Search...">
             <button><i class="fas fa-search"></i></button>
@@ -143,7 +137,7 @@
 
     <section id="map">
         <h2>Our Service Areas</h2>
-        <div id="google-map" style="width:100%;height:400px;"></div>
+        <div id="google-map"></div>
     </section>
 
     <section id="contact">
@@ -165,6 +159,9 @@
                 center: location,
             });
             var marker = new google.maps.Marker({ position: location, map: map });
+        }
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
