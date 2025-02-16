@@ -6,7 +6,7 @@
   <title>EGJ Services Group</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!-- jsPDF library for PDF generation -->
+  <!-- Include jsPDF for PDF generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script defer src="script.js"></script>
   <style>
@@ -38,39 +38,7 @@
       text-align: justify;
       margin: 10px 0;
     }
-    /* Top Bar with Watch Clock */
-    .topbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 5px 15px;
-      background: #007BFF;
-      color: white;
-      font-size: 14px;
-      z-index: 1000;
-    }
-    .watch-container {
-      display: flex;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .watch-container img {
-      width: 30px;
-      height: 30px;
-      margin-right: 5px;
-    }
-    .clockwatch {
-      border: 2px solid white;
-      border-radius: 50%;
-      padding: 5px 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    /* Header */
+    /* Header with Embedded Clock */
     header {
       background: rgba(255,255,255,0.9);
       padding: 15px;
@@ -79,7 +47,7 @@
       align-items: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.3s;
-      margin-top: 50px; /* Space for topbar */
+      margin-top: 20px; /* No topbar now */
       text-align: center;
     }
     body.dark-mode header {
@@ -88,21 +56,23 @@
     .logo {
       font-size: 28px;
       font-weight: bold;
-      color: inherit;
       margin-bottom: 10px;
+      color: inherit;
       text-align: center;
     }
     .logo img {
       width: 120px;
       height: auto;
     }
+    nav {
+      width: 100%;
+    }
     nav ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
       justify-content: center;
+      padding: 0;
     }
     nav ul li {
       margin: 0 15px;
@@ -116,10 +86,24 @@
     nav ul li a:hover {
       color: #007BFF;
     }
-    /* New "Work With Us" link styling */
+    /* New "Work With Us" link gets same styling as others */
     nav ul li a.workwithus {
       font-weight: bold;
     }
+    /* Header Clock (placed under navigation on the right) */
+    .header-extras {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
+    .digitalclock {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    /* Search Bar aligned to right in header extras */
     .searchbar {
       margin-top: 10px;
     }
@@ -210,6 +194,7 @@
       font-weight: bold;
       box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      text-align: center;
     }
     .btn:hover {
       background: #0056b3;
@@ -409,14 +394,7 @@
   </style>
 </head>
 <body>
-  <!-- Top Bar with Digital Clock in Watch -->
-  <div class="topbar" id="topbar">
-    <div class="watch-container">
-      <img src="images/watch.png" alt="Watch" class="watch-image" />
-      <div class="clockwatch" id="companyclock"></div>
-    </div>
-    <span id="usercity"></span>
-  </div>
+  <!-- (Removed the top bar clock; the digital clock now appears in the header) -->
   
   <header>
     <div class="logo" style="text-align:center;"><img src="images/logo.png" alt="Logo" /></div>
@@ -429,6 +407,8 @@
         <li><a href="#workwithus" class="redirect-button" data-target="workwithus">Work With Us</a></li>
       </ul>
     </nav>
+    <!-- New Clock placed here for easy visibility -->
+    <div class="digitalclock" id="companyclock"></div>
     <button class="darkmodetoggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="searchbar">
       <input type="text" placeholder="Search..." />
@@ -541,8 +521,8 @@
   
   <section id="contact" class="dynamicbox">
     <h2>Contact Us</h2>
-    <p>Email: egjttrucking@gmail.com</p>
-    <p>Phone: 5615068932</p>
+    <p>Email: <a href="mailto:egjttrucking@gmail.com">egjttrucking@gmail.com</a></p>
+    <p>Phone: <a href="tel:5615068932">5615068932</a></p>
     <p>Address: PO BOX 17017, West Palm Beach, FL 33416</p>
   </section>
   
@@ -550,31 +530,49 @@
   <section id="workwithus" class="dynamicbox" style="display: none; text-align: left;">
     <h2>Work With Us</h2>
     <form id="serviceForm">
-      <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" required /><br /><br />
-      
-      <label for="phone">Phone:</label><br />
-      <input type="tel" id="phone" name="phone" required /><br /><br />
-      
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" required /><br /><br />
-      
-      <label for="address">Mailing/Billing Address:</label><br />
-      <input type="text" id="address" name="address" required /><br /><br />
-      
-      <label for="companyLocation">Company Location:</label><br />
-      <input type="text" id="companyLocation" name="companyLocation" required /><br /><br />
-      
-      <label for="serviceType">Service Type:</label><br />
-      <select id="serviceType" name="serviceType" required>
-        <option value="Dump Truck Transportation">Dump Truck Transportation</option>
-        <option value="Material Hauling">Material Hauling</option>
-        <option value="Excavation Services">Excavation Services</option>
-        <option value="On Site Deliveries">On Site Deliveries</option>
-        <option value="Other">Other</option>
-      </select><br /><br />
-      
-      <button type="submit">Submit Service Request</button>
+      <div style="margin-bottom: 10px;">
+        <label for="name"><strong>Name:</strong></label><br />
+        <input type="text" id="name" name="name" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="phone"><strong>Phone:</strong></label><br />
+        <input type="tel" id="phone" name="phone" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="email"><strong>Email:</strong></label><br />
+        <input type="email" id="email" name="email" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="address"><strong>Mailing/Billing Address:</strong></label><br />
+        <input type="text" id="address" name="address" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="companyLocation"><strong>Company Location:</strong></label><br />
+        <input type="text" id="companyLocation" name="companyLocation" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="serviceType"><strong>Service Type Requested:</strong></label><br />
+        <select id="serviceType" name="serviceType" required style="width: 100%;">
+          <option value="Dump Truck Transportation">Dump Truck Transportation</option>
+          <option value="Material Hauling">Material Hauling</option>
+          <option value="Excavation Services">Excavation Services</option>
+          <option value="On Site Deliveries">On Site Deliveries</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="dates"><strong>Dates Needed:</strong></label><br />
+        <input type="date" id="dates" name="dates" required style="width: 100%;" />
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="reason"><strong>Reason Trucks Are Needed:</strong></label><br />
+        <textarea id="reason" name="reason" required style="width: 100%;"></textarea>
+      </div>
+      <div style="margin-top: 20px; text-align: center;">
+        <button type="submit">Submit Service Request</button>
+        <button type="button" onclick="downloadPDF()">Download PDF</button>
+        <a href="mailto:egjttrucking@gmail.com?subject=Service%20Request&body=Please%20attach%20the%20PDF" style="margin-left: 10px; background: #007BFF; color: white; padding: 10px 15px; text-decoration: none; border-radius: 0;">Send Email</a>
+      </div>
     </form>
   </section>
   
@@ -626,7 +624,7 @@
   </style>
   
   <script>
-    // Update the digital clock in the top bar
+    // Update the digital clock in the header
     function updateCompanyClock() {
       const clockEl = document.getElementById('companyclock');
       const now = new Date();
@@ -670,7 +668,7 @@
       }
     }
     
-    // Modal functionality for redirect buttons
+    // Modal functionality for redirect buttons (shows only the content of the clicked section)
     function openModal(content) {
       document.getElementById('modal-body').innerHTML = content;
       document.getElementById('modal').style.display = 'block';
@@ -687,7 +685,7 @@
       });
     });
     
-    // Service Agreement Form (Work With Us) submission with PDF generation using jsPDF
+    // Work With Us form submission with PDF generation using jsPDF
     document.getElementById('serviceForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
@@ -696,6 +694,8 @@
       const address = document.getElementById('address').value;
       const companyLocation = document.getElementById('companyLocation').value;
       const serviceType = document.getElementById('serviceType').value;
+      const dates = document.getElementById('dates').value;
+      const reason = document.getElementById('reason').value;
       
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
@@ -707,10 +707,14 @@
       doc.text(`Mailing/Billing Address: ${address}`, 10, 50);
       doc.text(`Company Location: ${companyLocation}`, 10, 60);
       doc.text(`Service Type: ${serviceType}`, 10, 70);
+      doc.text(`Dates Needed: ${dates}`, 10, 80);
+      doc.text(`Reason: ${reason}`, 10, 90);
       
-      // For demonstration, auto-download the PDF.
-      // In a real scenario, you would send this PDF to egjtrrucking@gmail.com via a backend service.
+      // Offer both download and email options:
+      // For demonstration, we download the PDF.
       doc.save("ServiceAgreement.pdf");
+      
+      // You could also set up a mailto link with the PDF attached via a backend service.
       
       alert("Your service request has been submitted. A PDF has been generated.");
       closeModal();
