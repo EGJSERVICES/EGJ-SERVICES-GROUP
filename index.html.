@@ -21,16 +21,22 @@
       --nav-border: #add8e6;
       --btn-bg: #007BFF;
       --btn-hover-bg: #0056b3;
-      --section-bg: #fff;
-      --modal-bg: #fff;
+      --section-bg: #ffffff;
+      --header-bg: rgba(255, 255, 255, 0.95);
+      --modal-bg: #ffffff;
     }
     body.dark-mode {
       --bg-color: #121212;
       --text-color: #f0f0f0;
       --nav-bg: #222;
-      /* Keep button colors the same for contrast */
+      --nav-border: #444;
+      --btn-bg: #1E90FF;
+      --btn-hover-bg: #1C86EE;
+      --section-bg: #1e1e1e;
+      --header-bg: rgba(18, 18, 18, 0.95);
+      --modal-bg: #1e1e1e;
     }
-
+    
     /* ========== Base Styles ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
@@ -45,14 +51,14 @@
       line-height: 1.6;
     }
     p { text-align: justify; margin: 10px 0; }
-
-    /* ========== Container for Wider Layout ========== */
+    
+    /* ========== Main Container (Wider Content) ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
+    
     /* ========== Dark Mode Toggle with Label ========== */
     .switch {
       position: fixed;
@@ -98,10 +104,10 @@
       .slider { width: 40px; height: 20px; }
       .slider:before { height: 16px; width: 16px; left: 2px; bottom: 2px; }
     }
-
+    
     /* ========== Header ========== */
     header {
-      background: rgba(255,255,255,0.95);
+      background: var(--header-bg);
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -113,8 +119,7 @@
       opacity: 0;
       animation: fadeIn 1s forwards;
     }
-    body.dark-mode header { background: rgba(18,18,18,0.95); }
-    .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; color: inherit; }
+    .logo { font-size: 32px; font-weight: bold; margin-bottom: 10px; color: var(--text-color); }
     .logo img { width: 150px; height: auto; }
     .header-extras {
       display: flex;
@@ -124,7 +129,7 @@
       margin-bottom: 10px;
     }
     .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
-
+    
     /* ========== Navigation Bar ========== */
     nav {
       width: 100%;
@@ -152,7 +157,7 @@
       border-radius: 5px;
     }
     nav ul li a:hover { background: var(--btn-bg); color: white; transform: scale(1.05); }
-
+    
     /* ========== Hero Section ========== */
     .hero {
       position: relative;
@@ -177,8 +182,9 @@
       margin-bottom: 20px;
       transition: color 0.3s;
     }
-    body.dark-mode .hero h1 { color: #fff; }
     .hero p { font-size: 26px; margin-bottom: 40px; }
+    
+    /* ========== Buttons with 4D Hover Animation ========== */
     .btn {
       background: var(--btn-bg);
       color: white;
@@ -205,9 +211,9 @@
       animation: fadeIn 1s forwards;
       animation-delay: 0.3s;
     }
-    section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
-    section p { margin: 10px 0; }
-
+    section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; color: var(--text-color); }
+    section p { margin: 10px 0; color: var(--text-color); }
+    
     /* ========== Service Cards ========== */
     .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
     .servicecard {
@@ -230,6 +236,7 @@
       margin-top: 10px;
       border-top: 1px solid #ccc;
       padding-top: 10px;
+      color: var(--text-color);
     }
 
     /* ========== Materials Cards ========== */
@@ -255,11 +262,12 @@
       transition: transform 0.3s;
       background: #fff;
       border-radius: 5px;
+      color: var(--text-color);
     }
     .faqitem:hover { transform: scale(1.02); }
-    .faqitem h3 { font-size: 22px; margin-bottom: 10px; }
+    .faqitem h3 { font-size: 22px; margin-bottom: 10px; color: var(--text-color); }
     .faqitem p { font-size: 18px; }
-
+    
     /* ========== Review Section ========== */
     .reviewcontainer { margin-top: 20px; text-align: justify; }
     .reviewitem {
@@ -268,6 +276,7 @@
       transition: transform 0.3s;
       background: #fff;
       border-radius: 5px;
+      color: var(--text-color);
     }
     .reviewitem:hover { transform: scale(1.02); }
     .reviewform {
@@ -284,6 +293,8 @@
       max-width: 600px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      color: var(--text-color);
+      background: #fff;
     }
     .reviewform button {
       padding: 10px 15px;
@@ -295,7 +306,7 @@
       border-radius: 5px;
     }
     .reviewform button:hover { background: var(--btn-hover-bg); transform: scale(1.05); }
-
+    
     /* ========== Contact Section ========== */
     #contact a { color: var(--btn-bg); text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
@@ -333,7 +344,7 @@
     }
     .modal-content .close:hover { color: black; }
     @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-
+    
     /* ========== Footer ========== */
     footer { text-align: center; padding: 20px; background: var(--btn-bg); color: white; transition: background 0.3s; }
 
@@ -585,7 +596,7 @@
     </div>
   </div>
   
-  <!-- Optimization, Animation & AI Scripts -->
+  <!-- ========== JavaScript ========== -->
   <script>
     // --- Update Digital Clock with Date ---
     function updateCompanyClock() {
@@ -614,7 +625,7 @@
       };
     }
     
-    // --- On-scroll Animation for Elements with .animate-on-scroll ---
+    // --- On-scroll Animation ---
     function animateOnScroll() {
       const elements = document.querySelectorAll('.animate-on-scroll');
       elements.forEach(el => {
@@ -824,7 +835,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps Embed (replace YOUR_API_KEY with your valid key if necessary) -->
+  <!-- Google Maps Embed (replace YOUR_API_KEY if needed) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
