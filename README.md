@@ -36,7 +36,7 @@
       --header-bg: rgba(18, 18, 18, 0.95);
       --modal-bg: #1e1e1e;
     }
-    
+
     /* ========== Base Styles ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
@@ -51,14 +51,14 @@
       line-height: 1.6;
     }
     p { text-align: justify; margin: 10px 0; }
-    
+
     /* ========== Main Container ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
+
     /* ========== Dark Mode Toggle Switch with Label ========== */
     .switch {
       position: fixed;
@@ -104,7 +104,7 @@
       .slider { width: 40px; height: 20px; }
       .slider:before { height: 16px; width: 16px; left: 2px; bottom: 2px; }
     }
-    
+
     /* ========== Header ========== */
     header {
       background: var(--header-bg);
@@ -129,7 +129,7 @@
       margin-bottom: 10px;
     }
     .digitalclock, .company-location { font-size: 20px; font-weight: bold; }
-    
+
     /* ========== Navigation Bar ========== */
     nav {
       width: 100%;
@@ -157,7 +157,7 @@
       border-radius: 5px;
     }
     nav ul li a:hover { background: var(--btn-bg); color: white; transform: scale(1.05); }
-    
+
     /* ========== Hero Section ========== */
     .hero {
       position: relative;
@@ -177,11 +177,7 @@
       z-index: 1;
     }
     .hero > * { position: relative; z-index: 2; }
-    .hero h1 {
-      font-size: 56px;
-      margin-bottom: 20px;
-      transition: color 0.3s;
-    }
+    .hero h1 { font-size: 56px; margin-bottom: 20px; transition: color 0.3s; }
     .hero p { font-size: 26px; margin-bottom: 40px; }
     
     /* ========== Buttons with 4D Hover Animation ========== */
@@ -200,7 +196,7 @@
     .btn:hover {
       transform: perspective(500px) rotateX(5deg) rotateY(5deg) scale(1.05);
     }
-    
+
     /* ========== Section Styles ========== */
     section {
       padding: 40px 20px;
@@ -213,7 +209,7 @@
     }
     section h2 { font-size: 32px; margin-bottom: 20px; text-align: center; color: var(--text-color); }
     section p { margin: 10px 0; color: var(--text-color); }
-    
+
     /* ========== Service Cards ========== */
     .servicecontainer { display: flex; flex-wrap: wrap; justify-content: space-around; }
     .servicecard {
@@ -238,7 +234,7 @@
       padding-top: 10px;
       color: var(--text-color);
     }
-    
+
     /* ========== Materials Cards ========== */
     .materialscontainer { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px; }
     .materialcard {
@@ -253,7 +249,7 @@
     }
     .materialcard:hover { transform: rotateY(8deg) scale(1.05); }
     .materialcard img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
-    
+
     /* ========== FAQ Section ========== */
     .faqcontainer { margin-top: 20px; text-align: justify; }
     .faqitem {
@@ -267,7 +263,7 @@
     .faqitem:hover { transform: scale(1.02); }
     .faqitem h3 { font-size: 22px; margin-bottom: 10px; color: var(--text-color); }
     .faqitem p { font-size: 18px; }
-    
+
     /* ========== Review Section ========== */
     .reviewcontainer { margin-top: 20px; text-align: justify; }
     .reviewitem {
@@ -306,11 +302,11 @@
       border-radius: 5px;
     }
     .reviewform button:hover { background: var(--btn-hover-bg); transform: scale(1.05); }
-    
+
     /* ========== Contact Section ========== */
     #contact a { color: var(--btn-bg); text-decoration: none; }
     #contact a:hover { text-decoration: underline; }
-    
+
     /* ========== Modal ========== */
     .modal {
       display: none;
@@ -344,10 +340,10 @@
     }
     .modal-content .close:hover { color: black; }
     @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-    
+
     /* ========== Footer ========== */
     footer { text-align: center; padding: 20px; background: var(--btn-bg); color: white; transition: background 0.3s; }
-    
+
     /* ========== Responsive ========== */
     @media (max-width: 768px) {
       .servicecard, .materialcard { width: 90%; }
@@ -357,7 +353,7 @@
       p { font-size: 14px; }
       .btn { font-size: 16px; padding: 10px 20px; }
     }
-    
+
     /* ========== Animations ========== */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
@@ -835,40 +831,7 @@
     `;
     document.head.appendChild(chatbotStyles);
   </script>
-  <!-- Google Maps Embed (Replace YOUR_API_KEY with your valid key if needed) -->
+  <!-- Google Maps Embed (Replace YOUR_API_KEY if needed) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-import { Switch } from '@/components/ui/switch';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-export default function DocumentRequest() {
-  const [darkMode, setDarkMode] = useState(false);
-  return (
-    <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'} min-h-screen p-6 transition-all`}>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Document Request</h1>
-        <Switch checked={darkMode} onCheckedChange={setDarkMode} />
-      </div>
-      
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-        <Card className={`${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} shadow-lg p-6 mb-6 rounded-2xl`}>
-          <CardContent>
-            <p className="mb-4">W-9 Form is available for download:</p>
-            <Link href="/w9-form.pdf" target="_blank" rel="noopener noreferrer">
-              <Button className="mb-4">Download W-9</Button>
-            </Link>
-            <p className="mb-4">Request Statement of Account or Other Documents:</p>
-            <Textarea placeholder="Describe the document needed..." className="mb-4" />
-            <Button>Request Document</Button>
-          </CardContent>
-        </Card>
-      </motion.div>
-    </div>
-  );
-}
 </body>
 </html>
