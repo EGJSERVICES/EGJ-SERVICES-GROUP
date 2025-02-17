@@ -837,5 +837,38 @@
   </script>
   <!-- Google Maps Embed (Replace YOUR_API_KEY with your valid key if needed) -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
+import { Switch } from '@/components/ui/switch';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+export default function DocumentRequest() {
+  const [darkMode, setDarkMode] = useState(false);
+  return (
+    <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'} min-h-screen p-6 transition-all`}>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">Document Request</h1>
+        <Switch checked={darkMode} onCheckedChange={setDarkMode} />
+      </div>
+      
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+        <Card className={`${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} shadow-lg p-6 mb-6 rounded-2xl`}>
+          <CardContent>
+            <p className="mb-4">W-9 Form is available for download:</p>
+            <Link href="/w9-form.pdf" target="_blank" rel="noopener noreferrer">
+              <Button className="mb-4">Download W-9</Button>
+            </Link>
+            <p className="mb-4">Request Statement of Account or Other Documents:</p>
+            <Textarea placeholder="Describe the document needed..." className="mb-4" />
+            <Button>Request Document</Button>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  );
+}
 </body>
 </html>
