@@ -620,3 +620,218 @@
         if (callNow) func.apply(context, args);
       };
     }
+    
+    // On-scroll Animation
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('animated');
+        } else {
+          el.classList.remove('animated');
+        }
+      });
+    }
+    window.addEventListener('scroll', debounce(animateOnScroll, 100));
+    animateOnScroll();
+    
+    // Lazy Loading Images (if using data-src attribute)
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyImages = document.querySelectorAll("img[data-src]");
+      if ("IntersectionObserver" in window) {
+        const imgObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.getAttribute("data-src");
+              observer.unobserve(img);
+            }
+          });
+        });
+        lazyImages.forEach(img => imgObserver.observe(img));
+      } else {
+        lazyImages.forEach(img => { img.src = img.getAttribute("data-src"); });
+      }
+    });
+    
+    // Modal Functionality
+    function openModal(content) {
+      document.getElementById('modal-body').innerHTML = content;
+      document.getElementById('modal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    document.querySelectorAll('.redirect-button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = btn.getAttribute('data-target');
+        const content = document.getElementById(targetId).innerHTML;
+        openModal(content);
+      });
+    });
+    
+    // Work With Us Form: PDF Generation via jsPDF
+    document.getElementById('serviceForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+      const companyLocation = document.getElementById('companyLocation').value;
+      const companyType = document.getElementById('companyType').value;
+      const serviceType = document.getElementById('serviceType').value;
+      const dates = document.getElementById('dates').value;
+      const reason = document.getElementById('reason').value;
+      
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(12);
+      doc.text("Service Agreement Request", 10, 10);
+      doc.text(`Name: ${name}`, 10, 20);
+      doc.text(`Phone: ${phone}`, 10, 30);
+      doc.text(`Email: ${email}`, 10, 40);
+      doc.text(`Mailing/Billing Address: ${address}`, 10, 50);
+      doc.text(`Company Location: ${companyLocation}`, 10, 60);
+      doc.text(`Type of Company: ${companyType}`, 10, 70);
+      doc.text(`Service Type: ${serviceType}`, 10, 80);
+      doc.text(`Dates Needed: ${dates}`, 10, 90);
+      doc.text(`Reason: ${reason}`, 10, 100);
+      
+      doc.save("ServiceAgreement.pdf");
+      alert("Your service request has been submitted. The PDF has been downloaded.");
+      closeModal();
+    });
+    
+    // Toggle Description for Service Cards
+    function toggleDescription(card) {
+      const desc = card.querySelector('.description');
+      desc.style.display = (desc.style.display === "none" || desc.style.display === "") ? "block" : "none";
+    }
+    
+    // Dark Mode Toggle via Switch
+    document.getElementById("darkModeToggle").addEventListener("change", function() {
+      if (this.checked) {
+        document.body.classList.add("dark-mode");
+      } else {
+        document.body.classList.remove("dark-mode");
+      }
+    });
+    
+    // AI Virtual Assistant Chatbot
+    function initChatbot() {
+      const chatbot = document.createElement('div');
+      chatbot.id = 'chatbot';
+      chatbot.innerHTML = `
+        <div id="chatbot-header">
+          Virtual Assistant
+          <button id="closeChatbot" onclick="toggleChatbot()">X</button>
+        </div>
+        <div id="chatbot-body"></div>
+        <input type="text" id="chatbot-input" placeholder="How can I help you?" />
+      `;
+      document.body.appendChild(chatbot);
+      
+      document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          const userMessage = this.value;
+          this.value = '';
+          addChatMessage('user', userMessage);
+          setTimeout(() => {
+            const response = getAIResponse(userMessage);
+            addChatMessage('ai', response);
+          }, 1000);
+        }
+      });
+    }
+    
+    function addChatMessage(sender, message) {
+      const chatBody = document.getElementById('chatbot-body');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'chat-message ' + sender;
+      msgDiv.textContent = message;
+      chatBody.appendChild(msgDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    
+    function getAIResponse(message) {
+      return "I'm here to help! Could you please provide more details about your question?";
+    }
+    
+    function toggleChatbot() {
+      const chatbot = document.getElementById('chatbot');
+      chatbot.style.display = (chatbot.style.display === 'none' || !chatbot.style.display) ? 'block' : 'none';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      initChatbot();
+      const chatToggle = document.createElement('button');
+      chatToggle.id = 'chatbot-toggle';
+      chatToggle.textContent = 'Chat with Us';
+      chatToggle.onclick = toggleChatbot;
+      document.body.appendChild(chatToggle);
+    });
+    
+    // Inject Chatbot Styles
+    const chatbotStyles = document.createElement('style');
+    chatbotStyles.innerHTML = `
+      #chatbot {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background: white;
+        border: 1px solid #ccc;
+        display: none;
+        flex-direction: column;
+        z-index: 3000;
+      }
+      #chatbot-header {
+        background: #007BFF;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #chatbot-body {
+        height: 200px;
+        overflow-y: auto;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+      #chatbot-input {
+        border: none;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+      }
+      .chat-message.user {
+        text-align: right;
+        margin-bottom: 5px;
+        color: #007BFF;
+      }
+      .chat-message.ai {
+        text-align: left;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      #chatbot-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 3001;
+      }
+    `;
+    document.head.appendChild(chatbotStyles);
+  </script>
+  <!-- Google Maps Embed (Replace YOUR_API_KEY if needed) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
